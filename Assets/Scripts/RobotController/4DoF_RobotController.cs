@@ -512,7 +512,7 @@ public class RobotController_4DoF : MonoBehaviour
         using (FileStream fs = new FileStream(path, FileMode.Append))
         {
             using (StreamWriter sw = new StreamWriter(fs))
-            {
+            {                                                                                                                                                                                                         
                 foreach (var step in steps)
                 {
                     string line = $"{step.stepNumber},{step.speed},{step.duration}," +
