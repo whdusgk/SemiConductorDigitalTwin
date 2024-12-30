@@ -8,6 +8,8 @@ using System.IO;
 using static RobotController_4DoF1;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 /// <summary>
 /// 로봇 3D Object를 RobotController의 버튼, 인풋필드의 값으로 움직인다.
@@ -666,14 +668,22 @@ public class RobotController_4DoF1 : MonoBehaviour
 
     IEnumerator OnPointerUpStay(string axis)
     {
+        float currentTime = 0;
         while (isUpBtnPressed)
         {
+            currentTime += Time.deltaTime;
             switch (axis)
             {
                 case "Axis1":
-                    angleAxis1 += resolution;
-                    angleAxis1Input.text = angleAxis1.ToString();
-                    motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
+                    angleAxis1 += resolution * 0.0000001f;
+                    //motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
+                    Vector3 minPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z);
+                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z + angleAxis1);
+                    if(motorAxis1.transform.localPosition.z > 0.002 && motorAxis1.transform.localPosition.z < 0.004)
+                    {
+                        angleAxis1Input.text = angleAxis1.ToString();
+                        motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
+                    }
                     break;
 
                 case "Axis2":
@@ -702,14 +712,22 @@ public class RobotController_4DoF1 : MonoBehaviour
 
     IEnumerator OnPointerDownStay(string axis)
     {
+        float currentTime = 0;
         while (isDownBtnPressed)
         {
+            currentTime += Time.deltaTime;
             switch (axis)
             {
                 case "Axis1":
-                    angleAxis1 -= resolution;
-                    angleAxis1Input.text = angleAxis1.ToString();
-                    motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
+                    angleAxis1 += resolution * 0.000001f;
+                    //motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
+                    Vector3 minPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z);
+                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z - angleAxis1);
+                    if (motorAxis1.transform.localPosition.z > 0.002 && motorAxis1.transform.localPosition.z < 0.004)
+                    {
+                        angleAxis1Input.text = angleAxis1.ToString();
+                        motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
+                    } 
                     break;
 
                 case "Axis2":
