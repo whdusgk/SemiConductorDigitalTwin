@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using static UnityEditor.PlayerSettings;
 using static UnityEngine.Rendering.DebugUI.Table;
+using Unity.VisualScripting;
 
 /// <summary>
 /// 로봇 3D Object를 RobotController의 버튼, 인풋필드의 값으로 움직인다.
@@ -107,10 +108,10 @@ public class RobotController_4DoF1 : MonoBehaviour
         speedInput.text = "100";
         durationInput.text = "0";
 
-        disAxis1Input.text = "0";
+        disAxis1Input.text = "0.002";
         angleAxis2Input.text = "0";
-        angleAxis3Input.text = "0";
-        angleAxis4Input.text = "0";
+        angleAxis3Input.text = "60";
+        angleAxis4Input.text = "180";
 
         //OnLoadBtnClkEvent(robotFile);
 
@@ -211,10 +212,10 @@ public class RobotController_4DoF1 : MonoBehaviour
         speedInput.text = "100";
         durationInput.text = "0";
 
-        disAxis1Input.text = "0";
+        disAxis1Input.text = "0.002";
         angleAxis2Input.text = "0";
-        angleAxis3Input.text = "0";
-        angleAxis4Input.text = "0";
+        angleAxis3Input.text = "60";
+        angleAxis4Input.text = "180";
     }
 
     // SingleCycle, Cycle, Stop, E-Stop 버튼을 누르면 로봇이 동작한다.
@@ -679,14 +680,9 @@ public class RobotController_4DoF1 : MonoBehaviour
             switch (axis)
             {
                 case "Axis1":
-                    resolution = 0.000001f;
-                    disAxis1 += resolution;// * 0.00001f;
-                    disAxis1Input.text = (disAxis1*1).ToString();
-                    //motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
-                    //motorAxis1.transform.localPosition = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, disAxis1);
-                    Vector3 minPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z);
-                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z + disAxis1);
-                    motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
+                    disAxis1 += resolution* 0.00001f;
+                    disAxis1Input.text = disAxis1.ToString();
+                    motorAxis1.transform.localPosition = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, disAxis1);
                     break;
 
                 case "Axis2":
@@ -722,14 +718,9 @@ public class RobotController_4DoF1 : MonoBehaviour
             switch (axis)
             {
                 case "Axis1":
-                    resolution = 0.000001f;
-                    disAxis1 -= resolution;// * 0.0001f;
-                    disAxis1Input.text = (disAxis1 * 1).ToString();
-                    //motorAxis1.transform.localPosition = new Vector3(0, 0, disAxis1);
-                    //motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
-                    Vector3 minPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z);
-                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z + disAxis1);
-                    motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
+                    disAxis1 -= resolution* 0.00001f;
+                    disAxis1Input.text = disAxis1.ToString();
+                    motorAxis1.transform.localPosition = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, disAxis1);
                     break;
 
                 case "Axis2":
