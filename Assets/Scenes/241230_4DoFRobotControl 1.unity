@@ -7190,9 +7190,9 @@ MonoBehaviour:
     stepNumber: 0
     speed: 0
     duration: 0
-    angleAxis1: 0
-    minAngleAxis1: 0
-    maxAngleAxis1: 0
+    disAxis1: 0
+    minDisAxis1: 0
+    maxDisAxis: 0
     angleAxis2: 0
     minAngleAxis2: 0
     maxAngleAxis2: 0
@@ -7206,9 +7206,9 @@ MonoBehaviour:
     stepNumber: 0
     speed: 0
     duration: 0
-    angleAxis1: 0
-    minAngleAxis1: 0
-    maxAngleAxis1: 0
+    disAxis1: 0
+    minDisAxis1: 0
+    maxDisAxis: 0
     angleAxis2: 0
     minAngleAxis2: 0
     maxAngleAxis2: 0
@@ -7235,7 +7235,7 @@ MonoBehaviour:
   stepInput: {fileID: 273626498224251451}
   speedInput: {fileID: 2417115320449021188}
   durationInput: {fileID: 4757938796295682124}
-  angleAxis1Input: {fileID: 4332637328984020522}
+  disAxis1Input: {fileID: 4332637328984020522}
   angleAxis2Input: {fileID: 4065092324804367619}
   angleAxis3Input: {fileID: 4302768304499448999}
   angleAxis4Input: {fileID: 2770581464059153553}
