@@ -27,9 +27,9 @@ public class RobotController_4DoF1 : MonoBehaviour
         public float speed = 100;
         public float duration;
 
-        public float angleAxis1;
-        public float minAngleAxis1;
-        public float maxAngleAxis1;
+        public float disAxis1;
+        public float minDisAxis1;
+        public float maxDisAxis;
 
         public float angleAxis2;
         public float minAngleAxis2;
@@ -80,7 +80,7 @@ public class RobotController_4DoF1 : MonoBehaviour
     [SerializeField] TMP_InputField speedInput;
     [SerializeField] TMP_InputField durationInput;
 
-    [SerializeField] TMP_InputField angleAxis1Input;
+    [SerializeField] TMP_InputField disAxis1Input;
     [SerializeField] TMP_InputField angleAxis2Input;
     [SerializeField] TMP_InputField angleAxis3Input;
     [SerializeField] TMP_InputField angleAxis4Input;
@@ -90,7 +90,7 @@ public class RobotController_4DoF1 : MonoBehaviour
     Coroutine currentCoroutine;
     int cycleClkCnt = 0;
 
-    float angleAxis1;
+    float disAxis1;
     float angleAxis2;
     float angleAxis3;
     float angleAxis4;
@@ -107,7 +107,7 @@ public class RobotController_4DoF1 : MonoBehaviour
         speedInput.text = "100";
         durationInput.text = "0";
 
-        angleAxis1Input.text = "0";
+        disAxis1Input.text = "0";
         angleAxis2Input.text = "0";
         angleAxis3Input.text = "0";
         angleAxis4Input.text = "0";
@@ -143,8 +143,8 @@ public class RobotController_4DoF1 : MonoBehaviour
             return;
         }
 
-        float angleAxis1;
-        isCorrect = float.TryParse(angleAxis1Input.text, out angleAxis1);
+        float disAxis1;
+        isCorrect = float.TryParse(disAxis1Input.text, out disAxis1);
         if (!isCorrect)
         {
             print("올바른 값을 입력해 주세요.");
@@ -177,7 +177,7 @@ public class RobotController_4DoF1 : MonoBehaviour
 
 
         Step step = new Step(totalSteps, speed, duration);
-        step.angleAxis1 = angleAxis1;
+        step.disAxis1 = disAxis1;
         step.angleAxis2 = angleAxis2;
         step.angleAxis3 = angleAxis3;
         step.angleAxis4 = angleAxis4;
@@ -211,7 +211,7 @@ public class RobotController_4DoF1 : MonoBehaviour
         speedInput.text = "100";
         durationInput.text = "0";
 
-        angleAxis1Input.text = "0";
+        disAxis1Input.text = "0";
         angleAxis2Input.text = "0";
         angleAxis3Input.text = "0";
         angleAxis4Input.text = "0";
@@ -386,8 +386,8 @@ public class RobotController_4DoF1 : MonoBehaviour
 
     IEnumerator RunStep(Step prevStep, Step nextStep)
     {
-        Vector3 prevAxis1Euler = new Vector3(0, 0, prevStep.angleAxis1); // Axis1: Y축 기준으로 회전
-        Vector3 nextAxis1AEuler = new Vector3(0, 0, nextStep.angleAxis1);
+        Vector3 prevAxis1Pos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, prevStep.disAxis1); // Axis1: Y축 기준으로 이동
+        Vector3 nextAxis1APos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, nextStep.disAxis1);
 
         Vector3 prevAxis2Euler = new Vector3(0, 0, prevStep.angleAxis2); // Axis2: Y축 기준으로 회전
         Vector3 nextAxis2AEuler = new Vector3(0, 0, nextStep.angleAxis2);
@@ -409,7 +409,8 @@ public class RobotController_4DoF1 : MonoBehaviour
                 break;
             }
 
-            motorAxis1.localRotation = RotateAngle(prevAxis1Euler, nextAxis1AEuler, currentTime / (prevStep.speed * 0.01f));
+            //motorAxis1.localRotation = RotateAngle(prevAxis1Pos, nextAxis1APos, currentTime / (prevStep.speed * 0.01f));
+            motorAxis1.localPosition = Vector3.Lerp(prevAxis1Pos, nextAxis1APos, currentTime / (prevStep.speed * 0.01f));
             motorAxis2.localRotation = RotateAngle(prevAxis2Euler, nextAxis2AEuler, currentTime / (prevStep.speed * 0.01f));
             motorAxis3.localRotation = RotateAngle(prevAxis3Euler, nextAxis3AEuler, currentTime / (prevStep.speed * 0.01f));
             motorAxis4.localRotation = RotateAngle(prevAxis4Euler, nextAxis4AEuler, currentTime / (prevStep.speed * 0.01f));
@@ -422,7 +423,8 @@ public class RobotController_4DoF1 : MonoBehaviour
         if (isEStopped)
         {
             eStopStep = new Step(-1, prevStep.speed, prevStep.duration);
-            eStopStep.angleAxis1 = motorAxis1.localRotation.eulerAngles.z;
+            // eStopStep.disAxis1 = motorAxis1.localRotation.eulerAngles.z;
+            eStopStep.disAxis1 = motorAxis1.localPosition.z;
             eStopStep.angleAxis2 = motorAxis2.localRotation.eulerAngles.z;
             eStopStep.angleAxis3 = motorAxis3.localRotation.eulerAngles.z;
             eStopStep.angleAxis4 = motorAxis4.localRotation.eulerAngles.z;
@@ -434,8 +436,8 @@ public class RobotController_4DoF1 : MonoBehaviour
     IEnumerator RunOrigin(Step prevStep, Step nextStep)
     {
         isRunning = true;
-        Vector3 prevAxis1Euler = new Vector3(0, 0, prevStep.angleAxis1); // Axis1: Z축 기준으로 회전
-        Vector3 nextAxis1AEuler = new Vector3(0, 0, nextStep.angleAxis1);
+        Vector3 prevAxis1Pos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, prevStep.disAxis1); // Axis1: Z축 기준으로 회전
+        Vector3 nextAxis1Pos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, nextStep.disAxis1);
 
         Vector3 prevAxis2Euler = new Vector3(0, 0, prevStep.angleAxis2); // Axis2: Z축 기준으로 회전
         Vector3 nextAxis2AEuler = new Vector3(0, 0, nextStep.angleAxis2);
@@ -457,7 +459,8 @@ public class RobotController_4DoF1 : MonoBehaviour
                 break;
             }
 
-            motorAxis1.localRotation = RotateAngle(prevAxis1Euler, nextAxis1AEuler, currentTime / (prevStep.speed * 0.01f));
+            //motorAxis1.localRotation = RotateAngle(prevAxis1Euler, nextAxis1AEuler, currentTime / (prevStep.speed * 0.01f));
+            motorAxis1.localPosition = Vector3.Lerp(prevAxis1Pos, nextAxis1Pos, currentTime / (prevStep.speed * 0.01f));
             motorAxis2.localRotation = RotateAngle(prevAxis2Euler, nextAxis2AEuler, currentTime / (prevStep.speed * 0.01f));
             motorAxis3.localRotation = RotateAngle(prevAxis3Euler, nextAxis3AEuler, currentTime / (prevStep.speed * 0.01f));
             motorAxis4.localRotation = RotateAngle(prevAxis4Euler, nextAxis4AEuler, currentTime / (prevStep.speed * 0.01f));
@@ -468,7 +471,7 @@ public class RobotController_4DoF1 : MonoBehaviour
         if (isEStopped)
         {
             eStopStep = new Step(-1, prevStep.speed, prevStep.duration);
-            eStopStep.angleAxis1 = motorAxis1.localRotation.eulerAngles.z;
+            eStopStep.disAxis1 = motorAxis1.localPosition.z;
             eStopStep.angleAxis2 = motorAxis2.localRotation.eulerAngles.z;
             eStopStep.angleAxis3 = motorAxis3.localRotation.eulerAngles.z;
             eStopStep.angleAxis4 = motorAxis4.localRotation.eulerAngles.z;
@@ -481,6 +484,7 @@ public class RobotController_4DoF1 : MonoBehaviour
     {
         return Quaternion.Slerp(Quaternion.Euler(from), Quaternion.Euler(to), t);
     }
+    
 
     /// <summary>
     /// Steps 리스트에 저장된 step들을 CSV 파일형식으로 저장한다.
@@ -493,7 +497,7 @@ public class RobotController_4DoF1 : MonoBehaviour
             using (StreamWriter sw = new StreamWriter(fs))
             {
                 string line = $"{step.stepNumber},{step.speed},{step.duration}," +
-                    $"{step.angleAxis1},{step.angleAxis2},{step.angleAxis3},{step.angleAxis4}";
+                    $"{step.disAxis1},{step.angleAxis2},{step.angleAxis3},{step.angleAxis4}";
 
                 sw.WriteLine(line);
             }
@@ -518,7 +522,7 @@ public class RobotController_4DoF1 : MonoBehaviour
                 foreach (var step in steps)
                 {
                     string line = $"{step.stepNumber},{step.speed},{step.duration}," +
-                    $"{step.angleAxis1},{step.angleAxis2},{step.angleAxis3},{step.angleAxis4}";
+                    $"{step.disAxis1},{step.angleAxis2},{step.angleAxis3},{step.angleAxis4}";
 
                     sw.WriteLine(line);
                 }
@@ -574,8 +578,8 @@ public class RobotController_4DoF1 : MonoBehaviour
                         }
 
 
-                        float angleAxis1;
-                        isCorrect = float.TryParse(splited[3], out angleAxis1);
+                        float disAxis1;
+                        isCorrect = float.TryParse(splited[3], out disAxis1);
                         if (!isCorrect)
                         {
                             print("파일 구조가 잘못되었습니다. 파일을 확인 후 시도해 주세요.");
@@ -612,7 +616,7 @@ public class RobotController_4DoF1 : MonoBehaviour
 
 
                         Step stepLoaded = new Step(stepNumber, speed, duration);
-                        stepLoaded.angleAxis1 = angleAxis1;
+                        stepLoaded.disAxis1 = disAxis1;
                         stepLoaded.angleAxis2 = angleAxis2;
                         stepLoaded.angleAxis3 = angleAxis3;
                         stepLoaded.angleAxis4 = angleAxis4;
@@ -675,15 +679,14 @@ public class RobotController_4DoF1 : MonoBehaviour
             switch (axis)
             {
                 case "Axis1":
-                    angleAxis1 += resolution * 0.0000001f;
+                    resolution = 0.000001f;
+                    disAxis1 += resolution;// * 0.00001f;
+                    disAxis1Input.text = (disAxis1*1).ToString();
                     //motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
+                    //motorAxis1.transform.localPosition = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, disAxis1);
                     Vector3 minPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z);
-                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z + angleAxis1);
-                    if(motorAxis1.transform.localPosition.z > 0.002 && motorAxis1.transform.localPosition.z < 0.004)
-                    {
-                        angleAxis1Input.text = angleAxis1.ToString();
-                        motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
-                    }
+                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z + disAxis1);
+                    motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
                     break;
 
                 case "Axis2":
@@ -719,15 +722,14 @@ public class RobotController_4DoF1 : MonoBehaviour
             switch (axis)
             {
                 case "Axis1":
-                    angleAxis1 += resolution * 0.000001f;
+                    resolution = 0.000001f;
+                    disAxis1 -= resolution;// * 0.0001f;
+                    disAxis1Input.text = (disAxis1 * 1).ToString();
+                    //motorAxis1.transform.localPosition = new Vector3(0, 0, disAxis1);
                     //motorAxis1.transform.localRotation = Quaternion.Euler(0, 0, angleAxis1);
                     Vector3 minPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z);
-                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z - angleAxis1);
-                    if (motorAxis1.transform.localPosition.z > 0.002 && motorAxis1.transform.localPosition.z < 0.004)
-                    {
-                        angleAxis1Input.text = angleAxis1.ToString();
-                        motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
-                    } 
+                    Vector3 maxPos = new Vector3(motorAxis1.transform.localPosition.x, motorAxis1.transform.localPosition.y, motorAxis1.transform.localPosition.z + disAxis1);
+                    motorAxis1.transform.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / 1);
                     break;
 
                 case "Axis2":
