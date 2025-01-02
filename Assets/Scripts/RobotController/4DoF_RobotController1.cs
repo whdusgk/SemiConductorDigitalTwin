@@ -109,11 +109,12 @@ public class RobotController_4DoF1 : MonoBehaviour
         durationInput.text = "0";
 
         disAxis1Input.text = "0.002";
-        angleAxis2Input.text = "0";
+        angleAxis2Input.text = "120";
         angleAxis3Input.text = "60";
-        angleAxis4Input.text = "180";
+        angleAxis4Input.text = "-180";
 
-        //OnLoadBtnClkEvent(robotFile);
+        loadFileInput.text = "robotSteps4DoF_Final.csv";
+        OnLoadBtnClkEvent(robotFile);
 
     }
 
@@ -213,9 +214,9 @@ public class RobotController_4DoF1 : MonoBehaviour
         durationInput.text = "0";
 
         disAxis1Input.text = "0.002";
-        angleAxis2Input.text = "0";
+        angleAxis2Input.text = "120";
         angleAxis3Input.text = "60";
-        angleAxis4Input.text = "180";
+        angleAxis4Input.text = "-180";
     }
 
     // SingleCycle, Cycle, Stop, E-Stop 버튼을 누르면 로봇이 동작한다.
@@ -390,14 +391,14 @@ public class RobotController_4DoF1 : MonoBehaviour
         Vector3 prevAxis1Pos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, prevStep.disAxis1); // Axis1: Y축 기준으로 이동
         Vector3 nextAxis1APos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, nextStep.disAxis1);
 
-        Vector3 prevAxis2Euler = new Vector3(0, 0, prevStep.angleAxis2); // Axis2: Y축 기준으로 회전
-        Vector3 nextAxis2AEuler = new Vector3(0, 0, nextStep.angleAxis2);
+        Vector3 prevAxis2Euler = new Vector3(0, prevStep.angleAxis2, 0); // Axis2: Y축 기준으로 회전
+        Vector3 nextAxis2AEuler = new Vector3(0, nextStep.angleAxis2, 0);
 
-        Vector3 prevAxis3Euler = new Vector3(0, 0, prevStep.angleAxis3); // Axis3: Y축 기준으로 회전
-        Vector3 nextAxis3AEuler = new Vector3(0, 0, nextStep.angleAxis3);
+        Vector3 prevAxis3Euler = new Vector3(0, prevStep.angleAxis3, 0); // Axis3: Y축 기준으로 회전
+        Vector3 nextAxis3AEuler = new Vector3(0, nextStep.angleAxis3, 0);
 
-        Vector3 prevAxis4Euler = new Vector3(0, 0, prevStep.angleAxis4); // Axis4: Y축 기준으로 회전
-        Vector3 nextAxis4AEuler = new Vector3(0, 0, nextStep.angleAxis4);
+        Vector3 prevAxis4Euler = new Vector3(0, prevStep.angleAxis4, 0); // Axis4: Y축 기준으로 회전
+        Vector3 nextAxis4AEuler = new Vector3(0, nextStep.angleAxis4, 0);
 
 
         float currentTime = 0;
@@ -425,10 +426,10 @@ public class RobotController_4DoF1 : MonoBehaviour
         {
             eStopStep = new Step(-1, prevStep.speed, prevStep.duration);
             // eStopStep.disAxis1 = motorAxis1.localRotation.eulerAngles.z;
-            eStopStep.disAxis1 = motorAxis1.localPosition.z;
-            eStopStep.angleAxis2 = motorAxis2.localRotation.eulerAngles.z;
-            eStopStep.angleAxis3 = motorAxis3.localRotation.eulerAngles.z;
-            eStopStep.angleAxis4 = motorAxis4.localRotation.eulerAngles.z;
+            eStopStep.disAxis1 = motorAxis1.localPosition.y;
+            eStopStep.angleAxis2 = motorAxis2.localRotation.eulerAngles.y;
+            eStopStep.angleAxis3 = motorAxis3.localRotation.eulerAngles.y;
+            eStopStep.angleAxis4 = motorAxis4.localRotation.eulerAngles.y;
         }
         cycleTime += Time.deltaTime;
         yield return new WaitForSeconds(prevStep.duration);
@@ -437,17 +438,17 @@ public class RobotController_4DoF1 : MonoBehaviour
     IEnumerator RunOrigin(Step prevStep, Step nextStep)
     {
         isRunning = true;
-        Vector3 prevAxis1Pos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, prevStep.disAxis1); // Axis1: Z축 기준으로 회전
-        Vector3 nextAxis1Pos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, nextStep.disAxis1);
+        Vector3 prevAxis1Pos = new Vector3(motorAxis1.localPosition.x, prevStep.disAxis1, motorAxis1.localPosition.z); // Axis1: Z축 기준으로 회전
+        Vector3 nextAxis1Pos = new Vector3(motorAxis1.localPosition.x, nextStep.disAxis1, motorAxis1.localPosition.z);
 
-        Vector3 prevAxis2Euler = new Vector3(0, 0, prevStep.angleAxis2); // Axis2: Z축 기준으로 회전
-        Vector3 nextAxis2AEuler = new Vector3(0, 0, nextStep.angleAxis2);
+        Vector3 prevAxis2Euler = new Vector3(0, prevStep.angleAxis2, 0); // Axis2: Z축 기준으로 회전
+        Vector3 nextAxis2AEuler = new Vector3(0, nextStep.angleAxis2, 0);
 
-        Vector3 prevAxis3Euler = new Vector3(0, 0, prevStep.angleAxis3); // Axis3: Z축 기준으로 회전
-        Vector3 nextAxis3AEuler = new Vector3(0, 0, nextStep.angleAxis3);
+        Vector3 prevAxis3Euler = new Vector3(0, prevStep.angleAxis3, 0); // Axis3: Z축 기준으로 회전
+        Vector3 nextAxis3AEuler = new Vector3(0, nextStep.angleAxis3, 0);
 
-        Vector3 prevAxis4Euler = new Vector3(0, 0, prevStep.angleAxis4); // Axis4: Z축 기준으로 회전
-        Vector3 nextAxis4AEuler = new Vector3(0, 0, nextStep.angleAxis4);
+        Vector3 prevAxis4Euler = new Vector3(0, prevStep.angleAxis4, 0); // Axis4: Z축 기준으로 회전
+        Vector3 nextAxis4AEuler = new Vector3(0, nextStep.angleAxis4, 0);
 
 
         float currentTime = 0;
@@ -472,10 +473,10 @@ public class RobotController_4DoF1 : MonoBehaviour
         if (isEStopped)
         {
             eStopStep = new Step(-1, prevStep.speed, prevStep.duration);
-            eStopStep.disAxis1 = motorAxis1.localPosition.z;
-            eStopStep.angleAxis2 = motorAxis2.localRotation.eulerAngles.z;
-            eStopStep.angleAxis3 = motorAxis3.localRotation.eulerAngles.z;
-            eStopStep.angleAxis4 = motorAxis4.localRotation.eulerAngles.z;
+            eStopStep.disAxis1 = motorAxis1.localPosition.y;
+            eStopStep.angleAxis2 = motorAxis2.localRotation.eulerAngles.y;
+            eStopStep.angleAxis3 = motorAxis3.localRotation.eulerAngles.y;
+            eStopStep.angleAxis4 = motorAxis4.localRotation.eulerAngles.y;
         }
 
         yield return new WaitForSeconds(prevStep.duration);
@@ -688,19 +689,19 @@ public class RobotController_4DoF1 : MonoBehaviour
                 case "Axis2":
                     angleAxis2 += resolution;
                     angleAxis2Input.text = angleAxis2.ToString();
-                    motorAxis2.transform.localRotation = Quaternion.Euler(0, 0, angleAxis2);
+                    motorAxis2.transform.localRotation = Quaternion.Euler(0, angleAxis2, 0);
                     break;
 
                 case "Axis3":
                     angleAxis3 += resolution;
                     angleAxis3Input.text = angleAxis3.ToString();
-                    motorAxis3.transform.localRotation = Quaternion.Euler(0, 0, angleAxis3);
+                    motorAxis3.transform.localRotation = Quaternion.Euler(0, angleAxis3, 0);
                     break;
 
                 case "Axis4":
                     angleAxis4 += resolution;
                     angleAxis4Input.text = angleAxis4.ToString();
-                    motorAxis4.transform.localRotation = Quaternion.Euler(0, 0, angleAxis4);
+                    motorAxis4.transform.localRotation = Quaternion.Euler(0, angleAxis4, 0);
                     break;
 
             }
@@ -726,19 +727,19 @@ public class RobotController_4DoF1 : MonoBehaviour
                 case "Axis2":
                     angleAxis2 -= resolution;
                     angleAxis2Input.text = angleAxis2.ToString();
-                    motorAxis2.transform.localRotation = Quaternion.Euler(0, 0, angleAxis2);
+                    motorAxis2.transform.localRotation = Quaternion.Euler(0, angleAxis2, 0);
                     break;
 
                 case "Axis3":
                     angleAxis3 -= resolution;
                     angleAxis3Input.text = angleAxis3.ToString();
-                    motorAxis3.transform.localRotation = Quaternion.Euler(0, 0, angleAxis3);
+                    motorAxis3.transform.localRotation = Quaternion.Euler(0, angleAxis3, 0);
                     break;
 
                 case "Axis4":
                     angleAxis4 -= resolution;
                     angleAxis4Input.text = angleAxis4.ToString();
-                    motorAxis4.transform.localRotation = Quaternion.Euler(0, 0, angleAxis4);
+                    motorAxis4.transform.localRotation = Quaternion.Euler(0, angleAxis4, 0);
                     break;
 
             }
