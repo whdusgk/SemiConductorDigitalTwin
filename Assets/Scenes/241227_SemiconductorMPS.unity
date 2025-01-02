@@ -1381,7 +1381,7 @@ GameObject:
   - component: {fileID: 133564607}
   - component: {fileID: 133564606}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Process6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2901,7 +2901,6 @@ RectTransform:
   - {fileID: 656140280}
   - {fileID: 824212588}
   - {fileID: 1227929570}
-  - {fileID: 1374033027}
   m_Father: {fileID: 180467725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -7220,6 +7219,7 @@ RectTransform:
   - {fileID: 472515323}
   - {fileID: 63521713}
   - {fileID: 1799309706}
+  - {fileID: 1374033027}
   m_Father: {fileID: 180467725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -10017,7 +10017,7 @@ GameObject:
   - component: {fileID: 795788389}
   - component: {fileID: 795788388}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Process4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12245,7 +12245,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 985773122}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1286890165}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: OnExitBtEnterClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &985773122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13458,7 +13470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1106468814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1286890165}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: OnExitBtEnterClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1106468814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15723,6 +15747,13 @@ MonoBehaviour:
   P4Camera: {fileID: 388621068}
   P5Camera: {fileID: 1776233228}
   P6Camera: {fileID: 630679600}
+  P0Canvas: {fileID: 1502259768}
+  P1Canvas: {fileID: 401715567}
+  P2Canvas: {fileID: 1507383605}
+  P3Canvas: {fileID: 988308946}
+  P4Canvas: {fileID: 180467721}
+  P5Canvas: {fileID: 2059814797}
+  P6Canvas: {fileID: 635600361}
 --- !u!4 &1286890166
 Transform:
   m_ObjectHideFlags: 0
@@ -16839,15 +16870,15 @@ RectTransform:
   m_GameObject: {fileID: 1374033026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2.1051745, z: 1}
+  m_LocalScale: {x: 1.1111112, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 957378645}
-  m_Father: {fileID: 188979234}
+  m_Father: {fileID: 602765194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400.1001, y: 484.1902}
+  m_AnchoredPosition: {x: 2003.5304, y: -59.999878}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1374033028
@@ -16893,7 +16924,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1374033029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1286890165}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: OnExitBtEnterClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1374033029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18808,7 +18851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1502259769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19242,7 +19285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1547355666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1286890165}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: OnExitBtEnterClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1547355666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19744,7 +19799,7 @@ GameObject:
   - component: {fileID: 1577500921}
   - component: {fileID: 1577500920}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Process1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20130,7 +20185,7 @@ GameObject:
   - component: {fileID: 1591907040}
   - component: {fileID: 1591907039}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Process2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20736,7 +20791,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1632282491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1286890165}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: OnExitBtEnterClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1632282491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22429,7 +22496,7 @@ GameObject:
   - component: {fileID: 1753238098}
   - component: {fileID: 1753238097}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Process5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24789,7 +24856,7 @@ GameObject:
   - component: {fileID: 1864331726}
   - component: {fileID: 1864331725}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Process3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26885,7 +26952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2059814798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27324,7 +27391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2080894954}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1286890165}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: OnExitBtEnterClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2080894954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28428,6 +28507,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 203844589}
   - {fileID: 437020583}
+  - {fileID: 1286890166}
+  - {fileID: 1580632231}
   - {fileID: 1502259772}
   - {fileID: 401715571}
   - {fileID: 1507383609}
@@ -28435,12 +28516,10 @@ SceneRoots:
   - {fileID: 180467725}
   - {fileID: 2059814801}
   - {fileID: 635600365}
-  - {fileID: 1580632231}
   - {fileID: 1577500923}
   - {fileID: 1591907042}
   - {fileID: 1864331728}
   - {fileID: 795788391}
   - {fileID: 1753238100}
   - {fileID: 133564609}
-  - {fileID: 1286890166}
   - {fileID: 1633942903}

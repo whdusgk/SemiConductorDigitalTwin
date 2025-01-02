@@ -13,16 +13,33 @@ public class CameraManager : MonoBehaviour
     public Camera P5Camera;
     public Camera P6Camera;
 
+    public GameObject P0Canvas;
+    public GameObject P1Canvas;
+    public GameObject P2Canvas;
+    public GameObject P3Canvas;
+    public GameObject P4Canvas;
+    public GameObject P5Canvas;
+    public GameObject P6Canvas;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        P0Camera.enabled = true;
-        P1Camera.enabled = false;
-        P2Camera.enabled = false;
-        P3Camera.enabled = false;
-        P4Camera.enabled = false;
-        P5Camera.enabled = false;
-        P6Camera.enabled = false;
+        P0Camera.gameObject.SetActive(true);
+        P1Camera.gameObject.SetActive(false);
+        P2Camera.gameObject.SetActive(false);
+        P3Camera.gameObject.SetActive(false);
+        P4Camera.gameObject.SetActive(false);
+        P5Camera.gameObject.SetActive(false);
+        P6Camera.gameObject.SetActive(false);
+
+        P0Canvas.SetActive(true);
+        P1Canvas.SetActive(false);
+        P2Canvas.SetActive(false);
+        P3Canvas.SetActive(false);
+        P4Canvas.SetActive(false);
+        P5Canvas.SetActive(false);
+        P6Canvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,64 +58,122 @@ public class CameraManager : MonoBehaviour
         switch (process)
         {
             case "Process1":
-                P0Camera.enabled = false;
-                P1Camera.enabled = true;
-                P2Camera.enabled = false;
-                P3Camera.enabled = false;
-                P4Camera.enabled = false;
-                P5Camera.enabled = false;
-                P6Camera.enabled = false;
+                P0Camera.gameObject.SetActive(false);
+                P1Camera.gameObject.SetActive(true);
+                P2Camera.gameObject.SetActive(false);
+                P3Camera.gameObject.SetActive(false);
+                P4Camera.gameObject.SetActive(false);
+                P5Camera.gameObject.SetActive(false);
+                P6Camera.gameObject.SetActive(false);
+                P0Canvas.SetActive(false);
+                P1Canvas.SetActive(true);
+                P2Canvas.SetActive(false);
+                P3Canvas.SetActive(false);
+                P4Canvas.SetActive(false);
+                P5Canvas.SetActive(false);
+                P6Canvas.SetActive(false);
                 break;
 
             case "Process2":
-                P0Camera.enabled = false;
-                P1Camera.enabled = false;
-                P2Camera.enabled = true;
-                P3Camera.enabled = false;
-                P4Camera.enabled = false;
-                P5Camera.enabled = false;
-                P6Camera.enabled = false;
+                P0Camera.gameObject.SetActive(false);
+                P1Camera.gameObject.SetActive(false);
+                P2Camera.gameObject.SetActive(true);
+                P3Camera.gameObject.SetActive(false);
+                P4Camera.gameObject.SetActive(false);
+                P5Camera.gameObject.SetActive(false);
+                P6Camera.gameObject.SetActive(false);
+                P0Canvas.SetActive(false);
+                P1Canvas.SetActive(false);
+                P2Canvas.SetActive(true);
+                P3Canvas.SetActive(false);
+                P4Canvas.SetActive(false);
+                P5Canvas.SetActive(false);
+                P6Canvas.SetActive(false);
                 break;
 
             case "Process3":
-                P0Camera.enabled = false;
-                P1Camera.enabled = false;
-                P2Camera.enabled = false;
-                P3Camera.enabled = true;
-                P4Camera.enabled = false;
-                P5Camera.enabled = false;
-                P6Camera.enabled = false;
+                P0Camera.gameObject.SetActive(false);
+                P1Camera.gameObject.SetActive(false);
+                P2Camera.gameObject.SetActive(false);
+                P3Camera.gameObject.SetActive(true);
+                P4Camera.gameObject.SetActive(false);
+                P5Camera.gameObject.SetActive(false);
+                P6Camera.gameObject.SetActive(false);
+                P0Canvas.SetActive(false);
+                P1Canvas.SetActive(false);
+                P2Canvas.SetActive(false);
+                P3Canvas.SetActive(true);
+                P4Canvas.SetActive(false);
+                P5Canvas.SetActive(false);
+                P6Canvas.SetActive(false);
                 break;
 
             case "Process4":
-                P0Camera.enabled = false;
-                P1Camera.enabled = false;
-                P2Camera.enabled = false;
-                P3Camera.enabled = false;
-                P4Camera.enabled = true;
-                P5Camera.enabled = false;
-                P6Camera.enabled = false;
+                P0Camera.gameObject.SetActive(false);
+                P1Camera.gameObject.SetActive(false);
+                P2Camera.gameObject.SetActive(false);
+                P3Camera.gameObject.SetActive(false);
+                P4Camera.gameObject.SetActive(true);
+                P5Camera.gameObject.SetActive(false);
+                P6Camera.gameObject.SetActive(false);
+                P0Canvas.SetActive(false);
+                P1Canvas.SetActive(false);
+                P2Canvas.SetActive(false);
+                P3Canvas.SetActive(false);
+                P4Canvas.SetActive(true);
+                P5Canvas.SetActive(false);
+                P6Canvas.SetActive(false);
                 break;
             case "Process5":
-                P0Camera.enabled = false;
-                P1Camera.enabled = false;
-                P2Camera.enabled = false;
-                P3Camera.enabled = false;
-                P4Camera.enabled = false;
-                P5Camera.enabled = true;
-                P6Camera.enabled = false;
+                P0Camera.gameObject.SetActive(false);
+                P1Camera.gameObject.SetActive(false);
+                P2Camera.gameObject.SetActive(false);
+                P3Camera.gameObject.SetActive(false);
+                P4Camera.gameObject.SetActive(false);
+                P5Camera.gameObject.SetActive(true);
+                P6Camera.gameObject.SetActive(false);
+                P0Canvas.SetActive(false);
+                P1Canvas.SetActive(false);
+                P2Canvas.SetActive(false);
+                P3Canvas.SetActive(false);
+                P4Canvas.SetActive(false);
+                P5Canvas.SetActive(true);
+                P6Canvas.SetActive(false);
                 break;
             case "Process6":
-                P0Camera.enabled = false;
-                P1Camera.enabled = false;
-                P2Camera.enabled = false;
-                P3Camera.enabled = false;
-                P4Camera.enabled = false;
-                P5Camera.enabled = false;
-                P6Camera.enabled = true;
+                P0Camera.gameObject.SetActive(false);
+                P1Camera.gameObject.SetActive(false);
+                P2Camera.gameObject.SetActive(false);
+                P3Camera.gameObject.SetActive(false);
+                P4Camera.gameObject.SetActive(false);
+                P5Camera.gameObject.SetActive(false);
+                P6Camera.gameObject.SetActive(true);
+                P0Canvas.SetActive(false);
+                P1Canvas.SetActive(false);
+                P2Canvas.SetActive(false);
+                P3Canvas.SetActive(false);
+                P4Canvas.SetActive(false);
+                P5Canvas.SetActive(false);
+                P6Canvas.SetActive(true);
                 break;
         }
     }
 
-
+    public void OnExitBtEnterClkEvent()
+    {
+        P0Camera.gameObject.SetActive(true);
+        P1Camera.gameObject.SetActive(false);
+        P2Camera.gameObject.SetActive(false);
+        P3Camera.gameObject.SetActive(false);
+        P4Camera.gameObject.SetActive(false);
+        P5Camera.gameObject.SetActive(false);
+        P6Camera.gameObject.SetActive(false);
+        P0Canvas.SetActive(true);
+        P1Canvas.SetActive(false);
+        P2Canvas.SetActive(false);
+        P3Canvas.SetActive(false);
+        P4Canvas.SetActive(false);
+        P5Canvas.SetActive(false);
+        P6Canvas.SetActive(false);
+    }
 }
