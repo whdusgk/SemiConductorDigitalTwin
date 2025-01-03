@@ -1,46 +1,74 @@
-/*using UnityEngine;
+using NUnit.Framework;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+
+/// <summary>
+/// 공압이 공급되면 실린더 로드가 일정 거리만큼, 일정 속도로 전진 또는 후진한다.
+/// 전진 또는 후진 시, 전후진 Limit Switch(LS)가 작동한다.
+/// 속성: 실린더로드, Min-Max Range, Duration, 전후방 Limit Switch
+/// </summary>
 public class SemiconMPSManager : MonoBehaviour
 {
-    [SerializeField] Transform cylinderRod;
-    [SerializeField] float maxRange;
-    [SerializeField] float minRange;
+    [SerializeField] List<Transform> LithoDoor;
+    [SerializeField] List<Transform> gateValveDoor;
+    [SerializeField] float LithoMaxRange;
+    [SerializeField] float LithoMinRange;
+    [SerializeField] float GateValveMaxRange;
+    [SerializeField] float GateValveMinRange;
     [SerializeField] float duration;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public bool isUp = false;
+
+    public int cycleCnt;
+    public float cycleTime;
+
+    private void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnUpBtnClkEvent()
     {
-        
-    }
-    public void OnForwardBtnClkEvent()
-    {
-        if (isForward || isRodMoving) return;
+        if (isUp) return;
 
         cycleCnt++;
 
-        StartCoroutine(MoveCylinder(cylinderRod, minRange, maxRange, duration));
+        foreach (Transform l in LithoDoor)
+        {
+            StartCoroutine(MoveGate(l, LithoMinRange, LithoMaxRange, duration));
+        }
+
+        foreach (Transform gv in gateValveDoor)
+        {
+            StartCoroutine(MoveGate(gv, GateValveMinRange, GateValveMaxRange, duration));
+        }
+
     }
 
-    public void OnBackwardBtnClkEvent()
+    public void OnDownBtnClkEvent()
     {
-        if (!isForward || isRodMoving) return;
+        if (!isUp) return;
 
-        StartCoroutine(MoveCylinder(cylinderRod, maxRange, minRange, duration));
+        foreach (Transform l in LithoDoor)
+        {
+            StartCoroutine(MoveGate(l, LithoMaxRange, LithoMinRange, duration));
+        }
+
+        foreach (Transform gv in gateValveDoor)
+        {
+            StartCoroutine(MoveGate(gv, GateValveMaxRange, GateValveMinRange, duration));
+        }
+
     }
 
-    IEnumerator MoveCylinder(Transform rod, float min, float max, float duration)
+    IEnumerator MoveGate(Transform gate, float min, float max, float duration)
     {
-        isRodMoving = true;
 
-        //Vector3 minPos = new Vector3(rod.transform.localPosition.x, min, rod.transform.localPosition.z);
-        //Vector3 maxPos = new Vector3(rod.transform.localPosition.x, max, rod.transform.localPosition.z);
-        Vector3 minPos = new Vector3(min, rod.transform.localPosition.y, rod.transform.localPosition.z);
-        Vector3 maxPos = new Vector3(max, rod.transform.localPosition.y, rod.transform.localPosition.z);
+        Vector3 minPos = new Vector3(gate.transform.localPosition.x, min, gate.transform.localPosition.z);
+        Vector3 maxPos = new Vector3(gate.transform.localPosition.x, max, gate.transform.localPosition.z);
 
         float currentTime = 0;
 
@@ -48,17 +76,16 @@ public class SemiconMPSManager : MonoBehaviour
         {
             currentTime += Time.deltaTime;
 
-            rod.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / duration);
+            gate.localPosition = Vector3.Lerp(minPos, maxPos, currentTime / duration);
 
             cycleTime += Time.deltaTime;
 
             yield return new WaitForEndOfFrame();
         }
 
-        isRodMoving = false;
-        isForward = !isForward;
+        isUp = !isUp;
 
-        UpdateLimitSwitch(isForward);
     }
+
 }
-*/
+

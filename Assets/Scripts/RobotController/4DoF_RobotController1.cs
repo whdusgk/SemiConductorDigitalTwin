@@ -113,7 +113,7 @@ public class RobotController_4DoF1 : MonoBehaviour
         angleAxis3Input.text = "60";
         angleAxis4Input.text = "-180";
 
-        loadFileInput.text = "robotSteps4DoF_Final.csv";
+        //loadFileInput.text = "robotSteps4DoF_Final.csv";
         OnLoadBtnClkEvent(robotFile);
 
     }

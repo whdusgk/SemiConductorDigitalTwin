@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NonMetal
   - Metal
+  - Wafer
   layers:
   - Default
   - TransparentFX
