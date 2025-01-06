@@ -1263,6 +1263,7 @@ Transform:
   - {fileID: 420925358}
   - {fileID: 1863708087}
   - {fileID: 1444700459}
+  - {fileID: 1641414080}
   m_Father: {fileID: 1939466488}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &110392369
@@ -3047,6 +3048,7 @@ GameObject:
   - component: {fileID: 181718199}
   - component: {fileID: 181718201}
   - component: {fileID: 181718200}
+  - component: {fileID: 181718202}
   m_Layer: 0
   m_Name: END-EFFECTOR
   m_TagString: Untagged
@@ -3123,6 +3125,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181718198}
   m_Mesh: {fileID: -2596531032585446494, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &181718202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181718198}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0027199974, y: 0.0011400018, z: 0.000030001413}
+  m_Center: {x: -0.0013600014, y: -2.3961028e-10, z: 0.000015003365}
 --- !u!1 &187696599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,7 +4382,7 @@ GameObject:
   - component: {fileID: 260565917}
   - component: {fileID: 260565916}
   m_Layer: 0
-  m_Name: SemiconRobotArm4
+  m_Name: SemiconRobotArm5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4416,6 +4439,7 @@ MonoBehaviour:
   isEStopped: 0
   isCycleClicked: 0
   resolution: 0.2
+  RobotActSensor: {fileID: 1400740861}
   motorAxis1: {fileID: 1357169188}
   motorAxis2: {fileID: 51975389}
   motorAxis3: {fileID: 1828076996}
@@ -4999,6 +5023,7 @@ GameObject:
   - component: {fileID: 303371975}
   - component: {fileID: 303371974}
   - component: {fileID: 303371973}
+  - component: {fileID: 303371977}
   m_Layer: 0
   m_Name: Robot3WaferSensor
   m_TagString: Untagged
@@ -5021,7 +5046,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5088,13 +5113,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303371972}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 0.405, y: 1.3155004, z: 0.053}
-  m_LocalScale: {x: 0.049999997, y: 0.01, z: 0.049999997}
+  m_LocalRotation: {x: -0.0000000033489624, y: 0.000000059604638, z: -0.0000000058005636, w: -1}
+  m_LocalPosition: {x: -0.18288472, y: 0.014000177, z: 0.00015056133}
+  m_LocalScale: {x: 0.05, y: 0.010000001, z: 0.049999993}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2093848962}
+  m_Father: {fileID: 455539736}
   m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
+--- !u!114 &303371977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303371972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 303371972}
+  isWaferSensed: 0
 --- !u!1 &305079353
 GameObject:
   m_ObjectHideFlags: 0
@@ -7606,6 +7645,7 @@ Transform:
   - {fileID: 814734217}
   - {fileID: 1569481995}
   - {fileID: 1663753193}
+  - {fileID: 303371976}
   m_Father: {fileID: 276563428}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &462459671
@@ -7619,7 +7659,7 @@ GameObject:
   - component: {fileID: 462459673}
   - component: {fileID: 462459672}
   m_Layer: 0
-  m_Name: SemiconRobotArm3
+  m_Name: SemiconRobotArm4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7676,6 +7716,7 @@ MonoBehaviour:
   isEStopped: 0
   isCycleClicked: 0
   resolution: 0.2
+  RobotActSensor: {fileID: 1768162400}
   motorAxis1: {fileID: 1639029737}
   motorAxis2: {fileID: 1437088450}
   motorAxis3: {fileID: 1939466488}
@@ -7836,6 +7877,7 @@ GameObject:
   - component: {fileID: 485483633}
   - component: {fileID: 485483632}
   - component: {fileID: 485483631}
+  - component: {fileID: 485483634}
   - component: {fileID: 485483630}
   m_Layer: 0
   m_Name: WaferTest
@@ -7866,7 +7908,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -7933,12 +7975,34 @@ Transform:
   m_GameObject: {fileID: 485483629}
   serializedVersion: 2
   m_LocalRotation: {x: -1.7763568e-15, y: 1, z: -0.00000008940697, w: -0.00000004058233}
-  m_LocalPosition: {x: -3.57, y: 1.143, z: -0.095}
+  m_LocalPosition: {x: -2.885, y: 1.206, z: -0.024}
   m_LocalScale: {x: 100.00002, y: 100.000015, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &485483634
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485483629}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -994314367577694250, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
 --- !u!1 &487308797
 GameObject:
   m_ObjectHideFlags: 0
@@ -7951,6 +8015,7 @@ GameObject:
   - component: {fileID: 487308800}
   - component: {fileID: 487308799}
   - component: {fileID: 487308798}
+  - component: {fileID: 487308802}
   m_Layer: 0
   m_Name: Robot1WaferSensor
   m_TagString: Untagged
@@ -7973,7 +8038,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8040,13 +8105,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487308797}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: -3.467, y: 1.3123006, z: 0.049}
-  m_LocalScale: {x: 0.049999997, y: 0.01, z: 0.049999997}
+  m_LocalRotation: {x: -0.0000000033489624, y: 0.000000059604638, z: -0.0000000058005636, w: -1}
+  m_LocalPosition: {x: -0.18834561, y: 0.010800302, z: 0.0016091019}
+  m_LocalScale: {x: 0.05, y: 0.010000001, z: 0.049999993}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2093848962}
+  m_Father: {fileID: 5650081311463941624}
   m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
+--- !u!114 &487308802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487308797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 0}
+  isWaferSensed: 0
 --- !u!1 &491850590
 GameObject:
   m_ObjectHideFlags: 0
@@ -8241,6 +8320,7 @@ GameObject:
   - component: {fileID: 511002328}
   - component: {fileID: 511002327}
   - component: {fileID: 511002326}
+  - component: {fileID: 511002330}
   m_Layer: 0
   m_Name: Robot5WaferSensor
   m_TagString: Untagged
@@ -8263,7 +8343,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8330,13 +8410,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511002325}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 3.4375, y: 1.3123006, z: 0.0511}
-  m_LocalScale: {x: 0.049999997, y: 0.01, z: 0.049999997}
+  m_LocalRotation: {x: -0.0000000033489624, y: 0.000000059604638, z: -0.0000000058005636, w: -1}
+  m_LocalPosition: {x: -0.18628004, y: 0.010800362, z: 0.0022315085}
+  m_LocalScale: {x: 0.05, y: 0.010000001, z: 0.049999993}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2093848962}
+  m_Father: {fileID: 519205796}
   m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
+--- !u!114 &511002330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511002325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 511002325}
+  isWaferSensed: 0
 --- !u!1 &517841713
 GameObject:
   m_ObjectHideFlags: 0
@@ -8455,6 +8549,7 @@ Transform:
   - {fileID: 781819609}
   - {fileID: 1081304192}
   - {fileID: 1559148804}
+  - {fileID: 511002329}
   m_Father: {fileID: 1828076996}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &521910890
@@ -10060,6 +10155,7 @@ Transform:
   - {fileID: 1424782769}
   - {fileID: 181718199}
   - {fileID: 1968554146}
+  - {fileID: 695997933}
   m_Father: {fileID: 1380247361}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &635600361
@@ -10889,6 +10985,7 @@ GameObject:
   - component: {fileID: 695997932}
   - component: {fileID: 695997931}
   - component: {fileID: 695997930}
+  - component: {fileID: 695997934}
   m_Layer: 0
   m_Name: Robot2WaferSensor
   m_TagString: Untagged
@@ -10911,7 +11008,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10978,13 +11075,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695997929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: -2.266, y: 1.3123006, z: 0.051}
-  m_LocalScale: {x: 0.049999997, y: 0.01, z: 0.049999997}
+  m_LocalRotation: {x: -0.0000000033489624, y: 0.000000059604638, z: -0.0000000058005636, w: -1}
+  m_LocalPosition: {x: -0.18611668, y: 0.010800362, z: 0.0017485172}
+  m_LocalScale: {x: 0.05, y: 0.010000001, z: 0.049999993}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2093848962}
+  m_Father: {fileID: 634562963}
   m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
+--- !u!114 &695997934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695997929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 695997929}
+  isWaferSensed: 0
 --- !u!1 &696612830
 GameObject:
   m_ObjectHideFlags: 0
@@ -13893,7 +14004,7 @@ Transform:
   m_GameObject: {fileID: 830637577}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 3.7737, y: 1.5623, z: 0.2051}
+  m_LocalPosition: {x: 3.7507, y: 1.5623, z: 0.2024}
   m_LocalScale: {x: 0.035, y: 0.001, z: 0.035}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15120,6 +15231,8 @@ GameObject:
   - component: {fileID: 929944440}
   - component: {fileID: 929944439}
   - component: {fileID: 929944438}
+  - component: {fileID: 929944442}
+  - component: {fileID: 929944443}
   m_Layer: 0
   m_Name: Loadlock1WaferSensor
   m_TagString: Untagged
@@ -15142,7 +15255,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -15218,6 +15331,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2093848962}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929944442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929944437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 929944437}
+  isWaferSensed: 0
+--- !u!54 &929944443
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929944437}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &934829099
 GameObject:
   m_ObjectHideFlags: 0
@@ -15489,7 +15643,67 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 937634547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9010884026284487436}
+        m_TargetAssemblyTypeName: SemiconRobotControl, Assembly-CSharp
+        m_MethodName: OnStopBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1619143079}
+        m_TargetAssemblyTypeName: SemiconRobotControl, Assembly-CSharp
+        m_MethodName: OnStopBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1977338670}
+        m_TargetAssemblyTypeName: SemiconRobotControl, Assembly-CSharp
+        m_MethodName: OnStopBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 462459672}
+        m_TargetAssemblyTypeName: SemiconRobotControl, Assembly-CSharp
+        m_MethodName: OnStopBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 260565916}
+        m_TargetAssemblyTypeName: SemiconRobotControl, Assembly-CSharp
+        m_MethodName: OnStopBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &937634547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17526,6 +17740,7 @@ GameObject:
   - component: {fileID: 1081304192}
   - component: {fileID: 1081304194}
   - component: {fileID: 1081304193}
+  - component: {fileID: 1081304195}
   m_Layer: 0
   m_Name: END-EFFECTOR
   m_TagString: Untagged
@@ -17602,6 +17817,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081304191}
   m_Mesh: {fileID: -2596531032585446494, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &1081304195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081304191}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0027199974, y: 0.0011400018, z: 0.000030001413}
+  m_Center: {x: -0.0013600005, y: 0.0000000016230348, z: 0.000015003365}
 --- !u!1 &1096243139
 GameObject:
   m_ObjectHideFlags: 0
@@ -19060,6 +19296,8 @@ GameObject:
   - component: {fileID: 1185557325}
   - component: {fileID: 1185557324}
   - component: {fileID: 1185557323}
+  - component: {fileID: 1185557327}
+  - component: {fileID: 1185557328}
   m_Layer: 0
   m_Name: Loadlock2WaferSensor
   m_TagString: Untagged
@@ -19158,6 +19396,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2093848962}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1185557327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185557322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 1185557322}
+  isWaferSensed: 0
+--- !u!54 &1185557328
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185557322}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1185973980
 GameObject:
   m_ObjectHideFlags: 0
@@ -19931,6 +20210,7 @@ GameObject:
   - component: {fileID: 1216820799}
   - component: {fileID: 1216820798}
   - component: {fileID: 1216820797}
+  - component: {fileID: 1216820801}
   m_Layer: 0
   m_Name: LithoWaferSensor1
   m_TagString: Untagged
@@ -19953,7 +20233,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -20029,6 +20309,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2093848962}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -180}
+--- !u!114 &1216820801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216820796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 1216820796}
+  isWaferSensed: 0
 --- !u!1 &1221908417
 GameObject:
   m_ObjectHideFlags: 0
@@ -20133,7 +20427,7 @@ Transform:
   m_GameObject: {fileID: 1221908417}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 3.7669966, y: 1.5623, z: 0.084984876}
+  m_LocalPosition: {x: 3.7521, y: 1.5623, z: 0.084984876}
   m_LocalScale: {x: 0.035, y: 0.001, z: 0.035}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22675,18 +22969,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2093848963}
-        m_TargetAssemblyTypeName: Sensor, Assembly-CSharp
-        m_MethodName: OnStartBtnClkEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 9010884026284487436}
         m_TargetAssemblyTypeName: SemiconRobotControl, Assembly-CSharp
         m_MethodName: OnCycleBtnClkEvent
@@ -22750,6 +23032,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1633942904}
         m_TargetAssemblyTypeName: SemiconMPSManager, Assembly-CSharp
         m_MethodName: OnUpBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7805574713624501004}
+        m_TargetAssemblyTypeName: LPMManager, Assembly-CSharp
+        m_MethodName: OnLPMBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9157937440032524248}
+        m_TargetAssemblyTypeName: LPMManager, Assembly-CSharp
+        m_MethodName: OnLPMBtnClkEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25497,6 +25803,7 @@ GameObject:
   - component: {fileID: 1535297664}
   - component: {fileID: 1535297666}
   - component: {fileID: 1535297665}
+  - component: {fileID: 1535297667}
   m_Layer: 0
   m_Name: BODY
   m_TagString: Untagged
@@ -25573,6 +25880,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535297663}
   m_Mesh: {fileID: 3209554841506446676, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &1535297667
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535297663}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0029000114, y: 0.0029000118, z: 0.004680001}
+  m_Center: {x: 4.7027425e-17, y: -5.2879573e-10, z: 0.0023400004}
 --- !u!1 &1547355663
 GameObject:
   m_ObjectHideFlags: 0
@@ -26201,6 +26529,7 @@ GameObject:
   - component: {fileID: 1569481995}
   - component: {fileID: 1569481997}
   - component: {fileID: 1569481996}
+  - component: {fileID: 1569481998}
   m_Layer: 0
   m_Name: END-EFFECTOR
   m_TagString: Untagged
@@ -26277,6 +26606,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569481994}
   m_Mesh: {fileID: -2596531032585446494, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &1569481998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569481994}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0027199974, y: 0.0011400018, z: 0.000030001413}
+  m_Center: {x: -0.0013600002, y: 0.0000000016230348, z: 0.000015002433}
 --- !u!1 &1571586280
 GameObject:
   m_ObjectHideFlags: 0
@@ -27369,7 +27719,7 @@ GameObject:
   - component: {fileID: 1619143080}
   - component: {fileID: 1619143079}
   m_Layer: 0
-  m_Name: SemiconRobotArm1
+  m_Name: SemiconRobotArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27426,6 +27776,7 @@ MonoBehaviour:
   isEStopped: 0
   isCycleClicked: 0
   resolution: 0.2
+  RobotActSensor: {fileID: 1624908383}
   motorAxis1: {fileID: 1625057510}
   motorAxis2: {fileID: 1436348993}
   motorAxis3: {fileID: 1380247361}
@@ -27951,6 +28302,58 @@ MonoBehaviour:
   isUp: 0
   cycleCnt: 0
   cycleTime: 0
+  Foup1Sensors:
+  - {fileID: 1191656095}
+  - {fileID: 1798486104}
+  - {fileID: 335323647}
+  - {fileID: 1113338672}
+  Foup2Sensors:
+  - {fileID: 830637577}
+  - {fileID: 1221908417}
+  - {fileID: 1931819518}
+  - {fileID: 373925718}
+  VacuumSensors:
+  - {fileID: 1724625724}
+  - {fileID: 1285026950}
+  - {fileID: 1885468624}
+  - {fileID: 779798415}
+  - {fileID: 532068368}
+  - {fileID: 230043549}
+  - {fileID: 1304588512}
+  GateValveUpSensors:
+  - {fileID: 133615992}
+  - {fileID: 1852168743}
+  - {fileID: 749785978}
+  - {fileID: 741475611}
+  - {fileID: 1007352366}
+  - {fileID: 41094721}
+  GateValveDownSensors:
+  - {fileID: 762834095}
+  - {fileID: 1388517305}
+  - {fileID: 1191217726}
+  - {fileID: 908657817}
+  - {fileID: 2042778480}
+  - {fileID: 2100224230}
+  LithoGateUpSensors:
+  - {fileID: 2140619597}
+  - {fileID: 1970390904}
+  LithoGateDownSensors:
+  - {fileID: 1039682369}
+  - {fileID: 696612830}
+  LithoActSensors:
+  - {fileID: 147995321}
+  - {fileID: 935949428}
+  SEMActSensor: {fileID: 709016776}
+  isFoupForward: 0
+  isFoupDoorForward: 0
+  isFoupDoorBackward: 0
+  isFoupOpen: 0
+  isRobotAct: 0
+  isVacuum: 0
+  isGateValveUp: 0
+  isLithoGateUp: 0
+  isLithoWafer: 0
+  isSEMAct: 0
 --- !u!1 &1639029736
 GameObject:
   m_ObjectHideFlags: 0
@@ -28174,6 +28577,7 @@ GameObject:
   - component: {fileID: 1641414079}
   - component: {fileID: 1641414078}
   - component: {fileID: 1641414077}
+  - component: {fileID: 1641414081}
   m_Layer: 0
   m_Name: Robot4WaferSensor
   m_TagString: Untagged
@@ -28196,7 +28600,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -28263,13 +28667,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641414076}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 2.2339523, y: 1.3123006, z: 0.053111892}
-  m_LocalScale: {x: 0.049999997, y: 0.01, z: 0.049999997}
+  m_LocalRotation: {x: -0.0000000033489624, y: 0.000000059604638, z: -0.0000000058005636, w: -1}
+  m_LocalPosition: {x: -0.18631165, y: 0.010800302, z: 0.0063100457}
+  m_LocalScale: {x: 0.05, y: 0.010000001, z: 0.049999993}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2093848962}
+  m_Father: {fileID: 109182900}
   m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
+--- !u!114 &1641414081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641414076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 1641414076}
+  isWaferSensed: 0
 --- !u!1 &1643548096
 GameObject:
   m_ObjectHideFlags: 0
@@ -28438,6 +28856,7 @@ GameObject:
   - component: {fileID: 1649981088}
   - component: {fileID: 1649981090}
   - component: {fileID: 1649981089}
+  - component: {fileID: 1649981091}
   m_Layer: 0
   m_Name: BODY
   m_TagString: Untagged
@@ -28514,6 +28933,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649981087}
   m_Mesh: {fileID: 3209554841506446676, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &1649981091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649981087}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0029000114, y: 0.0029000118, z: 0.004680001}
+  m_Center: {x: 4.7027425e-17, y: -5.5789956e-10, z: 0.0023400004}
 --- !u!1 &1663753192
 GameObject:
   m_ObjectHideFlags: 0
@@ -29926,6 +30366,7 @@ GameObject:
   - component: {fileID: 1749343826}
   - component: {fileID: 1749343825}
   - component: {fileID: 1749343824}
+  - component: {fileID: 1749343828}
   m_Layer: 0
   m_Name: LithoWaferSensor2
   m_TagString: Untagged
@@ -29948,7 +30389,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -30024,6 +30465,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2093848962}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -180}
+--- !u!114 &1749343828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749343823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 1749343823}
+  isWaferSensed: 0
 --- !u!1 &1760547095
 GameObject:
   m_ObjectHideFlags: 0
@@ -30035,6 +30490,7 @@ GameObject:
   - component: {fileID: 1760547096}
   - component: {fileID: 1760547098}
   - component: {fileID: 1760547097}
+  - component: {fileID: 1760547099}
   m_Layer: 0
   m_Name: BODY
   m_TagString: Untagged
@@ -30111,6 +30567,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760547095}
   m_Mesh: {fileID: 3209554841506446676, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &1760547099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760547095}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0029000114, y: 0.0029000118, z: 0.004680001}
+  m_Center: {x: 4.7027425e-17, y: -5.5789956e-10, z: 0.0023400004}
 --- !u!1 &1761589152
 GameObject:
   m_ObjectHideFlags: 0
@@ -30122,6 +30599,7 @@ GameObject:
   - component: {fileID: 1761589153}
   - component: {fileID: 1761589155}
   - component: {fileID: 1761589154}
+  - component: {fileID: 1761589156}
   m_Layer: 0
   m_Name: BODY
   m_TagString: Untagged
@@ -30198,6 +30676,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761589152}
   m_Mesh: {fileID: 3209554841506446676, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &1761589156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761589152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0029000114, y: 0.0029000118, z: 0.004680001}
+  m_Center: {x: 4.7027425e-17, y: -5.2879573e-10, z: 0.0023400004}
 --- !u!1 &1763347696
 GameObject:
   m_ObjectHideFlags: 0
@@ -32824,6 +33323,7 @@ GameObject:
   - component: {fileID: 1863708087}
   - component: {fileID: 1863708089}
   - component: {fileID: 1863708088}
+  - component: {fileID: 1863708090}
   m_Layer: 0
   m_Name: END-EFFECTOR
   m_TagString: Untagged
@@ -32900,6 +33400,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863708086}
   m_Mesh: {fileID: -2596531032585446494, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &1863708090
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863708086}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0027199974, y: 0.0011400018, z: 0.000030001413}
+  m_Center: {x: -0.0013600005, y: 0.0000000016230348, z: 0.000015003365}
 --- !u!1 &1885468624
 GameObject:
   m_ObjectHideFlags: 0
@@ -33725,7 +34246,7 @@ Transform:
   m_GameObject: {fileID: 1931819518}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 3.7602937, y: 1.5623, z: -0.03512657}
+  m_LocalPosition: {x: 3.7536, y: 1.5623, z: -0.03512657}
   m_LocalScale: {x: 0.035, y: 0.001, z: 0.035}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34558,7 +35079,7 @@ GameObject:
   - component: {fileID: 1977338671}
   - component: {fileID: 1977338670}
   m_Layer: 0
-  m_Name: SemiconRobotArm2
+  m_Name: SemiconRobotArm3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34615,6 +35136,7 @@ MonoBehaviour:
   isEStopped: 0
   isCycleClicked: 0
   resolution: 0.2
+  RobotActSensor: {fileID: 545167352}
   motorAxis1: {fileID: 1209192067}
   motorAxis2: {fileID: 1921730145}
   motorAxis3: {fileID: 276563428}
@@ -35590,6 +36112,7 @@ GameObject:
   - component: {fileID: 2028010037}
   - component: {fileID: 2028010036}
   - component: {fileID: 2028010035}
+  - component: {fileID: 2028010039}
   m_Layer: 0
   m_Name: SEMWaferSensor
   m_TagString: Untagged
@@ -35612,7 +36135,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -35688,6 +36211,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2093848962}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -180}
+--- !u!114 &2028010039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028010034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 2028010034}
+  isWaferSensed: 0
 --- !u!1 &2041722249
 GameObject:
   m_ObjectHideFlags: 0
@@ -36992,24 +37529,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1191656099}
-  - {fileID: 1798486108}
-  - {fileID: 335323651}
   - {fileID: 1113338676}
-  - {fileID: 830637581}
-  - {fileID: 1221908421}
-  - {fileID: 1931819522}
+  - {fileID: 335323651}
+  - {fileID: 1798486108}
+  - {fileID: 1191656099}
   - {fileID: 373925722}
+  - {fileID: 1931819522}
+  - {fileID: 1221908421}
+  - {fileID: 830637581}
   - {fileID: 1606942670}
   - {fileID: 1624908387}
   - {fileID: 545167356}
   - {fileID: 1768162404}
   - {fileID: 1400740865}
-  - {fileID: 487308801}
-  - {fileID: 695997933}
-  - {fileID: 303371976}
-  - {fileID: 1641414080}
-  - {fileID: 511002329}
   - {fileID: 1724625728}
   - {fileID: 1285026954}
   - {fileID: 1885468628}
@@ -37055,81 +37587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Foup1Sensors:
-  - {fileID: 1113338672}
-  - {fileID: 335323647}
-  - {fileID: 1798486104}
-  - {fileID: 1191656095}
-  Foup2Sensors:
-  - {fileID: 373925718}
-  - {fileID: 1931819518}
-  - {fileID: 1221908417}
-  - {fileID: 830637577}
-  RobotActSensors:
-  - {fileID: 1606942666}
-  - {fileID: 1624908383}
-  - {fileID: 545167352}
-  - {fileID: 1768162400}
-  - {fileID: 1400740861}
-  RobotWaferSensors:
-  - {fileID: 487308797}
-  - {fileID: 695997929}
-  - {fileID: 303371972}
-  - {fileID: 1641414076}
-  - {fileID: 511002325}
-  VacuumSensors:
-  - {fileID: 1724625724}
-  - {fileID: 1285026950}
-  - {fileID: 1885468624}
-  - {fileID: 779798415}
-  - {fileID: 532068368}
-  - {fileID: 230043549}
-  - {fileID: 1304588512}
-  GateValveUpSensors:
-  - {fileID: 133615992}
-  - {fileID: 1852168743}
-  - {fileID: 749785978}
-  - {fileID: 741475611}
-  - {fileID: 1007352366}
-  - {fileID: 41094721}
-  GateValveDownSensors:
-  - {fileID: 762834095}
-  - {fileID: 1388517305}
-  - {fileID: 1191217726}
-  - {fileID: 908657817}
-  - {fileID: 2042778480}
-  - {fileID: 2100224230}
-  LithoGateUpSensors:
-  - {fileID: 2140619597}
-  - {fileID: 1970390904}
-  LithoGateDownSensors:
-  - {fileID: 1039682369}
-  - {fileID: 696612830}
-  LithoWaferSensors:
-  - {fileID: 1216820796}
-  - {fileID: 1749343823}
-  LithoActSensors:
-  - {fileID: 147995321}
-  - {fileID: 935949428}
-  LoadlockWaferSensors:
-  - {fileID: 929944437}
-  - {fileID: 1185557322}
-  SEMWaferSensor: {fileID: 2028010034}
-  SEMActSensor: {fileID: 709016776}
-  isFoupForward: 0
-  isFoupDoorForward: 0
-  isFoupDoorBackward: 0
-  isFoupOpen: 0
-  isRobotAct: 0
-  isRobotWafer: 0
-  isVacuum: 0
-  isGateValveUp: 0
-  isLithoGateUp: 0
-  isLithoWafer: 0
-  isLoadlockWafer: 0
-  isSEMWafer: 0
-  isSEMAct: 0
-  isEnabled: 0
+  WaferSensor: {fileID: 0}
+  isWaferSensed: 0
 --- !u!1 &2100224230
 GameObject:
   m_ObjectHideFlags: 0
@@ -39741,6 +40200,7 @@ GameObject:
   - component: {fileID: 74675627614896535}
   - component: {fileID: 1467672827223874096}
   - component: {fileID: 6375769915300844728}
+  - component: {fileID: 6375769915300844729}
   m_Layer: 0
   m_Name: END-EFFECTOR
   m_TagString: Untagged
@@ -41218,9 +41678,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4787244670269860950}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000030908623, y: 0.7071068, z: -0.7071067, w: -0.000000030908616}
-  m_LocalPosition: {x: -0.0013711452, y: 0, z: 0.012339999}
-  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+  m_LocalRotation: {x: 0.000000030908634, y: 0.7071069, z: -0.70710677, w: -0.00000003090862}
+  m_LocalPosition: {x: -0.0013711452, y: 0, z: 0.012340005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2755013963436458320}
@@ -43757,6 +44217,7 @@ GameObject:
   - component: {fileID: 8927702275122482261}
   - component: {fileID: 5913095296648114502}
   - component: {fileID: 6487352838596471028}
+  - component: {fileID: 8927702275122482262}
   m_Layer: 0
   m_Name: COMPOUND002
   m_TagString: Untagged
@@ -44343,7 +44804,7 @@ Transform:
   m_GameObject: {fileID: 6345283831095710193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000134444235, y: 0, z: 0}
+  m_LocalPosition: {x: -0.00001, y: 0, z: -0.00167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45950,8 +46411,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8326453481611222178}
-  - {fileID: 1220893438843305352}
   - {fileID: 5909677244652194694}
+  - {fileID: 1220893438843305352}
   - {fileID: 4977163639074290139}
   - {fileID: 2287810867821929057}
   - {fileID: 2611904245693804659}
@@ -46644,6 +47105,7 @@ GameObject:
   - component: {fileID: 4196000675483700030}
   - component: {fileID: 8089689025952150419}
   - component: {fileID: 3868353510814152172}
+  - component: {fileID: 8089689025952150420}
   m_Layer: 0
   m_Name: INSP_LOADLOCK
   m_TagString: Untagged
@@ -46678,7 +47140,7 @@ Transform:
   m_GameObject: {fileID: 8067497826451842460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0002999997, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0003, y: 0, z: 0.00365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47517,6 +47979,7 @@ GameObject:
   - component: {fileID: 316241565562647596}
   - component: {fileID: 5890696657415827959}
   - component: {fileID: 5635858501794321566}
+  - component: {fileID: 5890696657415827960}
   m_Layer: 0
   m_Name: LOADLOCK003
   m_TagString: Untagged
@@ -52060,7 +52523,7 @@ Transform:
   m_GameObject: {fileID: 5387268850308367388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -0.00379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52432,7 +52895,7 @@ GameObject:
   - component: {fileID: 9010884026284487435}
   - component: {fileID: 9010884026284487436}
   m_Layer: 0
-  m_Name: SemiconRobotArm0
+  m_Name: SemiconRobotArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53549,6 +54012,7 @@ Transform:
   - {fileID: 1712073772882072719}
   - {fileID: 74675627614896535}
   - {fileID: 5432307305755576410}
+  - {fileID: 487308801}
   m_Father: {fileID: 5449569034880143148}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &5665786786288816071
@@ -54171,6 +54635,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3284099113114508648}
   m_Mesh: {fileID: -6849862579692057561, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &5890696657415827960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3284099113114508648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0043, y: 0.0020000003, z: 0.0072}
+  m_Center: {x: 0, y: -0.029, z: 0.0096}
 --- !u!23 &5898428522265987508
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54407,6 +54892,7 @@ GameObject:
   - component: {fileID: 7268904786044911298}
   - component: {fileID: 7334015964529197167}
   - component: {fileID: 7675893603292425472}
+  - component: {fileID: 7675893603292425473}
   m_Layer: 0
   m_Name: BODY
   m_TagString: Untagged
@@ -55098,7 +55584,7 @@ Transform:
   m_GameObject: {fileID: 8653272304250613642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000134444235, y: 5.684342e-16, z: 0}
+  m_LocalPosition: {x: -0.00002, y: 0, z: -0.00167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55643,6 +56129,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6375769915300844729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688700994520131686}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0027199974, y: 0.0011400018, z: 0.000030001413}
+  m_Center: {x: -0.0013600005, y: 0.0000000016230348, z: 0.000015003365}
 --- !u!23 &6377868914552190947
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58859,6 +59366,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7675893603292425473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5961194433596543387}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0029000114, y: 0.0029000118, z: 0.004680001}
+  m_Center: {x: 4.7027425e-17, y: -5.2879573e-10, z: 0.0023400004}
 --- !u!23 &7677799818109512029
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59304,6 +59832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2755013963436458320}
+  - component: {fileID: 7805574713624501004}
   m_Layer: 0
   m_Name: LPM
   m_TagString: Untagged
@@ -59311,6 +59840,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7805574713624501004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805574713624501003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8d0ff8d383d5f40bf8f558d143d36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Foup: {fileID: 8326453481611222178}
+  FoupDoor: {fileID: 1220893438843305352}
+  LPMBackBase: {fileID: 4977163639074290139}
+  FoupMinRange: -0.00279
+  FoupMaxRange: -0.00161
+  FoupDoorXMinRange1: -0.00279
+  FoupDoorXMaxRange1: -0.00161
+  FoupDoorXMinRange2: -0.00161
+  FoupDoorXMaxRange2: -0.0012
+  FoupDoorZMinRange: 0.01234
+  FoupDoorZMaxRange: 0.00874
+  LPMBackBaseXMinRange: 0
+  LPMBackBaseXMaxRange: -0.00026
+  LPMBackBaseZMinRange: -0.00379
+  LPMBackBaseZMaxRange: -0.00755
+  duration: 1
+  isUp: 0
+  cycleCnt: 0
+  cycleTime: 0
+  FoupSensors:
+  - {fileID: 1113338672}
+  - {fileID: 335323647}
+  - {fileID: 1798486104}
+  - {fileID: 1191656095}
+  isFoupForward: 0
+  isFoupDoorForward: 0
+  isFoupDoorBackward: 0
+  isFoupOpen: 0
 --- !u!4 &7815753777115978320
 Transform:
   m_ObjectHideFlags: 0
@@ -59928,7 +60497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8071995321366903720
 Transform:
   m_ObjectHideFlags: 0
@@ -59938,7 +60507,7 @@ Transform:
   m_GameObject: {fileID: 9161768502977906851}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000030908623, y: 0.7071068, z: 0.7071067, w: 0.000000030908616}
-  m_LocalPosition: {x: -0.0024, y: -3.0517525e-10, z: 0.009010185}
+  m_LocalPosition: {x: -0.0017, y: 0, z: 0.00901}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59953,6 +60522,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3005240611565812984}
   m_Mesh: {fileID: 3703430556997216702, guid: c30c0a342e51b24429263a5c4ca9288e, type: 3}
+--- !u!65 &8089689025952150420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005240611565812984}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0043, y: 0.0020000003, z: 0.0072}
+  m_Center: {x: 0, y: -0.029, z: 0.0096}
 --- !u!1 &8095527245115635552
 GameObject:
   m_ObjectHideFlags: 0
@@ -60544,7 +61134,7 @@ Transform:
   m_GameObject: {fileID: 8762669587853469416}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000030908623, y: 0.7071068, z: 0.7071067, w: 0.000000030908616}
-  m_LocalPosition: {x: -0.0024, y: -3.0517583e-10, z: 0.009010185}
+  m_LocalPosition: {x: -0.00279, y: -0, z: 0.00901}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61213,6 +61803,7 @@ GameObject:
   - component: {fileID: 7556059158452089150}
   - component: {fileID: 6006014176388874173}
   - component: {fileID: 4352403185508895579}
+  - component: {fileID: 8587459641863823552}
   m_Layer: 0
   m_Name: COMPOUND007
   m_TagString: Untagged
@@ -61220,6 +61811,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8587459641863823552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587459641863823551}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.003195894, y: 0.0032000013, z: 0.000100000616}
+  m_Center: {x: 3.6358838e-10, y: -0.010000004, z: 0.013050003}
 --- !u!33 &8611297347153112415
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -62259,6 +62871,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3038391616934393488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8927702275122482262
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026450207807902633}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0031958928, y: 0.0032000002, z: 0.00009999983}
+  m_Center: {x: 0, y: -0.01, z: 0.013049999}
 --- !u!23 &8936832169192745076
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62567,6 +63200,7 @@ MonoBehaviour:
   isEStopped: 0
   isCycleClicked: 0
   resolution: 0.2
+  RobotActSensor: {fileID: 1606942666}
   motorAxis1: {fileID: 5280767755023519139}
   motorAxis2: {fileID: 6340538024280931565}
   motorAxis3: {fileID: 5449569034880143148}
@@ -62917,6 +63551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6537566290051296560}
+  - component: {fileID: 9157937440032524248}
   m_Layer: 0
   m_Name: LPM001
   m_TagString: Untagged
@@ -62924,6 +63559,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9157937440032524248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157937440032524247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8d0ff8d383d5f40bf8f558d143d36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Foup: {fileID: 8071995321366903720}
+  FoupDoor: {fileID: 7468265191193779986}
+  LPMBackBase: {fileID: 6767424152294087917}
+  FoupMinRange: -0.00279
+  FoupMaxRange: -0.00161
+  FoupDoorXMinRange1: -0.00279
+  FoupDoorXMaxRange1: -0.00161
+  FoupDoorXMinRange2: -0.00161
+  FoupDoorXMaxRange2: -0.0012
+  FoupDoorZMinRange: 0.01234
+  FoupDoorZMaxRange: 0.00874
+  LPMBackBaseXMinRange: 0
+  LPMBackBaseXMaxRange: -0.00026
+  LPMBackBaseZMinRange: 0
+  LPMBackBaseZMaxRange: -0.00379
+  duration: 1
+  isUp: 0
+  cycleCnt: 0
+  cycleTime: 0
+  FoupSensors:
+  - {fileID: 373925718}
+  - {fileID: 1931819518}
+  - {fileID: 1221908417}
+  - {fileID: 830637577}
+  isFoupForward: 0
+  isFoupDoorForward: 0
+  isFoupDoorBackward: 0
+  isFoupOpen: 0
 --- !u!1 &9160446053510521020
 GameObject:
   m_ObjectHideFlags: 0

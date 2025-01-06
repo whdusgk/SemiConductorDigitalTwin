@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System;
 using System.Collections;
 using System.IO;
+using Unity.VisualScripting;
 
 
 /// <summary>
@@ -17,6 +18,7 @@ using System.IO;
 public class SemiconRobotControl : MonoBehaviour
 {
     [Serializable]
+    
     public class Step
     {
         public int stepNumber;
@@ -57,6 +59,7 @@ public class SemiconRobotControl : MonoBehaviour
     [SerializeField] bool isEStopped = false;
     [SerializeField] bool isCycleClicked = false;
     [SerializeField] float resolution = 0.2f;
+    public GameObject RobotActSensor;
 
     [Header("Axis Pivots")]
     [SerializeField] Transform motorAxis1;
@@ -82,15 +85,15 @@ public class SemiconRobotControl : MonoBehaviour
         originStep = new Step(-1, 100, 0);
         OnLoadBtnClkEvent(robotFile);
 
+        RobotActSensor.GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
     }
 
-
+   
     IEnumerator RunCycle()
     {
-
-
         while (isCycleClicked)
         {
+            isRunning = true;
             yield return Run();
         }
 
@@ -99,9 +102,7 @@ public class SemiconRobotControl : MonoBehaviour
             steps.RemoveAt(steps.Count - 1);
 
             cycleClkCnt = 0;
-
         }
-
     }
 
     /// <summary>
@@ -112,7 +113,7 @@ public class SemiconRobotControl : MonoBehaviour
         isStopped = true;
 
         isCycleClicked = false;
-
+        //isRunning = false;
     }
 
     /// <summary>
@@ -141,12 +142,13 @@ public class SemiconRobotControl : MonoBehaviour
 
     IEnumerator Run()
     {
-        isRunning = true;
+        
         if (steps.Count > 0)
         {
             for (int i = 0; i < steps.Count; i++)
             {
                 currentStepNumber = i;
+                isRunning = true;
                 //nowStepInfoTxt.text = $"Total step count: {totalSteps} / Current step: {currentStepNumber}";
 
                 if (i - 1 < 0)
@@ -178,7 +180,7 @@ public class SemiconRobotControl : MonoBehaviour
             {
                 currentStepNumber = i;
                 //nowStepInfoTxt.text = $"Total step count: {totalSteps} / Current step: {currentStepNumber}";
-
+                isRunning = true;
                 if (i - 1 < 0)
                 {
                     continue;
@@ -297,7 +299,7 @@ public class SemiconRobotControl : MonoBehaviour
     bool isSuctionOn;
     public void OnLoadBtnClkEvent(string path)
     {
-        path = "robotSteps4DoF_Final.csv"; // robotSteps_0.csv
+        path = "robotSteps4DoF_9.csv"; // robotSteps_0.csv
 
         if (File.Exists(path))
         {
@@ -433,6 +435,7 @@ public class SemiconRobotControl : MonoBehaviour
     public void OnCycleBtnClkEvent()
     {
         isCycleClicked = true;
+        
 
         if (cycleClkCnt == 0)
             steps.Add(steps[0]);
@@ -441,4 +444,13 @@ public class SemiconRobotControl : MonoBehaviour
 
         currentCoroutine = StartCoroutine(RunCycle());
     }
+
+    // Sensor
+    public void Update()
+    {
+        if(isRunning) RobotActSensor.GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
+        else if(!isRunning) RobotActSensor.GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red                                                                                                
+    }
+
+
 }
