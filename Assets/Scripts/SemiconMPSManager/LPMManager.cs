@@ -132,9 +132,6 @@ public class LPMManager : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-
-        isUp = !isUp;
-
     }
     IEnumerator zMoveLPM(Transform gate, float min, float max, float duration)
     {
@@ -154,8 +151,6 @@ public class LPMManager : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-
-        isUp = !isUp;
 
     }
 }

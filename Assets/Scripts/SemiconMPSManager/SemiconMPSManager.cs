@@ -26,7 +26,7 @@ public class SemiconMPSManager : MonoBehaviour
     public float cycleTime;
 
     [Header("Sensors")]
-    public List<GameObject> Foup1Sensors;
+    //public List<GameObject> Foup1Sensors;
     public List<GameObject> Foup2Sensors;
     //public List<GameObject> RobotActSensors;
     public List<GameObject> VacuumSensors;
@@ -55,8 +55,8 @@ public class SemiconMPSManager : MonoBehaviour
     private void Start()
     {
         // ETC Sensor Caligration(Black)
-        foreach (GameObject s in Foup1Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-        foreach (GameObject s in Foup1Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
+        //foreach (GameObject s in Foup1Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+        foreach (GameObject s in Foup2Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
         foreach (GameObject s in VacuumSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
         foreach (GameObject s in GateValveUpSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
         foreach (GameObject s in LithoGateUpSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black 
