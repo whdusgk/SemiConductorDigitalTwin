@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "398380329919",
+    "firebase_url": "https://bandeulbandeul-login-default-rtdb.firebaseio.com",
+    "project_id": "bandeulbandeul-login",
+    "storage_bucket": "bandeulbandeul-login.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398380329919:android:286c3aa8235a228e274f0a",
+        "android_client_info": {
+          "package_name": "com.junsu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4y0_9jtd9lCPE65og-1TW-RzJa7ZeoWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
