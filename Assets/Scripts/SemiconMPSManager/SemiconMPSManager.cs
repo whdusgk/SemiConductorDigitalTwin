@@ -21,7 +21,7 @@ public class SemiconMPSManager : MonoBehaviour
     [SerializeField] float duration;
 
     public bool isUp = false;
-
+    float currentTime = 0;
     public int cycleCnt;
     public float cycleTime;
 
@@ -52,6 +52,8 @@ public class SemiconMPSManager : MonoBehaviour
     public bool isLithoWafer = false;
     public bool isSEMAct = false;
 
+    public GameObject LithoAni1;
+    public GameObject LithoAni2;
     private void Start()
     {
         // ETC Sensor Caligration(Black)
@@ -66,8 +68,28 @@ public class SemiconMPSManager : MonoBehaviour
         // GateDownSensor Caligration(Green)
         foreach (GameObject s in GateValveDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
         foreach (GameObject s in LithoGateDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
+        
     }
 
+    private void Update()
+    {
+        currentTime += Time.deltaTime;
+        StartCoroutine(SetAnimator());
+    }
+    IEnumerator SetAnimator()
+    {
+        if (currentTime < 7.8f)
+        {
+            LithoAni1.GetComponent<Animator>().enabled = true;
+            LithoAni2.GetComponent<Animator>().enabled = false;
+        }
+        else
+        {
+            LithoAni2.GetComponent<Animator>().enabled = true;
+        }
+        yield return new WaitForEndOfFrame();
+    }
+   
     public void OnUpBtnClkEvent()
     {
         if (isUp) return;
@@ -115,7 +137,7 @@ public class SemiconMPSManager : MonoBehaviour
         Vector3 minPos = new Vector3(gate.transform.localPosition.x, min, gate.transform.localPosition.z);
         Vector3 maxPos = new Vector3(gate.transform.localPosition.x, max, gate.transform.localPosition.z);
 
-        float currentTime = 0;
+        currentTime = 0;
 
         while (currentTime <= duration)
         {
