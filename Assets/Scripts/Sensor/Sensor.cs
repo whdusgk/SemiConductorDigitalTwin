@@ -27,6 +27,7 @@ public class Sensor : MonoBehaviour
         {
             isWaferSensed = true;
             print("Wafer Sensed");
+            other.transform.SetParent(transform);
         }
     }
 

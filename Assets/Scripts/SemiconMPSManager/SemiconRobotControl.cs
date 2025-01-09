@@ -299,7 +299,7 @@ public class SemiconRobotControl : MonoBehaviour
     bool isSuctionOn;
     public void OnLoadBtnClkEvent(string path)
     {
-        path = "robotSteps4DoF_9.csv"; // robotSteps_0.csv
+        path = "robotSteps4DoF_12.csv"; // robotSteps_0.csv
 
         if (File.Exists(path))
         {
