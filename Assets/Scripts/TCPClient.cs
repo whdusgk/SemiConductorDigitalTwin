@@ -47,6 +47,29 @@ public class TCPCilent : MonoBehaviour
             print(ex);
             print("서버를 먼저 작동시켜 주세요.");
         }
+       
+        msg = Request("Connect"); //connect 일 경우 ok
+
+        if (msg.Contains("CONNECTED"))
+        {
+            isConnected = true;
+
+            StartCoroutine(CoRequest());
+        }
+        for (int i = 0; i < xDeviceBlockSize; i++)
+        {
+            xDevices += "0000000000000000";
+        }
+
+        for (int i = 0; i < yDeviceBlockSize; i++)
+        {
+            yDevices += "0000000000000000";
+        }
+
+        for (int i = 0; i < dDeviceBlockSize; i++)
+        {
+            dDevices += "0000000000000000";
+        }
 
     }
 

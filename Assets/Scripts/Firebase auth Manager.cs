@@ -253,6 +253,8 @@ public class FirebaseAuthManager : MonoBehaviour
     public void OnSignupOKBtnClkEvent()
     {
         StartCoroutine(CoSignUp(signUpEmailInput.text, signUpPWInput.text, signUpPWCheckInput.text));
+        loginPanel.SetActive(true);
+        signUpPanel.SetActive(false);
     }
 
     public void OnSignupCancelBtnClkEvent()
