@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SEMManager : MonoBehaviour
@@ -14,7 +15,7 @@ public class SEMManager : MonoBehaviour
 
     public float xchipGap = 0.0004f;
     public float zchipGap = 0.4f;
-    public float speed = 100;
+    public float speed = 5000;
     public float cycleTime;
     public float duration;
 
@@ -43,20 +44,23 @@ public class SEMManager : MonoBehaviour
 
     IEnumerator RunSEM()
     {
-        yield return SEMStep(-1, -3);
-        yield return SEMStep(1, -3);
-        yield return SEMStep(-2, -2);
-        yield return SEMStep(2, -2);
-        yield return SEMStep(-3, -1);
-        yield return SEMStep(3, -1);
-        yield return SEMStep(-3, 0);
-        yield return SEMStep(3, 0);
-        yield return SEMStep(-3, 1);
-        yield return SEMStep(3, 1);
-        yield return SEMStep(-2, 2);
-        yield return SEMStep(2, 2);
-        yield return SEMStep(-1, 3);
-        yield return SEMStep(1, 3);
+        yield return SEMStep(-1, -3); yield return SEMStep(0, -3); yield return SEMStep(1, -3);
+
+        yield return SEMStep(-2, -2); yield return SEMStep(-1, -2); yield return SEMStep(0, -2); yield return SEMStep(1, -2); yield return SEMStep(2, -2);
+
+        yield return SEMStep(-3, -1); yield return SEMStep(-2, -1); yield return SEMStep(-1, -1); yield return SEMStep(0, -1);
+        yield return SEMStep(1, -1); yield return SEMStep(2, -1); yield return SEMStep(3, -1);
+
+        yield return SEMStep(-3, 0); yield return SEMStep(-2, 0); yield return SEMStep(-1, 0); yield return SEMStep(0, 0);
+        yield return SEMStep(1, 0); yield return SEMStep(2, 0); yield return SEMStep(3, 0);
+
+        yield return SEMStep(-3, 1); yield return SEMStep(-2, 1); yield return SEMStep(-1, 1); yield return SEMStep(0, 1);
+        yield return SEMStep(1, 1); yield return SEMStep(2, 1); yield return SEMStep(3, 1);
+
+        yield return SEMStep(-2, 2); yield return SEMStep(-1, 2); yield return SEMStep(0, 2); yield return SEMStep(1, 2); yield return SEMStep(2, 2);
+
+        yield return SEMStep(-1, 3); yield return SEMStep(0, 3); yield return SEMStep(1, 3);
+
         yield return SEMStep(0, 0);
 
     }
@@ -75,6 +79,7 @@ public class SEMManager : MonoBehaviour
         Vector3 nextAxis2APos = new Vector3(SEMAxis2.localPosition.x, SEMAxis2.localPosition.y, SEMAxis2Origin.z + z * zchipGap);
 
         float currentTime = 0;
+
         while (true)
         {
             currentTime += Time.deltaTime;
