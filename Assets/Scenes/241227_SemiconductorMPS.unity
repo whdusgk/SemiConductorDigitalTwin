@@ -2952,7 +2952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &180467722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3031,6 +3031,7 @@ RectTransform:
   - {fileID: 602765194}
   - {fileID: 188979234}
   - {fileID: 1513534374}
+  - {fileID: 1757150904}
   m_Father: {fileID: 2065362660}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -23783,18 +23784,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8132583425467949131}
-        m_TargetAssemblyTypeName: SEMManager, Assembly-CSharp
-        m_MethodName: RunSEM
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1386413556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26264,7 +26253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1502259769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26542,7 +26531,7 @@ GameObject:
   - component: {fileID: 1513534376}
   - component: {fileID: 1513534375}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: SEM RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31469,7 +31458,7 @@ GameObject:
   - component: {fileID: 1757150904}
   - component: {fileID: 1757150905}
   m_Layer: 0
-  m_Name: Video Player
+  m_Name: SEM Video Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31484,11 +31473,11 @@ Transform:
   m_GameObject: {fileID: 1757150903}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 293.78534, y: 659.9881, z: 485.32397}
+  m_LocalPosition: {x: -666.21466, y: 119.9881, z: 485.32397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2065362660}
+  m_Father: {fileID: 180467725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!328 &1757150905
 VideoPlayer:
@@ -37696,7 +37685,6 @@ Transform:
   - {fileID: 1507383609}
   - {fileID: 988308950}
   - {fileID: 180467725}
-  - {fileID: 1757150904}
   - {fileID: 2059814801}
   - {fileID: 635600365}
   m_Father: {fileID: 0}

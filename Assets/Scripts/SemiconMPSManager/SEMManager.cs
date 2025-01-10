@@ -36,75 +36,29 @@ public class SEMManager : MonoBehaviour
         SEMAxis1Origin = new Vector3(SEMAxis1.localPosition.x, SEMAxis1.localPosition.y, SEMAxis1.localPosition.z);
         SEMAxis2Origin = new Vector3(SEMAxis2.localPosition.x, SEMAxis2.localPosition.y, SEMAxis2.localPosition.z);
 
-        StartCoroutine(SEMStep(0,0));
-        //RunSEM();
+        //StartCoroutine(SEMStep(0,0));
+        StartCoroutine(RunSEM());
+       
     }
-    public void RunSEM()
-    {
-        switch (SEMCase)
-        {
-            case 0:
-                StartCoroutine(SEMStep(-1, -3));
-                SEMCase++;
-                break;
-            case 1:
-                StartCoroutine(SEMStep(1, -3));
-                SEMCase ++;
-                break;
-            case 2:
-                StartCoroutine(SEMStep(-2, -2));
-                SEMCase++;
-                break;
-            case 3:
-                StartCoroutine(SEMStep(2, -2));
-                SEMCase++;
-                break;
-            case 4:
-                StartCoroutine(SEMStep(-3, -1));
-                SEMCase++;
-                break;
-            case 5:
-                StartCoroutine(SEMStep(3, -1));
-                SEMCase++;
-                break;
-            case 6:
-                StartCoroutine(SEMStep(-3, 0));
-                SEMCase++;
-                break;
-            case 7:
-                StartCoroutine(SEMStep(3, 0));
-                SEMCase++;
-                break;
-            case 8:
-                StartCoroutine(SEMStep(-3, 1));
-                SEMCase++;
-                break;
-            case 9:
-                StartCoroutine(SEMStep(3, 1));
-                SEMCase++;
-                break;
-            case 10:
-                StartCoroutine(SEMStep(-2, 2));
-                SEMCase++;
-                break;
-            case 11:
-                StartCoroutine(SEMStep(2, 2));
-                SEMCase++;
-                break;
-            case 12:
-                StartCoroutine(SEMStep(-1, 3));
-                SEMCase++;
-                break;
-            case 13:
-                StartCoroutine(SEMStep(1, 3));
-                SEMCase++;
-                break;
-            case 14:
-                StartCoroutine(SEMStep(0, 0));
-                SEMCase = 0;
-                break;
 
-        }
+    IEnumerator RunSEM()
+    {
+        yield return SEMStep(-1, -3);
+        yield return SEMStep(1, -3);
+        yield return SEMStep(-2, -2);
+        yield return SEMStep(2, -2);
+        yield return SEMStep(-3, -1);
+        yield return SEMStep(3, -1);
+        yield return SEMStep(-3, 0);
+        yield return SEMStep(3, 0);
+        yield return SEMStep(-3, 1);
+        yield return SEMStep(3, 1);
+        yield return SEMStep(-2, 2);
+        yield return SEMStep(2, 2);
+        yield return SEMStep(-1, 3);
+        yield return SEMStep(1, 3);
+        yield return SEMStep(0, 0);
+
     }
     // Update is called once per frame
     void Update()
@@ -134,4 +88,6 @@ public class SEMManager : MonoBehaviour
         }
         yield return new WaitForSeconds(duration);
     }
+
+    
 }
