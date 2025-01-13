@@ -14,8 +14,9 @@ namespace MPS
     public class MPSManager : MonoBehaviour
         {
         [SerializeField] List<SemiconRobotControl> SemiconRobotControl = new List<SemiconRobotControl>();
-        [SerializeField] SemiconMPSManager GateValveDoor = new SemiconMPSManager();
-        [SerializeField] SemiconMPSManager LithoDoor = new SemiconMPSManager();
+        [SerializeField] Backup_SemiconMPSManager GateValveDoor = new Backup_SemiconMPSManager();
+        [SerializeField] Backup_SemiconMPSManager LithoDoor = new Backup_SemiconMPSManager();
+        [SerializeField] Backup_SemiconMPSManager Manager = new Backup_SemiconMPSManager();
         [SerializeField] List<SemiconRobotControl> lamps = new List<SemiconRobotControl>();
         [SerializeField] List<Sensor> Sensors = new List<Sensor>();
 
@@ -236,50 +237,52 @@ namespace MPS
 
             if (StartButtonWaiting == 1)
             {
-                //OnStartBtnClkEvent();
+                Manager.OnStartBtnClkEvent();
                 StartButtonWaiting = 0;
             }
 
-            if (FirstRobotMoveToFOUP == 1) SemiconRobotControl[0].OnSingleCycleBtnClkEvent();
+            if (FirstRobotMoveToFOUP == 1) SemiconRobotControl[0].OnSingleCycleBtnClkEvent(); //Y9
             else if (FirstRobotMoveToFOUP == 0) SemiconRobotControl[0].OnStopBtnClkEvent();
 
-            if (FifthRobotArmMoveToLoadLock == 1) SemiconRobotControl[1].OnSingleCycleBtnClkEvent();
+            if (FifthRobotArmMoveToLoadLock == 1) SemiconRobotControl[1].OnSingleCycleBtnClkEvent(); //Y20
             else if (FifthRobotArmMoveToLoadLock == 0) SemiconRobotControl[1].OnStopBtnClkEvent();
 
-            if (SixthRobotArmMoveToLoadLock == 1) SemiconRobotControl[2].OnSingleCycleBtnClkEvent();
+            if (SixthRobotArmMoveToLoadLock == 1) SemiconRobotControl[2].OnSingleCycleBtnClkEvent(); //Y24
             else if (SixthRobotArmMoveToLoadLock == 0) SemiconRobotControl[2].OnStopBtnClkEvent();
 
-            if (SeventhRobotArmMoveToLoadLock == 1) SemiconRobotControl[3].OnSingleCycleBtnClkEvent();
+            if (SeventhRobotArmMoveToLoadLock == 1) SemiconRobotControl[3].OnSingleCycleBtnClkEvent(); //Y27
             else if (SeventhRobotArmMoveToLoadLock == 0) SemiconRobotControl[3].OnStopBtnClkEvent();
 
-            if (EighthRobotArmMoveToLoadLock == 1) SemiconRobotControl[4].OnSingleCycleBtnClkEvent();
+            if (EighthRobotArmMoveToLoadLock == 1) SemiconRobotControl[4].OnSingleCycleBtnClkEvent(); //Y2A
             else if (EighthRobotArmMoveToLoadLock == 0) SemiconRobotControl[4].OnStopBtnClkEvent();
 
 
 
             //GateValveDoor OPEN
-            if (FirstVacuumGateOpen == 1) GateValveDoor.OnUpBtnClkEvent(); 
-            if (SecondVacuumGateOpen == 1) GateValveDoor.OnUpBtnClkEvent(); 
-            if (FifthVacuumGateOpen == 1) GateValveDoor.OnUpBtnClkEvent(); 
-            if (SixthVacuumGateOpen == 1) GateValveDoor.OnUpBtnClkEvent();
-            if (SeventhVacuumGateOpen == 1) GateValveDoor.OnUpBtnClkEvent();
-            if (EighthVacuumGateOpen == 1) GateValveDoor.OnUpBtnClkEvent();
+            if (FirstVacuumGateOpen == 1) GateValveDoor.OnGVUpBtnClkEvent(0);  //YC
+            if (SecondVacuumGateOpen == 1) GateValveDoor.OnGVUpBtnClkEvent(1); //Y11
+            if (FifthVacuumGateOpen == 1) GateValveDoor.OnGVUpBtnClkEvent(2); //Y17 
+            if (SixthVacuumGateOpen == 1) GateValveDoor.OnGVUpBtnClkEvent(3); //Y19
+            if (SeventhVacuumGateOpen == 1) GateValveDoor.OnGVUpBtnClkEvent(4); //Y1B
+            if (EighthVacuumGateOpen == 1) GateValveDoor.OnGVUpBtnClkEvent(5); //Y1D
 
             //GateValveDoor Close
-            if (FirstVacuumGateClose == 1) GateValveDoor.OnDownBtnClkEvent();
-            if (SecondVacuumGateClose == 1) GateValveDoor.OnDownBtnClkEvent();
-            if (FifthVacuumGateClose == 1) GateValveDoor.OnDownBtnClkEvent();
-            if (SixthVacuumGateClose == 1) GateValveDoor.OnDownBtnClkEvent();
-            if (SeventhVacuumGateClose == 1) GateValveDoor.OnDownBtnClkEvent();
-            if (EighthVacuumGateClose == 1) GateValveDoor.OnDownBtnClkEvent();
+            if (FirstVacuumGateClose == 1) GateValveDoor.OnGVDownBtnClkEvent(0); //YD
+            if (SecondVacuumGateClose == 1) GateValveDoor.OnGVDownBtnClkEvent(1); //Y12
+            if (FifthVacuumGateClose == 1) GateValveDoor.OnGVDownBtnClkEvent(2); //Y18
+            if (SixthVacuumGateClose == 1) GateValveDoor.OnGVDownBtnClkEvent(3); //Y1A
+            if (SeventhVacuumGateClose == 1) GateValveDoor.OnGVDownBtnClkEvent(4); //Y1C
+            if (EighthVacuumGateClose == 1) GateValveDoor.OnGVDownBtnClkEvent(5); //Y1E
 
             //LITHO_Door Open
-            // if (ThirdVacuumGateOpen == 1) LithoDoor;
-            // if (ThirdVacuumGateOpen == 1) LithoDoor;
+             if (ThirdVacuumGateOpen == 1) LithoDoor.OnLithoUpBtnClkEvent(0); //Y13
+             if (FourthVacuumGateOpen == 1) LithoDoor.OnLithoUpBtnClkEvent(1); //Y15
 
             //LITHO_Door close
-            // if (ThirdVacuumGateOpen == 1) LithoDoor;
-            // if (ThirdVacuumGateOpen == 1) LithoDoor;
+             if (ThirdVacuumGateClose == 1) LithoDoor.OnLithoDownBtnClkEvent(0); //Y14
+             if (FourthVacuumGateClose == 1) LithoDoor.OnLithoDownBtnClkEvent(1); //Y16
+
+             
 
 
 
