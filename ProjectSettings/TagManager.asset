@@ -7,6 +7,7 @@ TagManager:
   - NonMetal
   - Metal
   - Wafer
+  - Foup
   layers:
   - Default
   - TransparentFX
