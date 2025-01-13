@@ -14,9 +14,9 @@ namespace MPS
     public class MPSManager : MonoBehaviour
         {
         [SerializeField] List<SemiconRobotControl> SemiconRobotControl = new List<SemiconRobotControl>();
-        [SerializeField] Backup_SemiconMPSManager GateValveDoor = new Backup_SemiconMPSManager();
-        [SerializeField] Backup_SemiconMPSManager LithoDoor = new Backup_SemiconMPSManager();
-        [SerializeField] Backup_SemiconMPSManager Manager = new Backup_SemiconMPSManager();
+        [SerializeField] SemiconMPSManager GateValveDoor = new SemiconMPSManager();
+        [SerializeField] SemiconMPSManager LithoDoor = new SemiconMPSManager();
+        [SerializeField] SemiconMPSManager Manager = new SemiconMPSManager();
         [SerializeField] List<SemiconRobotControl> lamps = new List<SemiconRobotControl>();
         [SerializeField] List<Sensor> Sensors = new List<Sensor>();
 

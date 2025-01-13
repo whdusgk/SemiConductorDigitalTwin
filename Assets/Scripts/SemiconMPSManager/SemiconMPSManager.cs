@@ -14,7 +14,7 @@ using UnityEngine;
 namespace MPS
 {
 
-    public class Backup_SemiconMPSManager : MonoBehaviour
+    public class SemiconMPSManager : MonoBehaviour
     {
         [SerializeField] List<Transform> LithoDoor;
         [SerializeField] List<Transform> gateValveDoor;
