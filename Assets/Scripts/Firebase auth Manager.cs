@@ -142,7 +142,7 @@ public class FirebaseAuthManager : MonoBehaviour
         loginPWInput.text = "";
 
         // 다른 씬 불러오기
-        AsyncOperation oper = SceneManager.LoadSceneAsync("241227_SemiconductorMPS");
+        AsyncOperation oper = SceneManager.LoadSceneAsync("250113_SemiconductorMPS");
 
         while (!oper.isDone)
         {

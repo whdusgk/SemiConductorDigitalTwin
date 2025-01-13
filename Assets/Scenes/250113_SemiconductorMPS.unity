@@ -5329,7 +5329,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 303371972}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &305079353
 GameObject:
   m_ObjectHideFlags: 0
@@ -8597,7 +8602,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 487308797}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &491850590
 GameObject:
   m_ObjectHideFlags: 0
@@ -8902,7 +8912,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 511002325}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &517841713
 GameObject:
   m_ObjectHideFlags: 0
@@ -9935,6 +9950,7 @@ MonoBehaviour:
   - {fileID: 462459672}
   - {fileID: 260565916}
   GateValveDoor: {fileID: 1633942904}
+  LithoDoor: {fileID: 1633942904}
   lamps:
   - {fileID: 0}
   Sensors: []
@@ -11667,7 +11683,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 695997929}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &696612830
 GameObject:
   m_ObjectHideFlags: 0
@@ -15918,7 +15939,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 929944437}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!54 &929944443
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20117,7 +20143,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1185557322}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!54 &1185557328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21033,7 +21064,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1216820796}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &1221908417
 GameObject:
   m_ObjectHideFlags: 0
@@ -28958,7 +28994,7 @@ GameObject:
   - component: {fileID: 1633942903}
   - component: {fileID: 1633942904}
   m_Layer: 0
-  m_Name: SemiconMPSManager
+  m_Name: Backup_SemiconMPSManager1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29012,6 +29048,7 @@ MonoBehaviour:
   GateValveMaxRange: 1.4
   GateValveMinRange: 1.32
   duration: 1
+  isStart: 0
   isUp: 0
   cycleCnt: 0
   cycleTime: 0
@@ -29062,6 +29099,8 @@ MonoBehaviour:
   isLithoGateUp: 0
   isLithoWafer: 0
   isSEMAct: 0
+  LithoAni1: {fileID: 0}
+  LithoAni2: {fileID: 0}
 --- !u!1 &1639029736
 GameObject:
   m_ObjectHideFlags: 0
@@ -29395,7 +29434,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1641414076}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &1643548096
 GameObject:
   m_ObjectHideFlags: 0
@@ -31187,7 +31231,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1749343823}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &1760547095
 GameObject:
   m_ObjectHideFlags: 0
@@ -36938,7 +36987,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 2028010034}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &2041722249
 GameObject:
   m_ObjectHideFlags: 0
@@ -38304,7 +38358,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 0}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
+  isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &2100224230
 GameObject:
   m_ObjectHideFlags: 0
@@ -60625,7 +60684,6 @@ MonoBehaviour:
   LPMBackBaseZMaxRange: -0.00755
   duration: 1
   isUp: 0
-  cycleCnt: 0
   cycleTime: 0
   FoupSensors:
   - {fileID: 1113338672}
@@ -64344,7 +64402,6 @@ MonoBehaviour:
   LPMBackBaseZMaxRange: -0.00379
   duration: 1
   isUp: 0
-  cycleCnt: 0
   cycleTime: 0
   FoupSensors:
   - {fileID: 373925718}
