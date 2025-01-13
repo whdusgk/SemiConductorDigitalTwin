@@ -15,6 +15,7 @@ public class Sensor : MonoBehaviour
     public void Start()
     {
         //OnSensorTower("green");
+        OnVacuumSensor(0);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
