@@ -10,7 +10,7 @@ using UnityEngine;
 /// 전진 또는 후진 시, 전후진 Limit Switch(LS)가 작동한다.
 /// 속성: 실린더로드, Min-Max Range, Duration, 전후방 Limit Switch
 /// </summary>
-public class Backup_SemiconMPSManager : MonoBehaviour
+public class SemiconMPSManager : MonoBehaviour
 {
     [SerializeField] List<Transform> LithoDoor;
     [SerializeField] List<Transform> gateValveDoor;

@@ -34,7 +34,6 @@ public class LPMManager : MonoBehaviour
 
     public bool isUp = false;
 
-    public int cycleCnt = 0;
     public float cycleTime;
 
     [Header("Sensors")]
@@ -50,9 +49,18 @@ public class LPMManager : MonoBehaviour
     {
         // ETC Sensor Caligration(Black)
         foreach (GameObject s in FoupSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+        //StartCoroutine(OnLPMBtnClkEvent());
     }
 
-    public void OnLPMBtnClkEvent()
+    IEnumerator OnLPMBtnClkEvent()
+    {
+        yield return LPMStep(0);
+        yield return LPMStep(1);
+        yield return LPMStep(2);
+        yield return LPMStep(3);
+
+    }
+    IEnumerator LPMStep(int cycleCnt)
     {
         switch (cycleCnt)
         {
@@ -67,7 +75,8 @@ public class LPMManager : MonoBehaviour
                 FoupSensors[1].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-                cycleCnt++;
+                                                                                             //cycleCnt++;
+                yield return new WaitForSeconds(3);
                 break;
 
             case 1:
@@ -77,10 +86,11 @@ public class LPMManager : MonoBehaviour
                 isFoupOpen = false;
                 StartCoroutine(xMoveLPM(LPMBackBase, LPMBackBaseXMinRange, LPMBackBaseXMaxRange, duration));
                 FoupSensors[0].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-                FoupSensors[1].GetComponent<Renderer>().material.color = new Color(1,0.5f,0,1); // Orange
+                FoupSensors[1].GetComponent<Renderer>().material.color = new Color(1, 0.5f, 0, 1); // Orange
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-                cycleCnt++;
+                                                                                             //cycleCnt++;
+                yield return new WaitForSeconds(3); 
                 break;
 
             case 2:
@@ -94,7 +104,8 @@ public class LPMManager : MonoBehaviour
                 FoupSensors[1].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(255, 255, 0); // Yellow
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-                cycleCnt++;
+                                                                                             //cycleCnt++;
+                yield return new WaitForSeconds(3);
                 break;
 
             case 3:
@@ -108,10 +119,11 @@ public class LPMManager : MonoBehaviour
                 FoupSensors[1].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
-                cycleCnt = 0;
+                                                                                               //cycleCnt = 0;
+                //yield return new WaitForSeconds(3);
                 break;
         }
-
+       
     }
 
     IEnumerator xMoveLPM(Transform gate, float min, float max, float duration)

@@ -5327,7 +5327,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 303371972}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &305079353
 GameObject:
   m_ObjectHideFlags: 0
@@ -8599,7 +8602,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &485483631
 MeshRenderer:
@@ -8813,7 +8816,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 487308797}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &491850590
 GameObject:
   m_ObjectHideFlags: 0
@@ -8910,16 +8916,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502837359}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.12, y: 0, z: 1.4899998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1263165285}
-  - {fileID: 334102207}
-  - {fileID: 1926498254}
   - {fileID: 64720429}
-  m_Father: {fileID: 0}
+  - {fileID: 1926498254}
+  - {fileID: 334102207}
+  m_Father: {fileID: 2093848962}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &506916610
 GameObject:
@@ -9118,7 +9124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 511002325}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &517841713
 GameObject:
   m_ObjectHideFlags: 0
@@ -11816,7 +11825,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 695997929}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &696612830
 GameObject:
   m_ObjectHideFlags: 0
@@ -16065,7 +16077,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 929944437}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!54 &929944443
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20263,7 +20278,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1185557322}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!54 &1185557328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21176,7 +21194,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1216820796}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &1221908417
 GameObject:
   m_ObjectHideFlags: 0
@@ -23883,18 +23904,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1633942904}
-        m_TargetAssemblyTypeName: SemiconMPSManager, Assembly-CSharp
-        m_MethodName: OnUpBtnClkEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7805574713624501004}
         m_TargetAssemblyTypeName: LPMManager, Assembly-CSharp
         m_MethodName: OnLPMBtnClkEvent
@@ -23910,6 +23919,18 @@ MonoBehaviour:
       - m_Target: {fileID: 9157937440032524248}
         m_TargetAssemblyTypeName: LPMManager, Assembly-CSharp
         m_MethodName: OnLPMBtnClkEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1633942904}
+        m_TargetAssemblyTypeName: SemiconMPSManager, Assembly-CSharp
+        m_MethodName: OnStartBtnClkEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29350,6 +29371,7 @@ MonoBehaviour:
   GateValveMaxRange: 1.4
   GateValveMinRange: 1.32
   duration: 5
+  isStart: 0
   isUp: 0
   cycleCnt: 0
   cycleTime: 0
@@ -29735,7 +29757,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1641414076}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &1643548096
 GameObject:
   m_ObjectHideFlags: 0
@@ -31581,7 +31606,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1749343823}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &1757150903
 GameObject:
   m_ObjectHideFlags: 0
@@ -36251,6 +36279,132 @@ Transform:
   - {fileID: 1469751304}
   m_Father: {fileID: 1881099287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1973264694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973264695}
+  - component: {fileID: 1973264699}
+  - component: {fileID: 1973264698}
+  - component: {fileID: 1973264697}
+  - component: {fileID: 1973264696}
+  m_Layer: 0
+  m_Name: Foup1PosSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1973264695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973264694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.109, y: 1.129, z: 0.022}
+  m_LocalScale: {x: 0.04999999, y: 0.0056408, z: 0.04999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2093848962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1973264696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973264694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaferSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
+  isWaferSensed: 0
+  isFoupSensed: 0
+--- !u!65 &1973264697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973264694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 1.65, z: 0}
+--- !u!23 &1973264698
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973264694}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1973264699
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973264694}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1975908025
 GameObject:
   m_ObjectHideFlags: 0
@@ -37577,7 +37731,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 2028010034}
+  FoupPosSensor: {fileID: 0}
+  SensorTower: []
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &2041722249
 GameObject:
   m_ObjectHideFlags: 0
@@ -38882,6 +39039,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 502837360}
+  - {fileID: 1973264695}
   - {fileID: 1113338676}
   - {fileID: 335323651}
   - {fileID: 1798486108}
@@ -38939,7 +39098,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 0}
+  FoupPosSensor: {fileID: 0}
+  SensorTower:
+  - {fileID: 64720428}
+  - {fileID: 1926498253}
+  - {fileID: 334102206}
   isWaferSensed: 0
+  isFoupSensed: 0
 --- !u!1 &2100224230
 GameObject:
   m_ObjectHideFlags: 0
@@ -43153,7 +43318,7 @@ Transform:
   m_GameObject: {fileID: 4787244670269860950}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000030908634, y: 0.7071069, z: -0.70710677, w: -0.00000003090862}
-  m_LocalPosition: {x: -0.00137, y: 0, z: 0.00836}
+  m_LocalPosition: {x: -0.00137, y: 0, z: 0.01244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51606,7 +51771,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &4059945786433572027
 BoxCollider:
@@ -52414,7 +52579,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &4367012144036157270
 BoxCollider:
@@ -54140,7 +54305,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &4900179843692299532
 BoxCollider:
@@ -54342,7 +54507,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &4968085637412879967
 BoxCollider:
@@ -54390,7 +54555,7 @@ Transform:
   m_GameObject: {fileID: 5387268850308367388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -0.00379}
+  m_LocalPosition: {x: -0, y: -0, z: 0.00029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55201,7 +55366,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &5347900048199982001
 BoxCollider:
@@ -57455,7 +57620,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6129223728590533012
 BoxCollider:
@@ -58722,7 +58887,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6498971445301721430
 BoxCollider:
@@ -58965,7 +59130,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6581686594276596195
 BoxCollider:
@@ -59295,7 +59460,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6658871575079281947
 BoxCollider:
@@ -59491,7 +59656,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6770300005608778670
 BoxCollider:
@@ -59800,7 +59965,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6977386315992902610
 BoxCollider:
@@ -59973,7 +60138,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &7020812460378050892
 BoxCollider:
@@ -61109,7 +61274,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &7377807040119376697
 BoxCollider:
@@ -62114,7 +62279,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &7677799818109512031
 BoxCollider:
@@ -62637,7 +62802,6 @@ MonoBehaviour:
   LPMBackBaseZMaxRange: -0.00755
   duration: 1
   isUp: 0
-  cycleCnt: 0
   cycleTime: 0
   FoupSensors:
   - {fileID: 1113338672}
@@ -63203,7 +63367,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8032357115017365354
 BoxCollider:
@@ -64898,7 +65062,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8636847793460395022
 BoxCollider:
@@ -65342,13 +65506,63 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8326453481611222178}
+  - component: {fileID: 8762669587853469418}
+  - component: {fileID: 8762669587853469417}
   m_Layer: 0
   m_Name: 300mm SEMI FOUP v5
-  m_TagString: Untagged
+  m_TagString: Foup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!54 &8762669587853469417
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762669587853469416}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &8762669587853469418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762669587853469416}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8780188729984558482
 GameObject:
   m_ObjectHideFlags: 0
@@ -65606,7 +65820,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8867614635578148454
 BoxCollider:
@@ -65669,7 +65883,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8874900442784952641
 BoxCollider:
@@ -65949,7 +66163,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8913323007189434086
 BoxCollider:
@@ -66143,7 +66357,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8936832169192745078
 BoxCollider:
@@ -66237,7 +66451,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8951386766848091365
 BoxCollider:
@@ -66399,7 +66613,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &8990726901305238983
 BoxCollider:
@@ -66503,7 +66717,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &9004445339478971598
 BoxCollider:
@@ -66981,7 +67195,6 @@ MonoBehaviour:
   LPMBackBaseZMaxRange: -0.00379
   duration: 1
   isUp: 0
-  cycleCnt: 0
   cycleTime: 0
   FoupSensors:
   - {fileID: 373925718}
@@ -67059,7 +67272,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &9167451860800074199
 BoxCollider:
@@ -67205,7 +67418,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &9180511753974603997
 BoxCollider:
@@ -67302,7 +67515,6 @@ SceneRoots:
   - {fileID: 1977338671}
   - {fileID: 462459673}
   - {fileID: 260565917}
-  - {fileID: 502837360}
   - {fileID: 2093848962}
   - {fileID: 485483633}
   - {fileID: 1725167274}
