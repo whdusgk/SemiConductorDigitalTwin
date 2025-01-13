@@ -13,9 +13,10 @@ using UnityEngine;
 
 namespace MPS
 {
-
-    public class Backup_SemiconMPSManager : MonoBehaviour
+    [Serializable]
+    public class SemiconMPSManager : MonoBehaviour
     {
+      
         [SerializeField] List<Transform> LithoDoor;
         [SerializeField] List<Transform> gateValveDoor;
         [SerializeField] float LithoMaxRange;
@@ -24,9 +25,8 @@ namespace MPS
         [SerializeField] float GateValveMinRange;
         [SerializeField] float duration;
 
-        public bool isStart = false;
         public bool isUp = false;
-        float currentTime = 0;
+
         public int cycleCnt;
         public float cycleTime;
 
@@ -57,12 +57,8 @@ namespace MPS
         public bool isLithoWafer = false;
         public bool isSEMAct = false;
 
-        public GameObject LithoAni1;
-        public GameObject LithoAni2;
-        public void OnStartBtnClkEvent()
+        private void Start()
         {
-            isStart = true;
-
             // ETC Sensor Caligration(Black)
             //foreach (GameObject s in Foup1Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
             foreach (GameObject s in Foup2Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
@@ -75,69 +71,47 @@ namespace MPS
             // GateDownSensor Caligration(Green)
             foreach (GameObject s in GateValveDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
             foreach (GameObject s in LithoGateDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
-
-            OnGVUpBtnClkEvent(1);
-            OnLithoUpBtnClkEvent(0);
-        
         }
 
-        private void Update()
-        {
-            currentTime += Time.deltaTime;
-            // StartCoroutine(SetAnimator());
-        }
-        IEnumerator SetAnimator()
-        {
-            if (currentTime < 7.8f)
-            {
-                LithoAni1.GetComponent<Animator>().enabled = true;
-                LithoAni2.GetComponent<Animator>().enabled = false;
-            }
-            else
-            {
-                LithoAni2.GetComponent<Animator>().enabled = true;
-            }
-            yield return new WaitForEndOfFrame();
-        }
-   
-    
-        public void OnGVUpBtnClkEvent(int gv)
+        public void OnUpBtnClkEvent()
         {
             if (isUp) return;
 
+            cycleCnt++;
 
-            StartCoroutine(MoveGate(gateValveDoor[gv], GateValveMinRange, GateValveMaxRange, duration));
-            GateValveUpSensors[gv].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
-            GateValveDownSensors[gv].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+            foreach (Transform l in LithoDoor)
+            {
+                StartCoroutine(MoveGate(l, LithoMinRange, LithoMaxRange, duration));
+                LithoGateUpSensors[0].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
+                LithoGateDownSensors[0].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+            }
+
+            foreach (Transform gv in gateValveDoor)
+            {
+                StartCoroutine(MoveGate(gv, GateValveMinRange, GateValveMaxRange, duration));
+                GateValveUpSensors[0].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
+                GateValveDownSensors[0].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+            }
 
         }
-        public void OnGVDownBtnClkEvent(int gv)
+
+        public void OnDownBtnClkEvent()
         {
             if (!isUp) return;
 
-            StartCoroutine(MoveGate(gateValveDoor[gv], GateValveMaxRange, GateValveMinRange, duration));
-            GateValveUpSensors[gv].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-            GateValveDownSensors[gv].GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
+            foreach (Transform l in LithoDoor)
+            {
+                StartCoroutine(MoveGate(l, LithoMaxRange, LithoMinRange, duration));
+                LithoGateUpSensors[0].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+                LithoGateDownSensors[0].GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
+            }
 
-        }
-        public void OnLithoUpBtnClkEvent(int litho)
-        {
-            if (isUp) return;
-
-            StartCoroutine(MoveGate(LithoDoor[litho], LithoMinRange, LithoMaxRange, duration));
-            LithoGateUpSensors[litho].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
-            LithoGateDownSensors[litho].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black    
-
-        }
-        public void OnLithoDownBtnClkEvent(int litho)
-        {
-            if (!isUp) return;
-
-            StartCoroutine(MoveGate(LithoDoor[litho], LithoMaxRange, LithoMinRange, duration));
-            LithoGateUpSensors[litho].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-            LithoGateDownSensors[litho].GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
-    
-       
+            foreach (Transform gv in gateValveDoor)
+            {
+                StartCoroutine(MoveGate(gv, GateValveMaxRange, GateValveMinRange, duration));
+                GateValveUpSensors[0].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+                GateValveDownSensors[0].GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
+            }
         }
 
         IEnumerator MoveGate(Transform gate, float min, float max, float duration)
@@ -146,7 +120,7 @@ namespace MPS
             Vector3 minPos = new Vector3(gate.transform.localPosition.x, min, gate.transform.localPosition.z);
             Vector3 maxPos = new Vector3(gate.transform.localPosition.x, max, gate.transform.localPosition.z);
 
-            currentTime = 0;
+            float currentTime = 0;
 
             while (currentTime <= duration)
             {

@@ -15,9 +15,9 @@ using Unity.VisualScripting;
 /// 필요속성: 로봇의 모터 회전 속도(0~100), Duration, Min Angle, Max Angle
 ///          step(speed, duration, suction, angles)
 /// </summary>
-
 namespace MPS
 {
+
 
     public class SemiconRobotControl : MonoBehaviour
     {
@@ -303,7 +303,7 @@ namespace MPS
         bool isSuctionOn;
         public void OnLoadBtnClkEvent(string path)
         {
-            path = "robotSteps4DoF_12.csv"; // robotSteps_0.csv
+            path = "robotSteps4DoF_9.csv"; // robotSteps_0.csv
 
             if (File.Exists(path))
             {
