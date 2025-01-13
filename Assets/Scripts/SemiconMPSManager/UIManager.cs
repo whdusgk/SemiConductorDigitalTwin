@@ -9,10 +9,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_InputField EnergyConsumptionInpuField;
     [SerializeField] TMP_InputField TemperatureInpuField;
     [SerializeField] TMP_InputField HumidityInpuField;
-    [SerializeField] TMP_InputField ProductsInpuField;
+    [SerializeField] TMP_Text ProductsText;
 
     [SerializeField] List<TMP_InputField> ProcessPositionsInpuField = new List<TMP_InputField>();
-    [SerializeField] List<TMP_InputField> RobotPositionsInpuField = new List<TMP_InputField>();
+    [SerializeField] List<TMP_InputField> RobotPositionsInpuField = new List<TMP_InputField>();// 미구현
     [SerializeField] List<Toggle> FoupSensorsToggle = new List<Toggle>();
     [SerializeField] List<Toggle> VacuumSensorsToggle = new List<Toggle>();
     [SerializeField] List<Toggle> LoadlockSensorsToggle = new List<Toggle>();
@@ -25,21 +25,23 @@ public class UIManager : MonoBehaviour
     [SerializeField] Toggle SEMSensorToggle;
     [SerializeField] TMP_InputField SEMPositionInpuField;
 
-    [SerializeField] List<RawImage> ChipData = new List<RawImage>();
-    [SerializeField] TMP_InputField DefectiveRateInpuField;
+    [SerializeField] List<RawImage> ChipDataRawImage = new List<RawImage>(); // 미구현
+    public List<float> ChipData; // 미구현
+    [SerializeField] TMP_Text DefectiveRateText; // 미구현
     [SerializeField] Toggle GoodToggle;
     [SerializeField] Toggle DefectiveToggle;
 
-    [SerializeField] TMP_InputField GDProductsInpuField;
+    [SerializeField] TMP_Text GDProductsText;
 
-
+    [SerializeField] TMP_InputField GoodInpuField; // 미구현
+    [SerializeField] TMP_InputField DefectiveInpuField; // 미구현
 
     void Start()
     {
         EnergyConsumptionInpuField.text = Random.Range(0, 10).ToString();
         TemperatureInpuField.text = Random.Range(0, 10).ToString();
         HumidityInpuField.text = Random.Range(0, 10).ToString();
-        ProductsInpuField.text = Random.Range(0, 10).ToString();
+        ProductsText.text = Random.Range(0, 10).ToString();
 
         ProcessPositionsInpuField[0].text = "0,0,0";
         ProcessPositionsInpuField[1].text = "0,0,0";
@@ -52,6 +54,29 @@ public class UIManager : MonoBehaviour
         FoupSensorsToggle[1].isOn = false;
 
         VacuumSensorsToggle[0].isOn = false;
+        VacuumSensorsToggle[1].isOn = false;
+        VacuumSensorsToggle[2].isOn = false;
+        VacuumSensorsToggle[3].isOn = false;
+        VacuumSensorsToggle[4].isOn = false;
+        VacuumSensorsToggle[5].isOn = false;
+        VacuumSensorsToggle[6].isOn = false;
+
+        LoadlockSensorsToggle[0].isOn = false;
+        LoadlockSensorsToggle[1].isOn = false;
+
+        AlignSensorToggle.isOn = false;
+        LithoSensorToggle.isOn = false;
+        AlignPositionInpuField.text = "0,0,0";
+        LithoPositionInpuField.text = "0,0,0";
+
+        SEMSensorToggle.isOn = false;
+        SEMPositionInpuField.text = "0,0,0";
+
+        GoodToggle.isOn = false;
+        DefectiveToggle.isOn = false;
+
+        GDProductsText.text = "Good/Defective Products";
+
     }
 
     // Update is called once per frame

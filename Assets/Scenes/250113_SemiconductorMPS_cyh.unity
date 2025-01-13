@@ -2952,7 +2952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &180467722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26423,7 +26423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1502259769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29436,8 +29436,8 @@ MonoBehaviour:
   isLithoGateUp: 0
   isLithoWafer: 0
   isSEMAct: 0
-  LithoAni1: {fileID: 8036703532793583435}
-  LithoAni2: {fileID: 7063638225188437139}
+  LithoAni1: {fileID: 0}
+  LithoAni2: {fileID: 0}
 --- !u!1 &1639029736
 GameObject:
   m_ObjectHideFlags: 0
@@ -32742,8 +32742,8 @@ RectTransform:
   - {fileID: 783093161}
   - {fileID: 1198871697}
   - {fileID: 175611981}
-  - {fileID: 328654900}
   - {fileID: 2077124541}
+  - {fileID: 328654900}
   m_Father: {fileID: 1502259772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -38054,8 +38054,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2065362660}
+  - component: {fileID: 2065362661}
   m_Layer: 0
-  m_Name: Canvases
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38083,6 +38084,96 @@ Transform:
   - {fileID: 635600365}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065362661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065362659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ca3f437753c224e8f3c37a14bb2ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnergyConsumptionInpuField: {fileID: 888493563}
+  TemperatureInpuField: {fileID: 416789132}
+  HumidityInpuField: {fileID: 783093162}
+  ProductsText: {fileID: 2077124542}
+  ProcessPositionsInpuField:
+  - {fileID: 114100392}
+  - {fileID: 1641291541}
+  - {fileID: 701314721}
+  - {fileID: 621465680}
+  - {fileID: 1571586282}
+  - {fileID: 137345026}
+  RobotPositionsInpuField:
+  - {fileID: 1827441706}
+  - {fileID: 233509588}
+  - {fileID: 409667815}
+  - {fileID: 1155924358}
+  - {fileID: 143866069}
+  FoupSensorsToggle:
+  - {fileID: 1347728660}
+  - {fileID: 529064151}
+  VacuumSensorsToggle:
+  - {fileID: 517841715}
+  - {fileID: 924033579}
+  - {fileID: 1862430200}
+  LoadlockSensorsToggle:
+  - {fileID: 1520528325}
+  - {fileID: 390106830}
+  AlignSensorToggle: {fileID: 1425971799}
+  AlignPositionInpuField: {fileID: 292076050}
+  LithoSensorToggle: {fileID: 593303360}
+  LithoPositionInpuField: {fileID: 2091907906}
+  SEMSensorToggle: {fileID: 472515324}
+  SEMPositionInpuField: {fileID: 1799309707}
+  ChipDataRawImage:
+  - {fileID: 491850592}
+  - {fileID: 234500357}
+  - {fileID: 902834338}
+  - {fileID: 1301741800}
+  - {fileID: 1048573582}
+  - {fileID: 637753378}
+  - {fileID: 553233068}
+  - {fileID: 1266938292}
+  - {fileID: 742892021}
+  - {fileID: 1451800262}
+  - {fileID: 1427772312}
+  - {fileID: 1786577034}
+  - {fileID: 726222803}
+  - {fileID: 1737447130}
+  - {fileID: 164937350}
+  - {fileID: 1114330336}
+  - {fileID: 1578506889}
+  - {fileID: 1694732096}
+  - {fileID: 1929379584}
+  - {fileID: 665232348}
+  - {fileID: 1987864602}
+  - {fileID: 1000687859}
+  - {fileID: 1970115241}
+  - {fileID: 1072303710}
+  - {fileID: 882119479}
+  - {fileID: 282337206}
+  - {fileID: 533784914}
+  - {fileID: 678724322}
+  - {fileID: 1132016687}
+  - {fileID: 1242539981}
+  - {fileID: 831991860}
+  - {fileID: 305079355}
+  - {fileID: 2126925464}
+  - {fileID: 2091840168}
+  - {fileID: 1889366845}
+  - {fileID: 777104269}
+  - {fileID: 319228584}
+  ChipData: []
+  DefectiveRateText: {fileID: 1850529761}
+  GoodToggle: {fileID: 824212589}
+  DefectiveToggle: {fileID: 1227929571}
+  GDProductsText: {fileID: 656140281}
+  GoodInpuField: {fileID: 1396605057}
+  DefectiveInpuField: {fileID: 1734259892}
 --- !u!1 &2077124540
 GameObject:
   m_ObjectHideFlags: 0
@@ -38095,7 +38186,7 @@ GameObject:
   - component: {fileID: 2077124543}
   - component: {fileID: 2077124542}
   m_Layer: 5
-  m_Name: Products Text (TMP) (1)
+  m_Name: Products Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
