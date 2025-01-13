@@ -134,7 +134,7 @@ public class MxComponent : MonoBehaviour
             print($"에러가 발생하였습니다. 에러코드: {returnValue}");
         }
     } 
-    public static string Reverse(string input) //역순으로 변환 
+    public static string Reverse(string input) // 읽은 데이터를 2진수로 변환하고, 그 값을 역순으로 출력하는 기능
     {
         char[] chars = input.ToCharArray();
         Array.Reverse(chars);
