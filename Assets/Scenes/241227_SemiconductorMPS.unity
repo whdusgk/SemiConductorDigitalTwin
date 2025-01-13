@@ -5329,8 +5329,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 303371972}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &305079353
 GameObject:
   m_ObjectHideFlags: 0
@@ -8818,8 +8820,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 487308797}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &491850590
 GameObject:
   m_ObjectHideFlags: 0
@@ -9126,8 +9130,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 511002325}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &517841713
 GameObject:
   m_ObjectHideFlags: 0
@@ -11827,8 +11833,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 695997929}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &696612830
 GameObject:
   m_ObjectHideFlags: 0
@@ -16079,8 +16087,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 929944437}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!54 &929944443
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20280,8 +20290,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 1185557322}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!54 &1185557328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21196,8 +21208,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 1216820796}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &1221908417
 GameObject:
   m_ObjectHideFlags: 0
@@ -29759,8 +29773,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 1641414076}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &1643548096
 GameObject:
   m_ObjectHideFlags: 0
@@ -31608,8 +31624,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 1749343823}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &1757150903
 GameObject:
   m_ObjectHideFlags: 0
@@ -36329,8 +36347,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 1973264694}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!65 &1973264697
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37733,8 +37753,10 @@ MonoBehaviour:
   WaferSensor: {fileID: 2028010034}
   FoupPosSensor: {fileID: 0}
   SensorTower: []
+  VacuumSensors: []
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &2041722249
 GameObject:
   m_ObjectHideFlags: 0
@@ -39103,8 +39125,17 @@ MonoBehaviour:
   - {fileID: 64720428}
   - {fileID: 1926498253}
   - {fileID: 334102206}
+  VacuumSensors:
+  - {fileID: 1724625724}
+  - {fileID: 1285026950}
+  - {fileID: 1885468624}
+  - {fileID: 779798415}
+  - {fileID: 532068368}
+  - {fileID: 230043549}
+  - {fileID: 1304588512}
   isWaferSensed: 0
   isFoupSensed: 0
+  isVacuumOn: 0
 --- !u!1 &2100224230
 GameObject:
   m_ObjectHideFlags: 0
