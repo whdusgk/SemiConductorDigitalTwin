@@ -2952,7 +2952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &180467722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31149,9 +31149,9 @@ MonoBehaviour:
   xDeviceBlockSize: 2
   yDeviceBlockSize: 2
   dDeviceBlockSize: 2
-  xDevices: 00000000000000000000000000000000
-  yDevices: 00000000000000000000000000000000
-  dDevices: 0000000000000000
+  xDevices: 
+  yDevices: 
+  dDevices: 
   dataToServer: 
   dataFromServer: 
 --- !u!4 &1725167274
@@ -31668,7 +31668,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757150903}
   m_Enabled: 0
-  m_VideoClip: {fileID: 32900000, guid: 6b1a52afc6f468a4f9debcee128c6c05, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 4b8f06fcc9145cb42b4f6b5db57bf7f6, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -38113,18 +38113,11 @@ MonoBehaviour:
   - {fileID: 409667815}
   - {fileID: 1155924358}
   - {fileID: 143866069}
-  RobotPositions:
-  - {fileID: 74675627614896535}
-  - {fileID: 181718199}
-  - {fileID: 1569481995}
-  - {fileID: 1863708087}
-  - {fileID: 1081304192}
   FoupSensorsToggle:
   - {fileID: 1347728660}
   - {fileID: 529064151}
   VacuumSensorsToggle:
   - {fileID: 517841715}
-  - {fileID: 1778349967}
   - {fileID: 924033579}
   - {fileID: 1862430200}
   LoadlockSensorsToggle:
@@ -38174,6 +38167,7 @@ MonoBehaviour:
   - {fileID: 1889366845}
   - {fileID: 777104269}
   - {fileID: 319228584}
+  ChipData: []
   DefectiveRateText: {fileID: 1850529761}
   GoodToggle: {fileID: 824212589}
   DefectiveToggle: {fileID: 1227929571}
@@ -63881,14 +63875,13 @@ MonoBehaviour:
   speed: 2
   cycleTime: 0
   duration: 1
-  ChipData: []
   SEMAxis1: {fileID: 1881099287}
   SEMAxis2: {fileID: 1971976262}
   SEMAxis3: {fileID: 1469751304}
   SEMAxis4: {fileID: 612001986}
   SEMAxis5: {fileID: 2115753646}
   SEMAxis6: {fileID: 1994618902}
-  SEMCount: 0
+  SEMCase: 0
 --- !u!4 &8139236217849872367
 Transform:
   m_ObjectHideFlags: 0
