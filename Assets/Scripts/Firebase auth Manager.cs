@@ -15,8 +15,12 @@ using System.Diagnostics;
 /// 2. 회원가입: 이메일, 패스워드 입력 후 이메일 인증이 완료된다면 회원가입이 된다.
 /// 3. 데이터 불러오기: 권한에 따라 DB의 특정 정보를 불러온다.
 /// </summary>
+
+
 public class FirebaseAuthManager : MonoBehaviour
 {
+    public static FirebaseAuthManager instance; 
+
     [Header("로그인 UI")]
     [SerializeField] GameObject loginPanel;
     [SerializeField] GameObject iDInfoPanel;
@@ -36,6 +40,7 @@ public class FirebaseAuthManager : MonoBehaviour
     FirebaseAuth auth;
     FirebaseUser user;
     bool signedIn;
+    public bool isPermission = false;
 
     // 실행할 EXE 파일의 경로
     string exeFilePath = @"C:\Users\제5강의실-12\Desktop\고준수\Server.EX3\Server.EX3\bin\Debug\net8.0\Server.EX3.exe";  // 수정 필요
@@ -61,6 +66,17 @@ public class FirebaseAuthManager : MonoBehaviour
             print("EXE 실행 중 오류 발생: " + e.Message);
         }
     }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+
+
     void Start()
     {
 
@@ -129,6 +145,8 @@ public class FirebaseAuthManager : MonoBehaviour
         yield return new WaitUntil(() => logInTask.IsCompleted);
 
         user = logInTask.Result.User;
+
+        isPermission = true;
 
         // 이메일 인증 관련 코드 제거
 

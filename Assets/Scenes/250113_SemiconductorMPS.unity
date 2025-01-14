@@ -9951,9 +9951,11 @@ MonoBehaviour:
   - {fileID: 260565916}
   GateValveDoor: {fileID: 1633942904}
   LithoDoor: {fileID: 1633942904}
+  STRAT: {fileID: 1633942904}
+  Sensors: {fileID: 2093848963}
+  SEMManager: {fileID: 0}
   lamps:
   - {fileID: 0}
-  Sensors: []
 --- !u!4 &586322241
 Transform:
   m_ObjectHideFlags: 0
@@ -28994,7 +28996,7 @@ GameObject:
   - component: {fileID: 1633942903}
   - component: {fileID: 1633942904}
   m_Layer: 0
-  m_Name: Backup_SemiconMPSManager1
+  m_Name: SemiconMPSManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

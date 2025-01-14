@@ -36,15 +36,6 @@ using NUnit.Framework;
 
         private void Awake() // 제일먼저 시작
         {
-            if(Instance == null)
-            {
-                Instance = this;
-            }
-        }
-
-        void Start()
-        {
-       
             try
             {
 
@@ -60,7 +51,7 @@ using NUnit.Framework;
                 print(ex);
                 print("서버를 먼저 작동시켜 주세요.");
             }
-       
+
             msg = Request("Connect"); //connect 일 경우 ok
 
             if (msg.Contains("CONNECTED"))
@@ -84,6 +75,18 @@ using NUnit.Framework;
                 dDevices += "0000000000000000";
             }
 
+
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+       
+
+        }
+
+        void Start()
+        {
+       
         }
 
         // Update is called once per frame
