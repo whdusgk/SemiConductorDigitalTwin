@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,14 +8,15 @@ namespace MPS
 {
     public class UIManager : MonoBehaviour
     {
-        public static UIManager uiManager;
-        SEMManager semManager;
+        public static UIManager Instance;
+
         [SerializeField] TMP_InputField EnergyConsumptionInpuField;
         [SerializeField] TMP_InputField TemperatureInpuField;
         [SerializeField] TMP_InputField HumidityInpuField;
         [SerializeField] TMP_Text ProductsText;
 
         [SerializeField] List<TMP_InputField> ProcessPositionsInpuField = new List<TMP_InputField>();
+        [SerializeField] List<Transform> ProcessPositions = new List<Transform>();
         [SerializeField] List<TMP_InputField> RobotPositionsInpuField = new List<TMP_InputField>();
         [SerializeField] List<Transform> RobotPositions = new List<Transform>();
         [SerializeField] List<Toggle> FoupSensorsToggle = new List<Toggle>();
@@ -23,23 +25,34 @@ namespace MPS
 
         [SerializeField] Toggle AlignSensorToggle;
         [SerializeField] TMP_InputField AlignPositionInpuField;
+        public Transform AlignLithoZig1;
+
         [SerializeField] Toggle LithoSensorToggle;
         [SerializeField] TMP_InputField LithoPositionInpuField;
+        public Transform AlignLithoZig2;
 
-        [SerializeField] Toggle SEMSensorToggle;
-        [SerializeField] TMP_InputField SEMPositionInpuField;
+        public Toggle SEMSensorToggle;
+        public TMP_InputField SEMPositionInpuField;
 
-        public List<RawImage> ChipDataRawImage = new List<RawImage>(); // 미구현
+        public List<RawImage> ChipDataRawImage = new List<RawImage>(); 
 
-        [SerializeField] TMP_Text DefectiveRateText; // 미구현
-        [SerializeField] Toggle GoodToggle;
-        [SerializeField] Toggle DefectiveToggle;
+        public TMP_Text DefectiveRateText;
+        public Toggle GoodToggle;
+        public Toggle DefectiveToggle;
 
-        [SerializeField] TMP_Text GDProductsText;
+        public TMP_Text GDChipText;
 
-        [SerializeField] TMP_InputField GoodInpuField; // 미구현
-        [SerializeField] TMP_InputField DefectiveInpuField; // 미구현
+        public TMP_InputField GoodProductInpuField; 
+        public TMP_InputField DefectiveProductInpuField; 
 
+
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+        }
         void Start()
         {
             EnergyConsumptionInpuField.text = Random.Range(0, 10).ToString();
@@ -47,12 +60,13 @@ namespace MPS
             HumidityInpuField.text = Random.Range(0, 10).ToString();
             ProductsText.text = Random.Range(0, 10).ToString();
 
-            ProcessPositionsInpuField[0].text = "0,0,0";
-            ProcessPositionsInpuField[1].text = "0,0,0";
-            ProcessPositionsInpuField[2].text = "0,0,0";
-            ProcessPositionsInpuField[3].text = "0,0,0";
-            ProcessPositionsInpuField[4].text = "0,0,0";
-            ProcessPositionsInpuField[5].text = "0,0,0";
+
+            ProcessPositionsInpuField[0].text = "(-2.816 , 0 , 0)";
+            ProcessPositionsInpuField[1].text = "(-1.571 , 0 , 0)";
+            ProcessPositionsInpuField[2].text = "(0 , 0 , 0)";
+            ProcessPositionsInpuField[3].text = "(1.869 , 0 , 0)";
+            ProcessPositionsInpuField[4].text = "(3.489 , 0 , 0)";
+            ProcessPositionsInpuField[5].text = "(4.745 , 0 , 0)";
 
             FoupSensorsToggle[0].isOn = false;
             FoupSensorsToggle[1].isOn = false;
@@ -70,8 +84,7 @@ namespace MPS
 
             AlignSensorToggle.isOn = false;
             LithoSensorToggle.isOn = false;
-            AlignPositionInpuField.text = "0,0,0";
-            LithoPositionInpuField.text = "0,0,0";
+
 
             SEMSensorToggle.isOn = false;
             SEMPositionInpuField.text = "0,0,0";
@@ -79,9 +92,9 @@ namespace MPS
             GoodToggle.isOn = false;
             DefectiveToggle.isOn = false;
 
-            GDProductsText.text = "Good/Defective Products";
-            //ChipDataMeasure();
-            print("semManager.SEMCount: " + semManager.SEMCount);
+            GDChipText.text = "Good/Defective Products";
+
+
         }
 
         // Update is called once per frame
@@ -90,22 +103,33 @@ namespace MPS
             for (int r = 0; r < 5; r++)
                 RobotPositionsInpuField[r].text = RobotPositions[r].localPosition.ToString();
 
-            /*        if (semManager.ChipData[0] >= 0 && semManager.ChipData[0] < 11)
-                        ChipDataRawImage[0].color = new Color(0, 255, 0);
-                    //ChipDataRawImage[semManager.SEMCount].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
-                    else if (semManager.ChipData[semManager.SEMCount] < 3)
-                        ChipDataRawImage[semManager.SEMCount].GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
-                    else //if (ChipData[SEMCount] >= 6)
-                        ChipDataRawImage[semManager.SEMCount].color = new Color(255, 255, 0);*/
+            //Foup Sensor Toggle 구현
+            /*            if(Sensor.Instance.isFoupSensed = true)
+                        {
+                            FoupSensorsToggle[0].isOn = true;
+                        }*/
+
+            //Vacuum Sensor Toggle 구현
+            /*            if(SemiconMPSManager.Instance.isVacuum = true)
+                        {
+                            foreach(Toggle v in VacuumSensorsToggle)
+                                v.isOn = true;
+                        }*/
+
+            //Loadlock Sensor Toggle 구현(삭제 고려)
+
+            //AlignLitho Sensor Toggle 구현
+            /*if (SemiconMPSManager.Instance.LithoAni1.GetComponent<Animator>().enabled == true)
+                AlignSensorToggle.isOn = true;
+            if (SemiconMPSManager.Instance.LithoAni2.GetComponent<Animator>().enabled == true)
+                LithoSensorToggle.isOn = true;*/
+
+            AlignPositionInpuField.text = AlignLithoZig1.localPosition.ToString();
+            LithoPositionInpuField.text = AlignLithoZig2.localPosition.ToString();
+
         }
-        public void ChipDataMeasure()
-        {
-            while (true)
-            {
-                print("semManager.SEMCount: "+  semManager.SEMCount);
-                ChipDataRawImage[semManager.SEMCount].color = new Color(0, 255, 0);
-            }
-        }
+
+       
     }
 
 }
