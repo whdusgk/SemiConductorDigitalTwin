@@ -12,6 +12,9 @@ using UnityEngine;
 /// </summary>
 public class SemiconMPSManager : MonoBehaviour
 {
+
+    public static SemiconMPSManager instance;
+
     [SerializeField] List<Transform> LithoDoor;
     [SerializeField] List<Transform> gateValveDoor;
     [SerializeField] float LithoMaxRange;
@@ -19,6 +22,9 @@ public class SemiconMPSManager : MonoBehaviour
     [SerializeField] float GateValveMaxRange;
     [SerializeField] float GateValveMinRange;
     [SerializeField] float duration;
+
+    
+
 
     public bool isStart = false;
     public bool isUp = false;
@@ -55,6 +61,15 @@ public class SemiconMPSManager : MonoBehaviour
 
     public GameObject LithoAni1;
     public GameObject LithoAni2;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     public void OnStartBtnClkEvent()
     {
         isStart = true;
@@ -80,7 +95,7 @@ public class SemiconMPSManager : MonoBehaviour
     private void Update()
     {
         currentTime += Time.deltaTime;
-        StartCoroutine(SetAnimator());
+       // StartCoroutine(SetAnimator());
     }
     IEnumerator SetAnimator()
     {
@@ -158,6 +173,5 @@ public class SemiconMPSManager : MonoBehaviour
         isUp = !isUp;
 
     }
-
 }
 
