@@ -8,6 +8,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:398380329919:android:1af265d440293974274f0a",
+        "android_client_info": {
+          "package_name": "com.bandeulbandeul.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4y0_9jtd9lCPE65og-1TW-RzJa7ZeoWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:398380329919:android:286c3aa8235a228e274f0a",
         "android_client_info": {
           "package_name": "com.junsu"

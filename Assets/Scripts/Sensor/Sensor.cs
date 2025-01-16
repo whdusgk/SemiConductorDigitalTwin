@@ -34,14 +34,14 @@ namespace MPS
 
         public void Start()
         {
-            //OnSensorTower("green");
+            OnSensorTower("green");
             //OnVacuumSensor(0);
         }
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+
         public void OnSensorTower(string color)
         {
-            switch(color)
+            switch (color)
             {
                 case "red":
                     SensorTower[0].GetComponent<Renderer>().material.color = new Color(255, 0, 0); // RED
@@ -67,7 +67,7 @@ namespace MPS
                     SensorTower[2].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                     break;
 
-            }        
+            }
         }
 
         /*public void OnVacuumSensor(int vs)

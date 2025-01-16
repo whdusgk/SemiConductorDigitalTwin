@@ -23,6 +23,9 @@ public class SemiconMPSManager : MonoBehaviour
     [SerializeField] float GateValveMinRange;
     [SerializeField] float duration;
 
+    
+
+
     public bool isStart = false;
     public bool isUp = false;
     float currentTime = 0;

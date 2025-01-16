@@ -9954,8 +9954,65 @@ MonoBehaviour:
   STRAT: {fileID: 1633942904}
   Sensors: {fileID: 2093848963}
   SEMManager: {fileID: 0}
+  startBtnState: 0
   lamps:
   - {fileID: 0}
+  firebaseDBManager: {fileID: 592614598}
+  processData:
+    loginInfo:
+      loginTime: 
+    process0:
+      energyConsumption: 0
+      temperature: 0
+      humidity: 0
+      defectiveTotalProducts: 
+    process1:
+      processPosition: 
+      foupSensor: 0
+      foupActionCount: 0
+      robot1EndPosition: 
+      robot1ActionCount: 0
+    process2:
+      processPosition: 
+      vacuumSensor: 0
+      loadlockSensor: 0
+      robot2EndPosition: 
+      robot2ActionCount: 0
+    process3:
+      processPosition: 
+      vacuumSensor: 0
+      alignSensor: 0
+      alignPosition: 
+      alignActionCount: 0
+      lithoSensor: 0
+      lithoPosition: 
+      lithoActionCount: 0
+    process4:
+      processPosition: 
+      vacuumSensor: 0
+      robot3EndPosition: 
+      robot3ActionCount: 0
+      semSensor: 0
+      semPosition: 
+      semActionCount: 0
+      results:
+        chipData: 0
+        defectiveRate: 0
+        good: 0
+        defective: 0
+    process5:
+      processPosition: 
+      vacuumSensor: 0
+      loadlockSensor: 0
+      robot4EndPosition: 
+      robot4ActionCount: 0
+    process6:
+      processPosition: 
+      robot5EndPosition: 
+      robot5ActionCount: 0
+      foupSensor: 0
+      goodProductsDefectiveProducts: 
+  isRunning: 0
 --- !u!4 &586322241
 Transform:
   m_ObjectHideFlags: 0

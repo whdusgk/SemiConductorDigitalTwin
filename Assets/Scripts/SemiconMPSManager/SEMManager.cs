@@ -98,7 +98,5 @@ namespace MPS
             }
             yield return new WaitForSeconds(duration);
         }
-
-    
     }
 }
