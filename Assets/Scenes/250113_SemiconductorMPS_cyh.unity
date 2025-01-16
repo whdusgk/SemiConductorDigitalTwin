@@ -62930,8 +62930,8 @@ MonoBehaviour:
   FoupDoorZMaxRange: 0.00874
   LPMBackBaseXMinRange: 0
   LPMBackBaseXMaxRange: -0.00026
-  LPMBackBaseZMinRange: -0.00379
-  LPMBackBaseZMaxRange: -0.00755
+  LPMBackBaseZMinRange: 0.00029
+  LPMBackBaseZMaxRange: -0.00368
   duration: 1
   isUp: 0
   cycleTime: 0
