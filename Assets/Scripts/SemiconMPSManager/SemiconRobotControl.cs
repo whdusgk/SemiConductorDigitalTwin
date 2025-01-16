@@ -83,9 +83,10 @@ public class SemiconRobotControl : MonoBehaviour
     void Start()
     {
         originStep = new Step(-1, 100, 0);
-        OnLoadBtnClkEvent(robotFile);
+        OnLoadBtnClkEvent("robotSteps4DoF_12.csv");
 
         RobotActSensor.GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
+        OnCycleBtnClkEvent();
     }
 
    
@@ -299,7 +300,7 @@ public class SemiconRobotControl : MonoBehaviour
     bool isSuctionOn;
     public void OnLoadBtnClkEvent(string path)
     {
-        path = "robotSteps4DoF_12.csv"; // robotSteps_0.csv
+        //path = "robotSteps4DoF_12.csv"; // robotSteps_0.csv
 
         if (File.Exists(path))
         {
