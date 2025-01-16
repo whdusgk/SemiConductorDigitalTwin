@@ -5,7 +5,6 @@ using UnityEngine;
 using System.Net.Http;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
-using static FirebaseDBManager;
 
 
 
@@ -15,105 +14,57 @@ namespace MPS
 
     public class MPSManager : MonoBehaviour
     {
-        public static MPSManager instance;
-
         [SerializeField] List<SemiconRobotControl> SemiconRobotControl = new List<SemiconRobotControl>();
         [SerializeField] SemiconMPSManager GateValveDoor = new SemiconMPSManager();
         [SerializeField] SemiconMPSManager LithoDoor = new SemiconMPSManager();
         [SerializeField] SemiconMPSManager STRAT = new SemiconMPSManager();
         [SerializeField] Sensor Sensors = new Sensor();
         [SerializeField] SEMManager SEMManager = new SEMManager();
-       // [SerializeField] FirebaseDBManager firebaseDBManager;
         [SerializeField] int startBtnState = 0;
-        [SerializeField] List<SemiconRobotControl> lamps = new List<SemiconRobotControl>();
-        [SerializeField] FirebaseDBManager firebaseDBManager;
 
-        // ProcessData 객체 생성
-        public ProcessData processData = new ProcessData();
-        public bool isRunning = false;  
+        [SerializeField] List<SemiconRobotControl> lamps = new List<SemiconRobotControl>();
+
+       
+
+        //[SerializeField] private int startBtnState = 0;
         int count;
 
         Color redLamp;
         Color yellowLamp;
         Color greenLamp;
 
-        int StartButton;
-        int SemiconRobotARM1Action;
-        int SemiconRobotARM2Action;
-        int SemiconRobotARM3Action;
-        int SemiconRobotARM4Action;
-        int SemiconRobotARM5Action;
-        int GateValveDoor000Open;
-        int GateValveDoor001Open;
-        int GateValveDoor002Open;
-        int GateValveDoor003Open;
-        int GateValveDoor004Open;
-        int GateValveDoor005Open;
-        int GateValveDoor000Close;
-        int GateValveDoor001Close;
-        int GateValveDoor002Close;
-        int GateValveDoor003Close;
-        int GateValveDoor004Close;
-        int GateValveDoor005Close;
-        int LithoDoor1Open;
-        int LithoDoor6Open;
-        int LithoDoor1Close;
-        int LithoDoor6Close;
-        int SEMBodyAction;
-        int LPMFoupOpen;
-        int SensorTowerRedOn;
-        int SensorTowerGreenOnRedOff;
-        int ProcessStaying;
-        int UnitySignalWaiting;
-        int Gate2_8SectorVacuum;
-        int ProcessReset;
-        int RepeatT0;
 
-        /* private void Awake()
-         {
-             redLamp = lamps[0].material.GetColor("_BaseColor");
-             yellowLamp = lamps[1].material.GetColor("_BaseColor");
-             greenLamp = lamps[2].material.GetColor("_BaseColor");
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-             OnLampOnOffBtnClkEvent("Red", false);
-             OnLampOnOffBtnClkEvent("Yellow", false);
-             OnLampOnOffBtnClkEvent("Green", false);
-         }*/
-
-
-        private void Awake()
+       /* private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-        }
+            redLamp = lamps[0].material.GetColor("_BaseColor");
+            yellowLamp = lamps[1].material.GetColor("_BaseColor");
+            greenLamp = lamps[2].material.GetColor("_BaseColor");
+
+            OnLampOnOffBtnClkEvent("Red", false);
+            OnLampOnOffBtnClkEvent("Yellow", false);
+            OnLampOnOffBtnClkEvent("Green", false);
+        }*/
 
         void Start()
         {
-            // ProcessData 객체 초기화 및 데이터 설정
-            InitializeProcessData();
 
-            // Firebase에 데이터 전송
-            SendDataToFirebase();
         }
 
         void Update()
         {
             UpdateYDevices();
-            UpdateXDevices();
-            SendDataToFirebase();
+            UpdateXDevices(); 
 
-            if (true)
-            {
-                ProcessData processData = new ProcessData();  // 예시 데이터 생성
-                processData.loginInfo = new LoginInfo { loginTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") };
+            
 
-            }
         }
 
         void UpdateXDevices()
         {
+
+
             // X 디바이스 값 생성
             string xDeviceValue =
                                     $"1" +                                                       // X0: Power On (Rising Pulse)
@@ -121,14 +72,18 @@ namespace MPS
                                     $"{(SemiconMPSManager.instance.isStart ? 1 : 0)}" +          // X2: Start Button (공정 가동 버튼)
                                     $"{(Sensor.instance.isFoupSensed ? 1 : 0)}";                 // X3: FOUP 감지 (isFoupSensed 상태)                     
 
+            //$"{(startBtnState == 1 ? 1 : 0)}" +   
 
-            string deviceName = "X0";   // 디바이스 이름 예시
-            int blockSize = 2;          // 블록 크기 (xDeviceValue의 비트 단위로 분할)
 
-            TCPClient.Instance.xDevices = xDeviceValue;  // "0110" -> "6", "1010101010000111100010" = "12133",  "10101010100001111000/10101010101000011110001/01010101010000111100/0101010101010000111100010" = "15,0,0,0"
 
-            // WriteDevices 호출하여 데이터를 전송
-            string result = TCPClient.Instance.WriteDevices(deviceName, blockSize, xDeviceValue);
+
+           
+
+            //TCPClient.Instance.xDevices = xDeviceValue;  // "0110" -> "6", "1010101010000111100010" = "12133",  "10101010100001111000/10101010101000011110001/01010101010000111100/0101010101010000111100010" = "15,0,0,0"
+                                                       
+            //int xDeviceValueName = Convert.ToInt32(xDeviceValue, 2);  // 2진수를 10진수로 변환
+
+            print("XXXXXXXXX" + xDeviceValue);
         }
 
         void UpdateYDevices()
@@ -141,37 +96,37 @@ namespace MPS
             if (TCPClient.Instance.yDevices.Length == 0)
                 return;
 
-            StartButton                    = TCPClient.Instance.yDevices[4] - '0';   // Y4: Start 버튼
-            SemiconRobotARM1Action         = TCPClient.Instance.yDevices[9] - '0';   // Y9: 세미콘 로봇 ARM1 동작
-            SemiconRobotARM2Action         = TCPClient.Instance.yDevices[13] - '0';  // Y13: 세미콘 로봇 ARM2 동작
-            SemiconRobotARM3Action         = TCPClient.Instance.yDevices[22] - '0';  // Y22: 세미콘 로봇 ARM3 동작
-            SemiconRobotARM4Action         = TCPClient.Instance.yDevices[44] - '0';  // Y2C: 세미콘 로봇 ARM4 동작 
-            SemiconRobotARM5Action         = TCPClient.Instance.yDevices[51] - '0';  // Y33: 세미콘 로봇 ARM5 동작 
-            GateValveDoor000Open           = TCPClient.Instance.yDevices[11] - '0';  // Y11: GateValveDoor 000 열기
-            GateValveDoor001Open           = TCPClient.Instance.yDevices[18] - '0';  // Y12: GateValveDoor 001 열기 
-            GateValveDoor002Open           = TCPClient.Instance.yDevices[33] - '0';  // Y21: GateValveDoor 002 열기 
-            GateValveDoor003Open           = TCPClient.Instance.yDevices[40] - '0';  // Y28: GateValveDoor 003 열기 
-            GateValveDoor004Open           = TCPClient.Instance.yDevices[43] - '0';  // Y2B: GateValveDoor 004 열기 
-            GateValveDoor005Open           = TCPClient.Instance.yDevices[50] - '0';  // Y32: GateValveDoor 005 열기 
-            GateValveDoor000Close          = TCPClient.Instance.yDevices[17] - '0';  // Y17: GateValveDoor 000 닫기
-            GateValveDoor001Close          = TCPClient.Instance.yDevices[23] - '0';  // Y23: GateValveDoor 001 닫기
-            GateValveDoor002Close          = TCPClient.Instance.yDevices[38] - '0';  // Y26: GateValveDoor 002 닫기 
-            GateValveDoor003Close          = TCPClient.Instance.yDevices[45] - '0';  // Y2D: GateValveDoor 003 닫기 
-            GateValveDoor004Close          = TCPClient.Instance.yDevices[48] - '0';  // Y30: GateValveDoor 004 닫기 
-            GateValveDoor005Close          = TCPClient.Instance.yDevices[55] - '0';  // Y37: GateValveDoor 005 닫기 
-            LithoDoor1Open                 = TCPClient.Instance.yDevices[21] - '0';  // Y15: LITHO_Door.1 열기 
-            LithoDoor6Open                 = TCPClient.Instance.yDevices[30] - '0';  // Y1E: LITHO_Door.6 열기 
-            LithoDoor1Close                = TCPClient.Instance.yDevices[26] - '0';  // Y1A: LITHO_Door.1 닫기 
-            LithoDoor6Close                = TCPClient.Instance.yDevices[35] - '0';  // Y23: LITHO_Door.6 닫기 
-            SEMBodyAction                  = TCPClient.Instance.yDevices[39] - '0';  // Y27: SEMBody 동작 
-            LPMFoupOpen                    = TCPClient.Instance.yDevices[16] - '0';  // Y10: LPM (Foup 열기) 
-            SensorTowerRedOn               = TCPClient.Instance.yDevices[1] - '0';   // Y1: Sensor Tower 빨간불 켜기
-            SensorTowerGreenOnRedOff       = TCPClient.Instance.yDevices[5] - '0';   // Y5: 초록불 켜고 빨간불 끄기
-            ProcessStaying                 = TCPClient.Instance.yDevices[2] - '0';   // Y2: 공정 대기
-            UnitySignalWaiting             = TCPClient.Instance.yDevices[3] - '0';   // Y3: 유니티 신호 대기
-            Gate2_8SectorVacuum            = TCPClient.Instance.yDevices[6] - '0';   // Y6: Gate2-8 섹터 진공
-            ProcessReset                   = TCPClient.Instance.yDevices[7] - '0';   // Y7: 공정 리셋
-            RepeatT0                       = TCPClient.Instance.yDevices[8] - '0';   // Y8: Repeat T0
+            int StartButton                    = TCPClient.Instance.yDevices[4] - '0';   // Y4: Start 버튼
+            int SemiconRobotARM1Action         = TCPClient.Instance.yDevices[9] - '0';   // Y9: 세미콘 로봇 ARM1 동작
+            int SemiconRobotARM2Action         = TCPClient.Instance.yDevices[13] - '0';  // Y13: 세미콘 로봇 ARM2 동작
+            int SemiconRobotARM3Action         = TCPClient.Instance.yDevices[22] - '0';  // Y22: 세미콘 로봇 ARM3 동작
+            int SemiconRobotARM4Action         = TCPClient.Instance.yDevices[44] - '0';  // Y2C: 세미콘 로봇 ARM4 동작 
+            int SemiconRobotARM5Action         = TCPClient.Instance.yDevices[51] - '0';  // Y33: 세미콘 로봇 ARM5 동작 
+            int GateValveDoor000Open           = TCPClient.Instance.yDevices[11] - '0';  // Y11: GateValveDoor 000 열기
+            int GateValveDoor001Open           = TCPClient.Instance.yDevices[18] - '0';  // Y12: GateValveDoor 001 열기 
+            int GateValveDoor002Open           = TCPClient.Instance.yDevices[33] - '0';  // Y21: GateValveDoor 002 열기 
+            int GateValveDoor003Open           = TCPClient.Instance.yDevices[40] - '0';  // Y28: GateValveDoor 003 열기 
+            int GateValveDoor004Open           = TCPClient.Instance.yDevices[43] - '0';  // Y2B: GateValveDoor 004 열기 
+            int GateValveDoor005Open           = TCPClient.Instance.yDevices[50] - '0';  // Y32: GateValveDoor 005 열기 
+            int GateValveDoor000Close          = TCPClient.Instance.yDevices[17] - '0';  // Y17: GateValveDoor 000 닫기
+            int GateValveDoor001Close          = TCPClient.Instance.yDevices[23] - '0';  // Y23: GateValveDoor 001 닫기
+            int GateValveDoor002Close          = TCPClient.Instance.yDevices[38] - '0';  // Y26: GateValveDoor 002 닫기 
+            int GateValveDoor003Close          = TCPClient.Instance.yDevices[45] - '0';  // Y2D: GateValveDoor 003 닫기 
+            int GateValveDoor004Close          = TCPClient.Instance.yDevices[48] - '0';  // Y30: GateValveDoor 004 닫기 
+            int GateValveDoor005Close          = TCPClient.Instance.yDevices[55] - '0';  // Y37: GateValveDoor 005 닫기 
+            int LithoDoor1Open                 = TCPClient.Instance.yDevices[21] - '0';  // Y15: LITHO_Door.1 열기 
+            int LithoDoor6Open                 = TCPClient.Instance.yDevices[30] - '0';  // Y1E: LITHO_Door.6 열기 
+            int LithoDoor1Close                = TCPClient.Instance.yDevices[26] - '0';  // Y1A: LITHO_Door.1 닫기 
+            int LithoDoor6Close                = TCPClient.Instance.yDevices[35] - '0';  // Y23: LITHO_Door.6 닫기 
+            int SEMBodyAction                  = TCPClient.Instance.yDevices[39] - '0';  // Y27: SEMBody 동작 
+            int LPMFoupOpen                    = TCPClient.Instance.yDevices[16] - '0';  // Y10: LPM (Foup 열기) 
+            int SensorTowerRedOn               = TCPClient.Instance.yDevices[1] - '0';   // Y1: Sensor Tower 빨간불 켜기
+            int SensorTowerGreenOnRedOff       = TCPClient.Instance.yDevices[5] - '0';   // Y5: 초록불 켜고 빨간불 끄기
+            int ProcessStaying                 = TCPClient.Instance.yDevices[2] - '0';   // Y2: 공정 대기
+            int UnitySignalWaiting             = TCPClient.Instance.yDevices[3] - '0';   // Y3: 유니티 신호 대기
+            int Gate2_8SectorVacuum            = TCPClient.Instance.yDevices[6] - '0';   // Y6: Gate2-8 섹터 진공
+            int ProcessReset                   = TCPClient.Instance.yDevices[7] - '0';   // Y7: 공정 리셋
+            int RepeatT0                       = TCPClient.Instance.yDevices[8] - '0';   // Y8: Repeat T0
 
 
 
@@ -256,7 +211,7 @@ namespace MPS
              if (LithoDoor6Close == 1) LithoDoor.OnLithoDownBtnClkEvent(1);
 
             //SEMBody Action
-            //if (SEMBodyAction == 1) StartCoroutine(SEMManager.RunSEM());
+            //if (SEMBodyAction == 1) StartCoroutine (SEMManager.RunSEM());
             //if (LPMFoupOpen == 1) StartCoroutine(SEMManager.OnLPMBtnClkEvent());
 
             //Sensor 
@@ -284,110 +239,6 @@ namespace MPS
               else OnLampOnOffBtnClkEvent("Green", false);*/
 
         }
-
-        void InitializeProcessData()
-        {
-            // 로그인 정보 설정
-            processData.loginInfo = new LoginInfo { loginTime = System.DateTime.Now.ToString() };
-
-            // Process0 정보 설정
-            processData.process0 = new Process0
-            {
-                energyConsumption = 0.0f,
-                temperature = 0.0f,
-                humidity = 0.0f,
-                defectiveTotalProducts = "0/0"
-            };
-
-            // Process1 정보 설정
-            processData.process1 = new Process1
-            {
-                processPosition = "",
-                foupSensor = true,
-                foupActionCount = 0,
-                robot1EndPosition = SemiconRobotARM1Action == 0 ? "off" : "on",
-                robot1ActionCount = 0
-            };
-
-            // Process2 정보 설정
-            processData.process2 = new Process2
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                loadlockSensor = true,
-                robot2EndPosition = "",
-                robot2ActionCount = 0
-            };
-
-            // Process3 정보 설정
-            processData.process3 = new Process3
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                alignSensor = true,
-                alignPosition = "",
-                alignActionCount = 0,
-                lithoSensor = true,
-                lithoPosition = "",
-                lithoActionCount = 0
-            };
-
-            // Process4 정보 설정
-            processData.process4 = new Process4
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                robot3EndPosition = "",
-                robot3ActionCount = 0,
-                semSensor = true,
-                semPosition = "",
-                semActionCount = 0,
-                results = new Results
-                {
-                    chipData = 0.0f,
-                    defectiveRate = 0.0f,
-                    good = true,
-                    defective = true
-                }
-            };
-
-            // Process5 정보 설정
-            processData.process5 = new Process5
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                loadlockSensor = true,
-                robot4EndPosition = "",
-                robot4ActionCount = 0
-            };
-
-            // Process6 정보 설정
-            processData.process6 = new Process6
-            {
-                processPosition = "",
-                robot5EndPosition = "",
-                robot5ActionCount = 0,
-                foupSensor = true,
-                goodProductsDefectiveProducts = "0/0"
-            };
-        }
-
-        // FirebaseDBManager로 데이터 전달하는 함수
-        void SendDataToFirebase()
-        {
-            if (firebaseDBManager != null)
-            {
-                string processDataJson = JsonUtility.ToJson(processData); // 객체를 JSON으로 변환
-                firebaseDBManager.UpdateProcessData(processDataJson); // JSON 데이터 Firebase로 전송
-            }
-            else
-            {
-                print("FirebaseDBManager가 할당되지 않았습니다");
-            }
-        }
-
-
     }
 
 }
-
