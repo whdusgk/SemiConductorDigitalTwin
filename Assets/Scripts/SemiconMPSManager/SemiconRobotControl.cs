@@ -6,6 +6,8 @@ using System;
 using System.Collections;
 using System.IO;
 using Unity.VisualScripting;
+using System.Xml.Linq;
+using static SemiconRobotControl;
 
 
 /// <summary>
@@ -83,10 +85,10 @@ public class SemiconRobotControl : MonoBehaviour
     void Start()
     {
         originStep = new Step(-1, 100, 0);
-        OnLoadBtnClkEvent("robotSteps4DoF_12.csv");
+        OnLoadBtnClkEvent(robotFile);
 
         RobotActSensor.GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
-        OnCycleBtnClkEvent();
+        //OnCycleBtnClkEvent();
     }
 
    
@@ -197,7 +199,7 @@ public class SemiconRobotControl : MonoBehaviour
         }
         isRunning = false;
     }
-
+   
     IEnumerator RunStep(Step prevStep, Step nextStep)
     {
         Vector3 prevAxis1Pos = new Vector3(motorAxis1.localPosition.x, motorAxis1.localPosition.y, prevStep.disAxis1); // Axis1: Y축 기준으로 이동
