@@ -2,43 +2,25 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-
-
-
 namespace MPS
 {
-   
-
-
     public class Sensor : MonoBehaviour
     {
-        public static Sensor instance;
-
         public GameObject WaferSensor;
         public GameObject FoupPosSensor;
         public List<GameObject> SensorTower;
         public List<GameObject> VacuumSensors;
-    
+
         public bool isWaferSensed = false;
         public bool isFoupSensed = false;
         public bool isVacuumOn = false;
-
-
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-        }
-
         public void Start()
         {
-            OnSensorTower("green");
+            //OnSensorTower("green");
             //OnVacuumSensor(0);
         }
 
-
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
         public void OnSensorTower(string color)
         {
             switch (color)
@@ -70,7 +52,7 @@ namespace MPS
             }
         }
 
-        /*public void OnVacuumSensor(int vs)
+        public void OnVacuumSensor(int vs)
         {
             if (isVacuumOn)
                 VacuumSensors[vs].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
@@ -78,9 +60,9 @@ namespace MPS
             else if (!isVacuumOn)
                 VacuumSensors[vs].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
 
-        }*/
+        }
 
-        public void OnTriggerStay(Collider other)
+        private void OnTriggerStay(Collider other)
         {
 
             if (other.tag == "Wafer")
@@ -97,10 +79,10 @@ namespace MPS
                 //other.transform.SetParent(transform);
             }
 
-        
+
         }
 
-        public void OnTriggerExit(Collider other)
+        private void OnTriggerExit(Collider other)
         {
             if (isWaferSensed)
             {
@@ -110,10 +92,10 @@ namespace MPS
                     transform.GetChild(i).SetParent(null);
                 }
             }
-            
+
             if (isFoupSensed)
                 isFoupSensed = false;
         }
     }
-
 }
+
