@@ -10,10 +10,10 @@ namespace MPS
     {
         public static UIManager Instance;
 
-        [SerializeField] TMP_InputField EnergyConsumptionInpuField;
-        [SerializeField] TMP_InputField TemperatureInpuField;
-        [SerializeField] TMP_InputField HumidityInpuField;
-        [SerializeField] TMP_Text ProductsText;
+        public TMP_InputField EnergyConsumptionInpuField;
+        public TMP_InputField TemperatureInpuField;
+        public TMP_InputField HumidityInpuField;
+        public TMP_Text ProductsText;
 
         [SerializeField] List<TMP_InputField> ProcessPositionsInpuField = new List<TMP_InputField>();
         [SerializeField] List<Transform> ProcessPositions = new List<Transform>();

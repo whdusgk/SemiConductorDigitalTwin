@@ -21,7 +21,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
     [SerializeField] List<Transform> LithoDoor;
     [SerializeField] List<Transform> gateValveDoor;
-    [SerializeField] List<SemiconRobotControl> RobotArm = new List<SemiconRobotControl>();
+    public List<SemiconRobotControl> RobotArm = new List<SemiconRobotControl>();
     [SerializeField] List<SensorTowerManager> sensortowers = new List<SensorTowerManager>();
     [SerializeField] WaferSensorManager foupSensor;
 
@@ -113,8 +113,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
             if (SemiconTCPClient.Instance.isConnected == false) return;
             if (SemiconTCPClient.Instance.yDevices.Length == 0) return;
 
-            int startbtn = SemiconTCPClient.Instance.yDevices[1] - '0'; // Y0
-
+            int startbtn = SemiconTCPClient.Instance.yDevices[0] - '0'; // Y0
             int Robot1Act = SemiconTCPClient.Instance.yDevices[1] - '0'; // Y0
             int Robot2Act = SemiconTCPClient.Instance.yDevices[2] - '0'; // Y1
             int Robot3Act = SemiconTCPClient.Instance.yDevices[3] - '0'; // Y2
@@ -209,7 +208,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
         void UpdateXDevices()
         {
-            string xDeviceValue = $"{(foupSensor.isFoupSensed == true ? 1 : 0)}"
+            string xDeviceValue = $"{(foupSensor.isFoupSensed == true ? 1 : 0)}" 
                                     + "0000000000000000000000000000000";
             SemiconTCPClient.Instance.xDevices = xDeviceValue;
         }
@@ -223,9 +222,6 @@ public class SemiconMPSManagerTCP : MonoBehaviour
             print(SemiconTCPClient.Instance.dDevices);
         }
     }
-    
-
-
 
     IEnumerator SetAnimator()
     {
@@ -239,6 +235,8 @@ public class SemiconMPSManagerTCP : MonoBehaviour
             LithoAni2.GetComponent<Animator>().enabled = true;
         }
         yield return new WaitForEndOfFrame();
+
+
     }
    
     

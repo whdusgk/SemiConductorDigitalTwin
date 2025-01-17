@@ -12,7 +12,7 @@ using UnityEngine;
 /// </summary>
 public class LPMManager : MonoBehaviour
 {
-
+    public int LPMcount = 0;
     public static LPMManager Instance;  
     [SerializeField] Transform Foup;
     [SerializeField] Transform FoupDoor;
@@ -62,6 +62,8 @@ public class LPMManager : MonoBehaviour
     public void RunLPMCycle()
     {
         StartCoroutine(OnLPMBtnClkEvent());
+
+        LPMcount++;
     }
     IEnumerator OnLPMBtnClkEvent()
     {

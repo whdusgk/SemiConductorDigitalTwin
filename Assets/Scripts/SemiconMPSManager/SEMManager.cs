@@ -11,6 +11,7 @@ namespace MPS
     {
         public static SEMManager Instance;
 
+
         public float SEMDisAxis1;
         public float SEMDisAxis2;
         public float SEMAngleAxis3;
@@ -39,6 +40,7 @@ namespace MPS
         Vector3 SEMAxis1Origin;
         Vector3 SEMAxis2Origin;
         public int SEMCount = 0;
+        public int semCount = 0;
         public float GoodChipCount = 0;
         public float DefectiveChipCount = 0;
 
@@ -64,6 +66,7 @@ namespace MPS
         public void RunSEMCycle()
         {
             StartCoroutine(RunSEM());
+            semCount++;
         }
         public IEnumerator RunSEM()
         {
@@ -89,7 +92,7 @@ namespace MPS
 
             yield return SEMStep(0, 0);
 
-            
+          
 
         }
         // Update is called once per frame
