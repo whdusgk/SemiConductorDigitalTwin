@@ -13,6 +13,7 @@ using UnityEngine;
 public class LPMManager : MonoBehaviour
 {
 
+    public static LPMManager Instance;  
     [SerializeField] Transform Foup;
     [SerializeField] Transform FoupDoor;
     [SerializeField] Transform LPMBackBase;
@@ -44,7 +45,13 @@ public class LPMManager : MonoBehaviour
     public bool isFoupDoorBackward = false;
     public bool isFoupOpen = false;
 
-
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
     private void Start()
     {
         // ETC Sensor Caligration(Black)
@@ -52,6 +59,10 @@ public class LPMManager : MonoBehaviour
         //StartCoroutine(OnLPMBtnClkEvent());
     }
 
+    public void RunLPMCycle()
+    {
+        StartCoroutine(OnLPMBtnClkEvent());
+    }
     IEnumerator OnLPMBtnClkEvent()
     {
         yield return LPMStep(0);

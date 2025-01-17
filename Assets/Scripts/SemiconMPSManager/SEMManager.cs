@@ -58,13 +58,16 @@ namespace MPS
             SEMAxis1Origin = new Vector3(SEMAxis1.localPosition.x, SEMAxis1.localPosition.y, SEMAxis1.localPosition.z);
             SEMAxis2Origin = new Vector3(SEMAxis2.localPosition.x, SEMAxis2.localPosition.y, SEMAxis2.localPosition.z);
 
-            //StartCoroutine(SEMStep(0,0));
-            StartCoroutine(RunSEM());
+           
 
         }
-
+        public void RunSEMCycle()
+        {
+            StartCoroutine(RunSEM());
+        }
         public IEnumerator RunSEM()
         {
+            Sensor.Instance.SEMActSensor.GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
             yield return SEMReset();
 
             yield return SEMStep(-1, -3); yield return SEMStep(0, -3); yield return SEMStep(1, -3);

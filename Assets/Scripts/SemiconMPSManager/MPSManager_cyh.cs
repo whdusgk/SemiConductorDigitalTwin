@@ -13,9 +13,9 @@ using static FirebaseDBManager;
 namespace MPS
 { 
 
-    public class MPSManager : MonoBehaviour
+    public class MPSManager_cyh : MonoBehaviour
     {
-        public static MPSManager instance;
+        public static MPSManager_cyh instance;
 
         [SerializeField] List<SemiconRobotControl> SemiconRobotControl = new List<SemiconRobotControl>();
         [SerializeField] SemiconMPSManager GateValveDoor = new SemiconMPSManager();
@@ -119,7 +119,7 @@ namespace MPS
                                     $"1" +                                                       // X0: Power On (Rising Pulse)
                                     $"{(FirebaseAuthManager.instance.isPermission ? 1 : 0)}" +   // X1: isPermission (허가 확인)
                                     $"{(SemiconMPSManager.instance.isStart ? 1 : 0)}" +          // X2: Start Button (공정 가동 버튼)
-                                    $"{(WaferSensorManager.Instance.isFoupSensed ? 1 : 0)}";                 // X3: FOUP 감지 (isFoupSensed 상태)                     
+                                    $"{(WaferSensorManager.Instance.isFoupSensed ? 1 : 0)}" + "0000000000000000000000000000";                 // X3: FOUP 감지 (isFoupSensed 상태)                     
 
 
             string deviceName = "X0";   // 디바이스 이름 예시

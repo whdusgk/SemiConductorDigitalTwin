@@ -1,0 +1,48 @@
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\bin\Debug\net8.0\TCPServerEX.exe
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\bin\Debug\net8.0\TCPServerEX.deps.json
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\bin\Debug\net8.0\TCPServerEX.runtimeconfig.json
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\bin\Debug\net8.0\TCPServerEX.dll
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\bin\Debug\net8.0\TCPServerEX.pdb
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\TCPServerEX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\TCPServerEX.AssemblyInfoInputs.cache
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\TCPServerEX.AssemblyInfo.cs
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\TCPServerEX.csproj.CoreCompileInputs.cache
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\TCPServerEX.dll
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\refint\TCPServerEX.dll
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\TCPServerEX.pdb
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\TCPServerEX.genruntimeconfig.cache
+C:\Users\제5강의실-7\Desktop\조연하\2. 유니티 스마트팩토리 가상구현\3. PLC\2. 유니티 PLC 제어 시스템 구축\TCPServerEX\obj\Debug\net8.0\ref\TCPServerEX.dll
+C:\Users\제5강의실-7\My_project\TCPServerEX\bin\Debug\net8.0\TCPServerEX.exe
+C:\Users\제5강의실-7\My_project\TCPServerEX\bin\Debug\net8.0\TCPServerEX.deps.json
+C:\Users\제5강의실-7\My_project\TCPServerEX\bin\Debug\net8.0\TCPServerEX.runtimeconfig.json
+C:\Users\제5강의실-7\My_project\TCPServerEX\bin\Debug\net8.0\TCPServerEX.dll
+C:\Users\제5강의실-7\My_project\TCPServerEX\bin\Debug\net8.0\TCPServerEX.pdb
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.AssemblyInfoInputs.cache
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.AssemblyInfo.cs
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.csproj.CoreCompileInputs.cache
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.sourcelink.json
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.dll
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\refint\TCPServerEX.dll
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.pdb
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.genruntimeconfig.cache
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\ref\TCPServerEX.dll
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\Interop.ActUtlType64Lib.dll
+C:\Users\제5강의실-7\My_project\TCPServerEX\obj\Debug\net8.0\TCPServerEX.csproj.ResolveComReference.cache
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\bin\Debug\net8.0\TCPServerEX.exe
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\bin\Debug\net8.0\TCPServerEX.deps.json
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\bin\Debug\net8.0\TCPServerEX.runtimeconfig.json
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\bin\Debug\net8.0\TCPServerEX.dll
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\bin\Debug\net8.0\TCPServerEX.pdb
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\Interop.ActUtlType64Lib.dll
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.csproj.ResolveComReference.cache
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.AssemblyInfoInputs.cache
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.AssemblyInfo.cs
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.csproj.CoreCompileInputs.cache
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.sourcelink.json
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.dll
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\refint\TCPServerEX.dll
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.pdb
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\TCPServerEX.genruntimeconfig.cache
+C:\Users\제5강의실-7\SemiConductorDigitalTwin\TCPServerEX\obj\Debug\net8.0\ref\TCPServerEX.dll

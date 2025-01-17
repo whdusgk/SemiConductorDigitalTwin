@@ -1,41 +1,22 @@
 {
   "project_info": {
-    "project_number": "398380329919",
-    "firebase_url": "https://bandeulbandeul-login-default-rtdb.firebaseio.com",
-    "project_id": "bandeulbandeul-login",
-    "storage_bucket": "bandeulbandeul-login.firebasestorage.app"
+    "project_number": "743559821015",
+    "firebase_url": "https://mpsproject-310d9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mpsproject-310d9",
+    "storage_bucket": "mpsproject-310d9.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:398380329919:android:1af265d440293974274f0a",
+        "mobilesdk_app_id": "1:743559821015:android:d5cf97412da4ba33a42292",
         "android_client_info": {
-          "package_name": "com.bandeulbandeul.com"
+          "package_name": "com.DefaultCompany.Myproject"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB4y0_9jtd9lCPE65og-1TW-RzJa7ZeoWQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:398380329919:android:286c3aa8235a228e274f0a",
-        "android_client_info": {
-          "package_name": "com.junsu"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB4y0_9jtd9lCPE65og-1TW-RzJa7ZeoWQ"
+          "current_key": "AIzaSyAabpK2qtvB6epka6xN98_VQ-NFJqYe4qc"
         }
       ],
       "services": {
