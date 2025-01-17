@@ -5869,7 +5869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 303371972}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &305079353
@@ -9406,7 +9406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 487308797}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &491850590
@@ -9713,7 +9713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 511002325}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &517841713
@@ -12713,7 +12713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 695997929}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &696612830
@@ -17263,7 +17263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 929944437}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &934829099
@@ -22207,7 +22207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1185557322}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &1185973980
@@ -31884,7 +31884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 1641414076}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &1643548096
@@ -40902,7 +40902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaferSensor: {fileID: 2028010034}
-  FoupPosSensor: {fileID: 1973264694}
+  FoupPosSensor: {fileID: 0}
   isWaferSensed: 0
   isFoupSensed: 0
 --- !u!1 &2041722249

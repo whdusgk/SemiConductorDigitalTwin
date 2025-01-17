@@ -15,7 +15,7 @@ namespace MPS
         public bool isFoupSensed = false;
         public void Start()
         {
-
+            
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,9 +31,10 @@ namespace MPS
                 print("Wafer Sensed");
                 other.transform.SetParent(transform);
             }
-
+            
             if (other.tag == "Foup")
             {
+                if (FoupPosSensor == null) return;
                 isFoupSensed = true;
                 print("Foup Sensed");
                 //other.transform.SetParent(transform);
