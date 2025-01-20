@@ -222,7 +222,9 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
         void UpdateXDevices()
         {
-            string xDeviceValue = "1100"+
+            string xDeviceValue = "11"+
+                                  $"{(isStart == true ? 1 : 0)}" + // X02
+                                  "0" +
                                   $"{(foupSensor.isFoupSensed == true ? 1 : 0)}" + // X04
                                   "000000000000000000000000000";
 
