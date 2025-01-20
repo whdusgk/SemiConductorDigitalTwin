@@ -7559,7 +7559,7 @@ Transform:
   m_GameObject: {fileID: 408745025}
   serializedVersion: 2
   m_LocalRotation: {x: -0.007609286, y: -0.7070658, z: -0.7070658, w: 0.007609286}
-  m_LocalPosition: {x: -0.0013113033, y: 0, z: 0.0027100754}
+  m_LocalPosition: {x: -0.001, y: 0.017, z: 0.003}
   m_LocalScale: {x: 100, y: 100.00002, z: 100.00003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12603,8 +12603,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: -1.5, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: -2.31, y: 0, z: 0}
 --- !u!23 &695997931
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17217,7 +17217,7 @@ Transform:
   m_GameObject: {fileID: 929944437}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.723, y: 1.418, z: 0.019}
+  m_LocalPosition: {x: -2.723, y: 1.418, z: 0.071}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22095,7 +22095,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -1.61, z: 0}
@@ -23010,7 +23010,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 5.73, z: 0}
@@ -30846,7 +30846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0f89bfcbed18c4796bc2b863e50d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotFile: robotSteps4DoF_robot2.csv
+  robotFile: robotSteps4DoF_robot1,5.csv
   steps: []
   originStep:
     stepNumber: 0
@@ -31552,6 +31552,7 @@ MonoBehaviour:
   isLithoGateUp: 0
   isLithoWafer: 0
   isSEMAct: 0
+  isLithoAct: 0
   LithoAni1: {fileID: 8036703532793583435}
   LithoAni2: {fileID: 7063638225188437139}
 --- !u!1 &1639029736
@@ -40820,7 +40821,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 2.78, z: 0}
@@ -67005,6 +67006,7 @@ MonoBehaviour:
   isGoodProduct: 0
   isDefectiveProduct: 0
   DefectiveRate: 0
+  isSEMAct: 0
 --- !u!4 &8139236217849872367
 Transform:
   m_ObjectHideFlags: 0
@@ -70063,7 +70065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0f89bfcbed18c4796bc2b863e50d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotFile: robotSteps4DoF_robot1,5.csv
+  robotFile: robotSteps4DoF_12.csv
   steps: []
   originStep:
     stepNumber: 0
