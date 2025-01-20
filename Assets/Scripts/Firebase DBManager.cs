@@ -329,10 +329,10 @@ public class FirebaseDBManager : MonoBehaviour
         processData.process4.semActionCount = SEMManager.Instance.semActCount; //y15
         processData.process4.results.defectiveRate = SEMManager.Instance.DefectiveProductCount;
         //processData.process4.results.chips.chipData[0] = 0.0f;
-        for (int i = 0; i < 37; i++)
+        for (int i = 0; i < SEMManager.Instance.ChipData.Count; i++)
         {
             if (SEMManager.Instance.ChipData != null)
-                processData.process4.results.chips.chipData[i] = 0.0f;//SEMManager.Instance.ChipData[i];
+                processData.process4.results.chips.chipData[i] = SEMManager.Instance.ChipData[i];
         }
 
         // Process5 정보 설정

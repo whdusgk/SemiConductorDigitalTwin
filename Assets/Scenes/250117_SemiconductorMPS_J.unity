@@ -31493,15 +31493,16 @@ MonoBehaviour:
   - {fileID: 1926498258}
   - {fileID: 334102211}
   foupSensor: {fileID: 1973264700}
+  lpmManager: {fileID: 7805574713624501004}
   LithoMaxRange: 0.2
   LithoMinRange: 0.066
   GateValveMaxRange: 1.4
   GateValveMinRange: 1.32
   duration: 5
-  lithoActionCount: 0
   isStart: 0
   isUp: 0
   cycleCnt: 0
+  lithoActionCount: 0
   cycleTime: 0
   Foup2Sensors:
   - {fileID: 373925718}
@@ -31550,6 +31551,7 @@ MonoBehaviour:
   isLithoGateUp: 0
   isLithoWafer: 0
   isSEMAct: 0
+  isLithoAct: 0
   LithoAni1: {fileID: 8036703532793583435}
   LithoAni2: {fileID: 7063638225188437139}
 --- !u!1 &1639029736
@@ -66160,7 +66162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8d0ff8d383d5f40bf8f558d143d36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LPMcount: 0
   Foup: {fileID: 8326453481611222178}
   FoupDoor: {fileID: 1220893438843305352}
   LPMBackBase: {fileID: 4977163639074290139}
@@ -66179,6 +66180,7 @@ MonoBehaviour:
   duration: 1
   isUp: 0
   cycleTime: 0
+  LPMcount: 0
   FoupSensors:
   - {fileID: 1113338672}
   - {fileID: 335323647}
@@ -67118,7 +67120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f499a09638fdf44fb09d8c2228d3271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefectiveRate: 0
   SEMDisAxis1: 0
   SEMDisAxis2: 0
   SEMAngleAxis3: 0
@@ -67130,6 +67131,7 @@ MonoBehaviour:
   speed: 2
   cycleTime: 0
   duration: 1
+  semActCount: 0
   ChipData: []
   SEMAxis1: {fileID: 1881099287}
   SEMAxis2: {fileID: 1971976262}
@@ -67139,11 +67141,14 @@ MonoBehaviour:
   SEMAxis6: {fileID: 1994618902}
   SEMActSensor: {fileID: 709016776}
   SEMCount: 0
-  semActCount: 0
   GoodChipCount: 0
   DefectiveChipCount: 0
   GoodProductCount: 0
   DefectiveProductCount: 0
+  isGoodProduct: 0
+  isDefectiveProduct: 0
+  DefectiveRate: 0
+  isSEMAct: 0
 --- !u!4 &8139236217849872367
 Transform:
   m_ObjectHideFlags: 0
@@ -70612,7 +70617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8d0ff8d383d5f40bf8f558d143d36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LPMcount: 0
   Foup: {fileID: 8071995321366903720}
   FoupDoor: {fileID: 7468265191193779986}
   LPMBackBase: {fileID: 6767424152294087917}
@@ -70631,6 +70635,7 @@ MonoBehaviour:
   duration: 1
   isUp: 0
   cycleTime: 0
+  LPMcount: 0
   FoupSensors:
   - {fileID: 373925718}
   - {fileID: 1931819518}
