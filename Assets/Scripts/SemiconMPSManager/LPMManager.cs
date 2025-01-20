@@ -12,7 +12,7 @@ using UnityEngine;
 /// </summary>
 public class LPMManager : MonoBehaviour
 {
-    public int LPMcount = 0;
+
     public static LPMManager Instance;  
     [SerializeField] Transform Foup;
     [SerializeField] Transform FoupDoor;
@@ -62,23 +62,21 @@ public class LPMManager : MonoBehaviour
     public void RunLPMCycle()
     {
         StartCoroutine(OnLPMBtnClkEvent());
-
-        
     }
-    public IEnumerator OnLPMBtnClkEvent()
+    IEnumerator OnLPMBtnClkEvent()
     {
         yield return LPMStep(0);
         yield return LPMStep(1);
         yield return LPMStep(2);
         yield return LPMStep(3);
 
-        LPMcount++;
     }
     IEnumerator LPMStep(int cycleCnt)
     {
         switch (cycleCnt)
         {
             case 0:
+                if (isFoupForward == true || isFoupDoorForward == true || isFoupDoorBackward == true || isFoupOpen == true) break;
                 isFoupForward = true;
                 isFoupDoorForward = false;
                 isFoupDoorBackward = false;
@@ -89,13 +87,12 @@ public class LPMManager : MonoBehaviour
                 FoupSensors[1].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-
-                
-                //cycleCnt++;
-                yield return new WaitForSeconds(3);
+                                                                                             //cycleCnt++;
+                yield return new WaitForSeconds(20);
                 break;
 
             case 1:
+                if (isFoupDoorForward == true || isFoupDoorBackward == true || isFoupOpen == true) break;
                 isFoupForward = false;
                 isFoupDoorForward = true;
                 isFoupDoorBackward = false;
@@ -106,10 +103,11 @@ public class LPMManager : MonoBehaviour
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                                                                                              //cycleCnt++;
-                yield return new WaitForSeconds(3); 
+                yield return new WaitForSeconds(20); 
                 break;
 
             case 2:
+                if (isFoupDoorBackward == true || isFoupOpen == true) break;
                 isFoupForward = false;
                 isFoupDoorForward = false;
                 isFoupDoorBackward = true;
@@ -121,10 +119,11 @@ public class LPMManager : MonoBehaviour
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(255, 255, 0); // Yellow
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                                                                                              //cycleCnt++;
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(20);
                 break;
 
             case 3:
+                if (isFoupOpen == true) break;
                 isFoupForward = false;
                 isFoupDoorForward = false;
                 isFoupDoorBackward = false;

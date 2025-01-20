@@ -22,6 +22,7 @@ namespace MPS
         public void Start()
         {
             SEMActSensor.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
+            isVacuumOn = true;
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
