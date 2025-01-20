@@ -29,7 +29,7 @@ public class FirebaseAuthManager : MonoBehaviour
     [SerializeField] TMP_InputField emailInput;
     [SerializeField] TMP_InputField nameInput;
     [SerializeField] string dbURL;
-    [SerializeField] string uID;
+    public string uID;
 
     [Header("회원가입 UI")]
     [SerializeField] GameObject signUpPanel;
@@ -41,6 +41,7 @@ public class FirebaseAuthManager : MonoBehaviour
     FirebaseUser user;
     bool signedIn;
     public bool isPermission = false;
+     bool isTaskDone = false;
 
     // 실행할 EXE 파일의 경로
     string exeFilePath = @"C:\Users\제5강의실-12\Desktop\고준수\Server.EX3\Server.EX3\bin\Debug\net8.0\Server.EX3.exe";  // 수정 필요
@@ -160,7 +161,7 @@ public class FirebaseAuthManager : MonoBehaviour
         loginPWInput.text = "";
 
         // 다른 씬 불러오기
-        AsyncOperation oper = SceneManager.LoadSceneAsync("250113_SemiconductorMPS");
+        AsyncOperation oper = SceneManager.LoadSceneAsync("250117_SemiconductorMPS_J");
 
         while (!oper.isDone)
         {
@@ -184,9 +185,9 @@ public class FirebaseAuthManager : MonoBehaviour
     bool isDataDownloaded = false;
     private void DownloadMyDBInfo(string uID)
     {
-        DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.GetReference("users");
+        DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.RootReference;
 
-        dbRef.Child(uID).GetValueAsync().ContinueWith(task =>
+        dbRef.Child("users").Child(uID).GetValueAsync().ContinueWith(task =>
         {
             DataSnapshot snapshot = task.Result;
 
@@ -213,7 +214,7 @@ public class FirebaseAuthManager : MonoBehaviour
             }
         });
 
-        StartCoroutine("CoUpdateIDInfo");
+        //StartCoroutine("CoUpdateIDInfo");
     }
 
     IEnumerator CoUpdateIDInfo()
@@ -235,13 +236,13 @@ public class FirebaseAuthManager : MonoBehaviour
         UploadMyDBInfo(uID, userInfo);
     }
 
-    bool isTaskDone = false;
+   
     private void UploadMyDBInfo(string uID, User info)
     {
-        DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.GetReference("users");
+        DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.RootReference;
 
         string json = JsonUtility.ToJson(info);
-        dbRef.Child(uID).SetRawJsonValueAsync(json).ContinueWith(task =>
+        dbRef.Child("users").Child(uID).SetRawJsonValueAsync(json).ContinueWith(task =>
         {
             if (task.IsCompleted)
             {
@@ -249,7 +250,7 @@ public class FirebaseAuthManager : MonoBehaviour
             }
         });
 
-        StartCoroutine("CoEditDone");
+       // StartCoroutine("CoEditDone");
     }
 
     IEnumerator CoEditDone()

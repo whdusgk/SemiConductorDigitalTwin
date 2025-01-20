@@ -13,7 +13,7 @@ using NUnit.Framework;
 namespace MPS
 {
     public class TCPClient : MonoBehaviour
-        {
+    {
             public static TCPClient Instance;
             [SerializeField] TMP_InputField dataInput;
             public bool isConnected;

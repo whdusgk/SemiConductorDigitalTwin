@@ -92,7 +92,7 @@ namespace MPS
         void Start()
         {
             // ProcessData 객체 초기화 및 데이터 설정
-            InitializeProcessData();
+            //InitializeProcessData();
 
             // Firebase에 데이터 전송
             SendDataToFirebase();
@@ -108,7 +108,6 @@ namespace MPS
             {
                 ProcessData processData = new ProcessData();  // 예시 데이터 생성
                 processData.loginInfo = new LoginInfo { loginTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") };
-
             }
         }
 
@@ -117,9 +116,9 @@ namespace MPS
             // X 디바이스 값 생성
             string xDeviceValue =
                                     $"1" +                                                       // X0: Power On (Rising Pulse)
-                                    $"{(FirebaseAuthManager.instance.isPermission ? 1 : 0)}" +   // X1: isPermission (허가 확인)
-                                    $"{(SemiconMPSManager.instance.isStart ? 1 : 0)}" +          // X2: Start Button (공정 가동 버튼)
-                                    $"{(WaferSensorManager.Instance.isFoupSensed ? 1 : 0)}";                 // X3: FOUP 감지 (isFoupSensed 상태)                     
+                                    $"{(FirebaseAuthManager.instance.isPermission == true ? 1 : 0)}" +   // X1: isPermission (허가 확인)
+                                    $"{(SemiconMPSManager.instance.isStart == true ? 1 : 0)}" +          // X2: Start Button (공정 가동 버튼)
+                                    $"{(WaferSensorManager.Instance.isFoupSensed == true ? 1 : 0)}";                 // X3: FOUP 감지 (isFoupSensed 상태)                     
 
 
             string deviceName = "X0";   // 디바이스 이름 예시
@@ -268,109 +267,9 @@ namespace MPS
             Gate2_8SectorVacuum = 1;
             ProcessReset = 0;
             RepeatT0 = 0;
-
-
-
-
-
-            /*  //lamps 
-              if (빨강램프 == 1) OnLampOnOffBtnClkEvent("Red", true);
-              else OnLampOnOffBtnClkEvent("Red", false);
-
-              if (노랑램프 == 1) OnLampOnOffBtnClkEvent("Yellow", true);
-              else OnLampOnOffBtnClkEvent("Yellow", false);
-
-              if (초록램프 == 1) OnLampOnOffBtnClkEvent("Green", true);
-              else OnLampOnOffBtnClkEvent("Green", false);*/
-
         }
 
-        void InitializeProcessData()
-        {
-            // 로그인 정보 설정
-            processData.loginInfo = new LoginInfo { loginTime = System.DateTime.Now.ToString() };
-
-            // Process0 정보 설정
-            processData.process0 = new Process0
-            {
-                energyConsumption = 0.0f,
-                temperature = 0.0f,
-                humidity = 0.0f,
-                defectiveTotalProducts = "0/0"
-            };
-
-            // Process1 정보 설정
-            processData.process1 = new Process1
-            {
-                processPosition = "",
-                foupSensor = true,
-                foupActionCount = 0,
-                robot1EndPosition = SemiconRobotARM1Action == 0 ? "off" : "on",
-                robot1ActionCount = 0
-            };
-
-            // Process2 정보 설정
-            processData.process2 = new Process2
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                loadlockSensor = true,
-                robot2EndPosition = "",
-                robot2ActionCount = 0
-            };
-
-            // Process3 정보 설정
-            processData.process3 = new Process3
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                alignSensor = true,
-                alignPosition = "",
-                alignActionCount = 0,
-                lithoSensor = true,
-                lithoPosition = "",
-                lithoActionCount = 0
-            };
-
-            // Process4 정보 설정
-            processData.process4 = new Process4
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                robot3EndPosition = "",
-                robot3ActionCount = 0,
-                semSensor = true,
-                semPosition = "",
-                semActionCount = 0,
-                results = new Results
-                {
-                    chipData = 0.0f,
-                    defectiveRate = 0.0f,
-                    good = true,
-                    defective = true
-                }
-            };
-
-            // Process5 정보 설정
-            processData.process5 = new Process5
-            {
-                processPosition = "",
-                vacuumSensor = true,
-                loadlockSensor = true,
-                robot4EndPosition = "",
-                robot4ActionCount = 0
-            };
-
-            // Process6 정보 설정
-            processData.process6 = new Process6
-            {
-                processPosition = "",
-                robot5EndPosition = "",
-                robot5ActionCount = 0,
-                foupSensor = true,
-                goodProductsDefectiveProducts = "0/0"
-            };
-        }
+       
 
         // FirebaseDBManager로 데이터 전달하는 함수
         void SendDataToFirebase()
