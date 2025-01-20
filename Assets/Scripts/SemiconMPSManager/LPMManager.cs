@@ -36,6 +36,7 @@ public class LPMManager : MonoBehaviour
     public bool isUp = false;
 
     public float cycleTime;
+    public int LPMcount = 0;
 
     [Header("Sensors")]
     public List<GameObject> FoupSensors;
@@ -77,6 +78,7 @@ public class LPMManager : MonoBehaviour
         {
             case 0:
                 if (isFoupForward == true || isFoupDoorForward == true || isFoupDoorBackward == true || isFoupOpen == true) break;
+                LPMcount++;
                 isFoupForward = true;
                 isFoupDoorForward = false;
                 isFoupDoorBackward = false;

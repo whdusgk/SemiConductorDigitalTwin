@@ -21,7 +21,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
     [SerializeField] List<Transform> LithoDoor;
     [SerializeField] List<Transform> gateValveDoor;
-    [SerializeField] List<SemiconRobotControl> RobotArm = new List<SemiconRobotControl>();
+    public List<SemiconRobotControl> RobotArm = new List<SemiconRobotControl>();
     [SerializeField] List<SensorTowerManager> sensortowers = new List<SensorTowerManager>();
     [SerializeField] WaferSensorManager foupSensor;
     [SerializeField] LPMManager lpmManager;
@@ -38,6 +38,8 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     public bool isUp = false;
     float currentTime = 0;
     public int cycleCnt;
+    public int lithoActionCount;
+
     public float cycleTime;
 
     [Header("Sensors")]
@@ -329,6 +331,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
         isUp = !isUp;
 
+        lithoActionCount++;
     }
 }
 
