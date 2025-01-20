@@ -23,6 +23,8 @@ namespace MPS
         public float speed = 5000;
         public float cycleTime;
         public float duration;
+        public int semActCount = 0;
+
 
         public List<float> ChipData = new List<float>();
 
@@ -70,6 +72,7 @@ namespace MPS
         {
             if (isSEMAct == true) return;
             StartCoroutine(RunSEM());
+            semActCount++;
         }
         public IEnumerator RunSEM()
         {
