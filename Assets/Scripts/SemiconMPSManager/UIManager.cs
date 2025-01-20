@@ -15,10 +15,10 @@ namespace MPS
         public TMP_InputField HumidityInpuField;
         public TMP_Text ProductsText;
 
-        [SerializeField] List<TMP_InputField> ProcessPositionsInpuField = new List<TMP_InputField>();
-        [SerializeField] List<Transform> ProcessPositions = new List<Transform>();
+        public List<TMP_InputField> ProcessPositionsInpuField = new List<TMP_InputField>(); //public 변경
+        [SerializeField] List<Transform> ProcessPositions = new List<Transform>(); 
         [SerializeField] List<TMP_InputField> RobotPositionsInpuField = new List<TMP_InputField>();
-        [SerializeField] List<Transform> RobotPositions = new List<Transform>();
+        public List<Transform> RobotPositions = new List<Transform>(); //public 변경
         [SerializeField] List<Toggle> FoupSensorsToggle = new List<Toggle>();
         [SerializeField] List<Toggle> VacuumSensorsToggle = new List<Toggle>();
         [SerializeField] List<Toggle> LoadlockSensorsToggle = new List<Toggle>();

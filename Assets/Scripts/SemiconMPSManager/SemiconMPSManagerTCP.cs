@@ -19,7 +19,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
     public static SemiconMPSManagerTCP instance;
 
-    [SerializeField] List<Transform> LithoDoor;
+    public List<Transform> LithoDoor;
     [SerializeField] List<Transform> gateValveDoor;
     public List<SemiconRobotControl> RobotArm = new List<SemiconRobotControl>();
     [SerializeField] List<SensorTowerManager> sensortowers = new List<SensorTowerManager>();
@@ -31,7 +31,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     [SerializeField] float GateValveMinRange;
     [SerializeField] float duration;
 
-
+    public int lithoActionCount = 0; //< countSS 변수 추가
 
     public bool isStart = false;
     public bool isUp = false;
@@ -275,11 +275,13 @@ public class SemiconMPSManagerTCP : MonoBehaviour
         StartCoroutine(MoveGate(LithoDoor[litho], LithoMaxRange, LithoMinRange, duration));
         LithoGateUpSensors[litho].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
         LithoGateDownSensors[litho].GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
-    
-       
+
+        
+
+
     }
 
-    IEnumerator MoveGate(Transform gate, float min, float max, float duration)
+     public IEnumerator MoveGate(Transform gate, float min, float max, float duration) //Public 추가 
     {
 
         Vector3 minPos = new Vector3(gate.transform.localPosition.x, min, gate.transform.localPosition.z);
@@ -300,6 +302,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
         isUp = !isUp;
 
+        lithoActionCount++; //추가
     }
 }
 

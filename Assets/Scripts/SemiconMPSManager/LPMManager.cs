@@ -63,15 +63,16 @@ public class LPMManager : MonoBehaviour
     {
         StartCoroutine(OnLPMBtnClkEvent());
 
-        LPMcount++;
+        
     }
-    IEnumerator OnLPMBtnClkEvent()
+    public IEnumerator OnLPMBtnClkEvent()
     {
         yield return LPMStep(0);
         yield return LPMStep(1);
         yield return LPMStep(2);
         yield return LPMStep(3);
 
+        LPMcount++;
     }
     IEnumerator LPMStep(int cycleCnt)
     {
@@ -88,7 +89,9 @@ public class LPMManager : MonoBehaviour
                 FoupSensors[1].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[2].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
                 FoupSensors[3].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-                                                                                             //cycleCnt++;
+
+                
+                //cycleCnt++;
                 yield return new WaitForSeconds(3);
                 break;
 

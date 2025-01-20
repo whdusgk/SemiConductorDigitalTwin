@@ -11701,7 +11701,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635600361}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -18936,7 +18936,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988308946}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -28699,7 +28699,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507383605}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -31498,6 +31498,7 @@ MonoBehaviour:
   GateValveMaxRange: 1.4
   GateValveMinRange: 1.32
   duration: 5
+  lithoActionCount: 0
   isStart: 0
   isUp: 0
   cycleCnt: 0
@@ -41179,7 +41180,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059814797}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -43103,6 +43104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dbURL: https://bandeulbandeul-login-default-rtdb.firebaseio.com/
+  canvas: []
   processData:
     loginInfo:
       loginTime: 
@@ -43143,7 +43145,45 @@ MonoBehaviour:
       semPosition: 
       semActionCount: 0
       results:
-        chipData: 0
+        chips:
+          chipData:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         defectiveRate: 0
     process5:
       processPosition: 
@@ -43156,7 +43196,8 @@ MonoBehaviour:
       processPosition: 
       robot5EndPosition: 
       robot5ActionCount: 0
-      goodProductsDefectiveProducts: 
+      goodProducts: 
+      DefectiveProducts: 
 --- !u!4 &2124284068
 Transform:
   m_ObjectHideFlags: 0
@@ -66119,6 +66160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8d0ff8d383d5f40bf8f558d143d36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LPMcount: 0
   Foup: {fileID: 8326453481611222178}
   FoupDoor: {fileID: 1220893438843305352}
   LPMBackBase: {fileID: 4977163639074290139}
@@ -67076,6 +67118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f499a09638fdf44fb09d8c2228d3271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefectiveRate: 0
   SEMDisAxis1: 0
   SEMDisAxis2: 0
   SEMAngleAxis3: 0
@@ -67096,6 +67139,7 @@ MonoBehaviour:
   SEMAxis6: {fileID: 1994618902}
   SEMActSensor: {fileID: 709016776}
   SEMCount: 0
+  semActCount: 0
   GoodChipCount: 0
   DefectiveChipCount: 0
   GoodProductCount: 0
@@ -70568,6 +70612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8d0ff8d383d5f40bf8f558d143d36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LPMcount: 0
   Foup: {fileID: 8071995321366903720}
   FoupDoor: {fileID: 7468265191193779986}
   LPMBackBase: {fileID: 6767424152294087917}
