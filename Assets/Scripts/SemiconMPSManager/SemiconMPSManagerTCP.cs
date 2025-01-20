@@ -24,6 +24,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     [SerializeField] List<SemiconRobotControl> RobotArm = new List<SemiconRobotControl>();
     [SerializeField] List<SensorTowerManager> sensortowers = new List<SensorTowerManager>();
     [SerializeField] WaferSensorManager foupSensor;
+    [SerializeField] LPMManager lpmManager;
 
     [SerializeField] float LithoMaxRange;
     [SerializeField] float LithoMinRange;
@@ -65,6 +66,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     public bool isLithoGateUp = false;
     public bool isLithoWafer = false;
     public bool isSEMAct = false;
+    public bool isLithoAct = false;
 
     public GameObject LithoAni1;
     public GameObject LithoAni2;
@@ -113,7 +115,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
             if (SemiconTCPClient.Instance.isConnected == false) return;
             if (SemiconTCPClient.Instance.yDevices.Length == 0) return;
 
-            int startbtn = SemiconTCPClient.Instance.yDevices[1] - '0'; // Y0
+            int startbtn = SemiconTCPClient.Instance.yDevices[0] - '0'; // Y0
 
             int Robot1Act = SemiconTCPClient.Instance.yDevices[1] - '0'; // Y0
             int Robot2Act = SemiconTCPClient.Instance.yDevices[2] - '0'; // Y1
@@ -154,6 +156,8 @@ public class SemiconMPSManagerTCP : MonoBehaviour
             int ProcessStaying = SemiconTCPClient.Instance.yDevices[25] - '0';
             int UnitySignalWaiting = SemiconTCPClient.Instance.yDevices[26] - '0';
             int GateVacuumOn = SemiconTCPClient.Instance.yDevices[27] - '0';
+
+            int LithoAct =  SemiconTCPClient.Instance.yDevices[28] - '0';
 
             if (startbtn == 1) OnStartBtnClkEvent();
 
@@ -197,20 +201,31 @@ public class SemiconMPSManagerTCP : MonoBehaviour
             if (Litho2Down == 1) OnLithoDownBtnClkEvent(1);
 
             if (SEMAction == 1) SEMManager.Instance.RunSEMCycle();
+            else if (SEMAction == 0) SEMManager.Instance.SEMReset();
 
-            if (FoupOpen == 1) LPMManager.Instance.RunLPMCycle();
+            if (FoupOpen == 1) lpmManager.RunLPMCycle();
+            else if (FoupOpen == 0) return;
 
             if (SensorTowerRedOn == 1) sensortowers[0].OnSensorTower("red");
 
             ProcessStaying = 1;
             UnitySignalWaiting = 1;
             if (GateVacuumOn == 1) for (int i = 0; i < 7; i++) Sensor.Instance.OnVacuumSensor(i);
+
+            if(LithoAct == 1) StartCoroutine(SetAnimator());
+            else if (LithoAct == 0)
+            {
+                LithoAni1.GetComponent<Animator>().enabled = false;
+                LithoAni2.GetComponent<Animator>().enabled = false;
+            }
         }
 
         void UpdateXDevices()
         {
-            string xDeviceValue = $"{(foupSensor.isFoupSensed == true ? 1 : 0)}"
-                                    + "0000000000000000000000000000000";
+            string xDeviceValue = "1100"+
+                                  $"{(foupSensor.isFoupSensed == true ? 1 : 0)}" + // X04
+                                  "000000000000000000000000000";
+
             SemiconTCPClient.Instance.xDevices = xDeviceValue;
         }
 
@@ -229,14 +244,17 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
     IEnumerator SetAnimator()
     {
-        if (currentTime < 7.8f)
+       
+        if (currentTime < 13.2f || isLithoAct == false)
         {
             LithoAni1.GetComponent<Animator>().enabled = true;
             LithoAni2.GetComponent<Animator>().enabled = false;
+            isLithoAct = true;
         }
-        else
+        else if(currentTime >= 13.2f)
         {
             LithoAni2.GetComponent<Animator>().enabled = true;
+            isLithoAct = false;
         }
         yield return new WaitForEndOfFrame();
     }
@@ -244,8 +262,9 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     
     public void OnGVUpBtnClkEvent(int gv)
     {
-        if (isUp) return;
+        if (isGateValveUp) return;
 
+        isGateValveUp = true;
 
         StartCoroutine(MoveGate(gateValveDoor[gv], GateValveMinRange, GateValveMaxRange, duration));
         GateValveUpSensors[gv].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
@@ -254,7 +273,9 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     }
     public void OnGVDownBtnClkEvent(int gv)
     {
-        if (!isUp) return;
+        if (!isGateValveUp) return;
+
+        isGateValveUp = false;
 
         StartCoroutine(MoveGate(gateValveDoor[gv], GateValveMaxRange, GateValveMinRange, duration));
         GateValveUpSensors[gv].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
@@ -263,7 +284,9 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     }
     public void OnLithoUpBtnClkEvent(int litho)
     {
-        if (isUp) return;
+        if (isLithoGateUp) return;
+
+        isLithoGateUp = true;
 
         StartCoroutine(MoveGate(LithoDoor[litho], LithoMinRange, LithoMaxRange, duration));
         LithoGateUpSensors[litho].GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
@@ -272,7 +295,9 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     }
     public void OnLithoDownBtnClkEvent(int litho)
     {
-        if (!isUp) return;
+        if (!isLithoGateUp) return;
+
+        isLithoGateUp = false;
 
         StartCoroutine(MoveGate(LithoDoor[litho], LithoMaxRange, LithoMinRange, duration));
         LithoGateUpSensors[litho].GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black

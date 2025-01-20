@@ -45,6 +45,11 @@ namespace MPS
         public float GoodProductCount = 0;
         public float DefectiveProductCount = 0;
 
+        public bool isGoodProduct = false;
+        public bool isDefectiveProduct = false;
+        public float DefectiveRate;
+        public bool isSEMAct = false;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private void Awake()
         {
@@ -63,10 +68,12 @@ namespace MPS
         }
         public void RunSEMCycle()
         {
+            if (isSEMAct == true) return;
             StartCoroutine(RunSEM());
         }
         public IEnumerator RunSEM()
         {
+            isSEMAct = true;
             Sensor.Instance.SEMActSensor.GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
             yield return SEMReset();
 
@@ -88,8 +95,8 @@ namespace MPS
             yield return SEMStep(-1, 3); yield return SEMStep(0, 3); yield return SEMStep(1, 3);
 
             yield return SEMStep(0, 0);
+            isSEMAct = false;
 
-            
 
         }
         // Update is called once per frame
@@ -171,7 +178,7 @@ namespace MPS
                 UIManager.Instance.DefectiveToggle.isOn = true;
                 DefectiveChipCount++;
             }
-            float DefectiveRate = (DefectiveChipCount / (GoodChipCount + DefectiveChipCount)) * 100;
+            DefectiveRate = (DefectiveChipCount / (GoodChipCount + DefectiveChipCount)) * 100;
             UIManager.Instance.DefectiveRateText.text = "Defective Rate: " + DefectiveRate.ToString("0.00") + "%";
             UIManager.Instance.GDChipText.text = "Good: " + GoodChipCount.ToString() + ", Defective: " + DefectiveChipCount.ToString();
 

@@ -7041,7 +7041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &308286270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7981,12 +7981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaferSensor: {fileID: 0}
-  FoupPosSensor: {fileID: 0}
-  SensorTower: []
   VacuumSensors: []
-  isWaferSensed: 0
-  isFoupSensed: 0
+  SEMActSensor: {fileID: 0}
   isVacuumOn: 0
 --- !u!65 &392132482
 BoxCollider:
@@ -13823,12 +13819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaferSensor: {fileID: 0}
-  FoupPosSensor: {fileID: 0}
-  SensorTower: []
   VacuumSensors: []
-  isWaferSensed: 0
-  isFoupSensed: 0
+  SEMActSensor: {fileID: 0}
   isVacuumOn: 0
 --- !u!65 &620407294
 BoxCollider:
@@ -17371,12 +17363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaferSensor: {fileID: 0}
-  FoupPosSensor: {fileID: 0}
-  SensorTower: []
   VacuumSensors: []
-  isWaferSensed: 0
-  isFoupSensed: 0
+  SEMActSensor: {fileID: 0}
   isVacuumOn: 0
 --- !u!65 &772313139
 BoxCollider:
@@ -26701,12 +26689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaferSensor: {fileID: 0}
-  FoupPosSensor: {fileID: 0}
-  SensorTower: []
   VacuumSensors: []
-  isWaferSensed: 0
-  isFoupSensed: 0
+  SEMActSensor: {fileID: 0}
   isVacuumOn: 0
 --- !u!65 &1212530226
 BoxCollider:
@@ -30683,12 +30667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc89660e9fe01094ebf6ca1322d068c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaferSensor: {fileID: 0}
-  FoupPosSensor: {fileID: 0}
-  SensorTower: []
   VacuumSensors: []
-  isWaferSensed: 0
-  isFoupSensed: 0
+  SEMActSensor: {fileID: 0}
   isVacuumOn: 0
 --- !u!65 &1388461668
 BoxCollider:
@@ -98007,7 +97987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6676832635065688194
 Transform:
   m_ObjectHideFlags: 0
