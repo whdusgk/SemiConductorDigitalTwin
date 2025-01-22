@@ -88,6 +88,7 @@ public class SemiconRobotControl : MonoBehaviour
         OnLoadBtnClkEvent(robotFile);
 
         RobotActSensor.GetComponent<Renderer>().material.color = new Color(255, 0, 0); // Red
+
         //OnCycleBtnClkEvent();
     }
 

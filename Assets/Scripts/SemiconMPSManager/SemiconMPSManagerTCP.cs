@@ -84,21 +84,22 @@ public class SemiconMPSManagerTCP : MonoBehaviour
     public void OnStartBtnClkEvent()
     {
         isStart = true;
-
+        StartCoroutine(SetAnimator());
+        //LPMManager.Instance.RunLPMCycle();
         // ETC Sensor Caligration(Black)
         //foreach (GameObject s in Foup1Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-/*        foreach (GameObject s in Foup2Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
-        foreach (GameObject s in VacuumSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
-        foreach (GameObject s in GateValveUpSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-        foreach (GameObject s in LithoGateUpSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black 
-        foreach (GameObject s in LithoActSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
-        SEMActSensor.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+        /*        foreach (GameObject s in Foup2Sensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
+                foreach (GameObject s in VacuumSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black       
+                foreach (GameObject s in GateValveUpSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+                foreach (GameObject s in LithoGateUpSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black 
+                foreach (GameObject s in LithoActSensors) s.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
+                SEMActSensor.GetComponent<Renderer>().material.color = new Color(0, 0, 0); // Black
 
-        // GateDownSensor Caligration(Green)
-        foreach (GameObject s in GateValveDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
-        foreach (GameObject s in LithoGateDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
+                // GateDownSensor Caligration(Green)
+                foreach (GameObject s in GateValveDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
+                foreach (GameObject s in LithoGateDownSensors) s.GetComponent<Renderer>().material.color = new Color(255, 0,  0); // RED
 
-        SensorTowerManager.Instance.OnSensorTower("green");*/
+                SensorTowerManager.Instance.OnSensorTower("green");*/
     }
 
     private void Update()
@@ -153,7 +154,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
             int FoupOpen = SemiconTCPClient.Instance.yDevices[23] - '0';
 
-            int SensorTowerRedOn = SemiconTCPClient.Instance.yDevices[24] - '0';
+            int SensorTowerGreenOn = SemiconTCPClient.Instance.yDevices[24] - '0';
 
             int ProcessStaying = SemiconTCPClient.Instance.yDevices[25] - '0';
             int UnitySignalWaiting = SemiconTCPClient.Instance.yDevices[26] - '0';
@@ -161,7 +162,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
             int LithoAct =  SemiconTCPClient.Instance.yDevices[28] - '0';
 
-            if (startbtn == 1) OnStartBtnClkEvent();
+            //if (startbtn == 1) OnStartBtnClkEvent();
 
             if (Robot1Act == 1) RobotArm[0].OnSingleCycleBtnClkEvent();
             else if (Robot1Act == 0) RobotArm[0].OnStopBtnClkEvent();
@@ -208,7 +209,7 @@ public class SemiconMPSManagerTCP : MonoBehaviour
             if (FoupOpen == 1) lpmManager.RunLPMCycle();
             else if (FoupOpen == 0) return;
 
-            if (SensorTowerRedOn == 1) sensortowers[0].OnSensorTower("red");
+            if (SensorTowerGreenOn == 1) sensortowers[2].OnSensorTower("green");
 
             ProcessStaying = 1;
             UnitySignalWaiting = 1;
@@ -224,7 +225,8 @@ public class SemiconMPSManagerTCP : MonoBehaviour
 
         void UpdateXDevices()
         {
-            string xDeviceValue = "11"+
+            string xDeviceValue = "1"+
+                                  $"{(FirebaseAuthManager.instance.isPermission == true ? 1 : 0)}" + // X01
                                   $"{(isStart == true ? 1 : 0)}" + // X02
                                   "0" +
                                   $"{(foupSensor.isFoupSensed == true ? 1 : 0)}" + // X04
