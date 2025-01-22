@@ -65,7 +65,7 @@ namespace MPS
             SEMAxis1Origin = new Vector3(SEMAxis1.localPosition.x, SEMAxis1.localPosition.y, SEMAxis1.localPosition.z);
             SEMAxis2Origin = new Vector3(SEMAxis2.localPosition.x, SEMAxis2.localPosition.y, SEMAxis2.localPosition.z);
 
-           
+            UIManager.Instance.SEMVideo.Stop();
 
         }
         public void RunSEMCycle()
@@ -77,6 +77,7 @@ namespace MPS
         public IEnumerator RunSEM()
         {
             isSEMAct = true;
+            UIManager.Instance.SEMVideo.Play();
             Sensor.Instance.SEMActSensor.GetComponent<Renderer>().material.color = new Color(0, 255, 0); // Green
             yield return SEMReset();
 
@@ -156,7 +157,7 @@ namespace MPS
             print("ChipData: " + ChipData[SEMCount] + " SEMCount: " + SEMCount);
 
             // ChipData 범위 정의
-            if (ChipData[SEMCount] > 2 && ChipData[SEMCount] <= 8)
+            if (ChipData[SEMCount] > 1 && ChipData[SEMCount] <= 9)
             {
                 UIManager.Instance.ChipDataRawImage[SEMCount].color = new Color(0, 255, 0); // Green
                 UIManager.Instance.GoodToggle.isOn = true;
@@ -165,7 +166,7 @@ namespace MPS
             }
                 
 
-            else if (ChipData[SEMCount] <= 2)
+            else if (ChipData[SEMCount] <= 1)
             {
                 UIManager.Instance.ChipDataRawImage[SEMCount].color = new Color(0, 0, 255); // Blue
                 UIManager.Instance.GoodToggle.isOn = false;

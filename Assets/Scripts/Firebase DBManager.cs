@@ -51,9 +51,9 @@ public class FirebaseDBManager : MonoBehaviour
     [Serializable]
     public class Process0
     {
-        public float energyConsumption;
-        public float temperature;
-        public float humidity;
+        public string energyConsumption;
+        public string temperature;
+        public string humidity;
         public string defectiveTotalProducts;
     }
 
@@ -142,7 +142,7 @@ public class FirebaseDBManager : MonoBehaviour
     [Serializable]
     public class LoginInfo
     {
-        public string loginTime;
+        public string currentTime;
     }
 
 
@@ -189,14 +189,14 @@ public class FirebaseDBManager : MonoBehaviour
     public void InitializeProcessData()
     {
         // 로그인 정보 설정
-        processData.loginInfo = new LoginInfo { loginTime = System.DateTime.Now.ToString() };
+        processData.loginInfo = new LoginInfo { currentTime = System.DateTime.Now.ToString() };
 
         // Process0 정보 설정
         processData.process0 = new Process0
         {
-            energyConsumption = float.Parse(UIManager.Instance.EnergyConsumptionInpuField.text),
-            temperature = float.Parse(UIManager.Instance.TemperatureInpuField.text),
-            humidity = float.Parse(UIManager.Instance.HumidityInpuField.text),
+            energyConsumption = UIManager.Instance.EnergyConsumptionInpuField.text,
+            temperature = UIManager.Instance.TemperatureInpuField.text,
+            humidity = UIManager.Instance.HumidityInpuField.text,
             defectiveTotalProducts = (UIManager.Instance.ProductsText.text),
         };
 
@@ -283,12 +283,12 @@ public class FirebaseDBManager : MonoBehaviour
     public void UpdateData()
     {
         // 로그인
-        processData.loginInfo.loginTime = System.DateTime.Now.ToString();
+        processData.loginInfo.currentTime = System.DateTime.Now.ToString();
 
         // Process0
-        processData.process0.energyConsumption = float.Parse(UIManager.Instance.EnergyConsumptionInpuField.text);
-        processData.process0.temperature = float.Parse(UIManager.Instance.TemperatureInpuField.text);
-        processData.process0.humidity = float.Parse(UIManager.Instance.HumidityInpuField.text);
+        processData.process0.energyConsumption = UIManager.Instance.EnergyConsumptionInpuField.text;
+        processData.process0.temperature = UIManager.Instance.TemperatureInpuField.text;
+        processData.process0.humidity = UIManager.Instance.HumidityInpuField.text;
         processData.process0.defectiveTotalProducts = (UIManager.Instance.ProductsText.text);
 
         // Process1
@@ -434,7 +434,7 @@ public class FirebaseDBManager : MonoBehaviour
 
         LoginInfo loginInfo = new LoginInfo()
         {
-            loginTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
         };
 
 

@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 namespace MPS
 {
@@ -43,9 +44,9 @@ namespace MPS
         public TMP_Text GDChipText;
 
         public TMP_InputField GoodProductInpuField; 
-        public TMP_InputField DefectiveProductInpuField; 
+        public TMP_InputField DefectiveProductInpuField;
 
-
+        public VideoPlayer SEMVideo;
         private void Awake()
         {
             if(Instance == null)
@@ -55,10 +56,10 @@ namespace MPS
         }
         void Start()
         {
-            EnergyConsumptionInpuField.text = Random.Range(0, 10).ToString();
-            TemperatureInpuField.text = Random.Range(0, 10).ToString();
-            HumidityInpuField.text = Random.Range(0, 10).ToString();
-            ProductsText.text = Random.Range(0, 10).ToString();
+            EnergyConsumptionInpuField.text = Random.Range(45, 70).ToString() + "MWh";
+            TemperatureInpuField.text = Random.Range(20, 22).ToString() + "°C";
+            HumidityInpuField.text = Random.Range(40, 45).ToString() + "% RH";
+            ProductsText.text = "Defective:0 / Total:0";
 
 
             ProcessPositionsInpuField[0].text = "(-2.816 , 0 , 0)";
@@ -68,25 +69,25 @@ namespace MPS
             ProcessPositionsInpuField[4].text = "(3.489 , 0 , 0)";
             ProcessPositionsInpuField[5].text = "(4.745 , 0 , 0)";
 
-            FoupSensorsToggle[0].isOn = false;
-            FoupSensorsToggle[1].isOn = false;
+            FoupSensorsToggle[0].isOn = true;
+            FoupSensorsToggle[1].isOn = true;
 
-            VacuumSensorsToggle[0].isOn = false;
-            VacuumSensorsToggle[1].isOn = false;
-            VacuumSensorsToggle[2].isOn = false;
-            VacuumSensorsToggle[3].isOn = false;
+            VacuumSensorsToggle[0].isOn = true;
+            VacuumSensorsToggle[1].isOn = true;
+            VacuumSensorsToggle[2].isOn = true;
+            VacuumSensorsToggle[3].isOn = true;
             /*        VacuumSensorsToggle[4].isOn = false;
                     VacuumSensorsToggle[5].isOn = false;
                     VacuumSensorsToggle[6].isOn = false;*/
 
-            LoadlockSensorsToggle[0].isOn = false;
-            LoadlockSensorsToggle[1].isOn = false;
+            LoadlockSensorsToggle[0].isOn = true;
+            LoadlockSensorsToggle[1].isOn = true;
 
-            AlignSensorToggle.isOn = false;
-            LithoSensorToggle.isOn = false;
+            AlignSensorToggle.isOn = true;
+            LithoSensorToggle.isOn = true;
 
 
-            SEMSensorToggle.isOn = false;
+            SEMSensorToggle.isOn = true;
             SEMPositionInpuField.text = "0,0,0";
 
             GoodToggle.isOn = false;
@@ -100,28 +101,34 @@ namespace MPS
         // Update is called once per frame
         void Update()
         {
-            for (int r = 0; r < 5; r++)
-                RobotPositionsInpuField[r].text = RobotPositions[r].localPosition.ToString();
+            
+            RobotPositionsInpuField[0].text = RobotPositions[0].localPosition.ToString();
+            RobotPositionsInpuField[1].text = RobotPositions[1].localPosition.ToString();
+            RobotPositionsInpuField[2].text = RobotPositions[2].localPosition.ToString();
+            RobotPositionsInpuField[3].text = RobotPositions[3].localPosition.ToString();
+            RobotPositionsInpuField[4].text = RobotPositions[4].localPosition.ToString();
 
-            //Foup Sensor Toggle 구현
-            /*            if(Sensor.Instance.isFoupSensed = true)
-                        {
-                            FoupSensorsToggle[0].isOn = true;
-                        }*/
+
+            ProductsText.text = "Defective:" + SEMManager.Instance.DefectiveProductCount + " / Total:" + (SEMManager.Instance.GoodProductCount + SEMManager.Instance.DefectiveProductCount); 
+/*            //Foup Sensor Toggle 구현
+            if (WaferSensorManager.Instance.isFoupSensed == true)
+            {
+                FoupSensorsToggle[0].isOn = true;
+            }
 
             //Vacuum Sensor Toggle 구현
-            /*            if(SemiconMPSManager.Instance.isVacuum = true)
-                        {
-                            foreach(Toggle v in VacuumSensorsToggle)
-                                v.isOn = true;
-                        }*/
+            if (Sensor.Instance.isVacuumOn == true)
+            {
+                foreach (Toggle v in VacuumSensorsToggle)
+                    v.isOn = true;
+            }
 
             //Loadlock Sensor Toggle 구현(삭제 고려)
 
             //AlignLitho Sensor Toggle 구현
-            /*if (SemiconMPSManager.Instance.LithoAni1.GetComponent<Animator>().enabled == true)
+            if (SemiconMPSManagerTCP.instance.LithoAni1.GetComponent<Animator>().enabled == true)
                 AlignSensorToggle.isOn = true;
-            if (SemiconMPSManager.Instance.LithoAni2.GetComponent<Animator>().enabled == true)
+            if (SemiconMPSManagerTCP.instance.LithoAni2.GetComponent<Animator>().enabled == true)
                 LithoSensorToggle.isOn = true;*/
 
             AlignPositionInpuField.text = AlignLithoZig1.localPosition.ToString();

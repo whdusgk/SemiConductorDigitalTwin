@@ -44,7 +44,7 @@ public class FirebaseAuthManager : MonoBehaviour
      bool isTaskDone = false;
 
     // 실행할 EXE 파일의 경로
-    string exeFilePath = @"C:\Users\제5강의실-12\Desktop\고준수\Server.EX3\Server.EX3\bin\Debug\net8.0\Server.EX3.exe";  // 수정 필요
+    string exeFilePath = @"C:\Users\제5강의실-7\Desktop\Server.EX3\Server.EX3\bin\Debug\net8.0\Server.EX3.exe";  // 수정 필요
 
     // EXE 파일을 실행하는 함수
     public void LaunchExe()
@@ -161,7 +161,7 @@ public class FirebaseAuthManager : MonoBehaviour
         loginPWInput.text = "";
 
         // 다른 씬 불러오기
-        AsyncOperation oper = SceneManager.LoadSceneAsync("250117_SemiconductorMPS_J");
+        AsyncOperation oper = SceneManager.LoadSceneAsync("250120_SemiconductorMPS_Final");
 
         while (!oper.isDone)
         {

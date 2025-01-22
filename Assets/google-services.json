@@ -1,22 +1,22 @@
 {
   "project_info": {
-    "project_number": "398380329919",
-    "firebase_url": "https://bandeulbandeul-login-default-rtdb.firebaseio.com",
-    "project_id": "bandeulbandeul-login",
-    "storage_bucket": "bandeulbandeul-login.firebasestorage.app"
+    "project_number": "220305768873",
+    "firebase_url": "https://semiconmps-default-rtdb.firebaseio.com",
+    "project_id": "semiconmps",
+    "storage_bucket": "semiconmps.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:398380329919:android:1af265d440293974274f0a",
+        "mobilesdk_app_id": "1:220305768873:android:3be5992cd8697e08e084b8",
         "android_client_info": {
-          "package_name": "com.bandeulbandeul.com"
+          "package_name": "com.semicon"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB4y0_9jtd9lCPE65og-1TW-RzJa7ZeoWQ"
+          "current_key": "AIzaSyAEZjPFVjuPDiqqjRsLWfrGDa5Gu097OcI"
         }
       ],
       "services": {
@@ -27,15 +27,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:398380329919:android:286c3aa8235a228e274f0a",
+        "mobilesdk_app_id": "1:220305768873:android:3c1382d1a24f50e2e084b8",
         "android_client_info": {
-          "package_name": "com.junsu"
+          "package_name": "com.semiconMps"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB4y0_9jtd9lCPE65og-1TW-RzJa7ZeoWQ"
+          "current_key": "AIzaSyAEZjPFVjuPDiqqjRsLWfrGDa5Gu097OcI"
         }
       ],
       "services": {
